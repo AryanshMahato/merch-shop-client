@@ -1,4 +1,4 @@
-#Components Folder
+#Containers Folder
 
 This folder will contain codes for Logical Components.
 Nothing else should be here.
