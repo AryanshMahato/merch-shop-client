@@ -10,8 +10,11 @@ This not the actual structure.. This is how the structure must be followed in th
 This is just an **Example**.
 
     .
-    └── Button
-    | ├── Button.tsx
-    | └── Button.module.css
+    └── NavLinks
+    | ├── NavLinks.tsx
+    | ├── NavLinks.module.css
+    | └── NavLink
+    |     ├── NavLink.tsx  
+    |     └── NavLink.module.css  
     |
     |...
