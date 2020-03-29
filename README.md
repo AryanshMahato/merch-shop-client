@@ -28,10 +28,10 @@ Some of them
 	├── src		# Main Source Code
 	| ├── Components 	# Presentational Components
 	| ├── Containers	# Logical Components
-	| ├── Core			# Modules to call Apis
+	| ├── Core		# Modules to call Apis
 	| ├── Global		# All Global Components like Buttons, Forms
-	| ├── Pages			# Every page in Routing
-	| └── Util			# Util modules like Axios instance
+	| ├── Pages		# Every page in Routing
+	| └── Util		# Util modules like Axios instance
 	|
 	└── types	# TypeScript Types and Interfaces
 
