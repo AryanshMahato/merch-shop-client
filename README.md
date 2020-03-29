@@ -17,7 +17,7 @@ Some of them
 * React SPA
 * Unit Testing
 * TypeScript
-* OOPS conecpts
+* OOPS concepts
 
 ## PROJECT STRUCTURE
 	.  
