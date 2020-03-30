@@ -1,8 +1,17 @@
 import React from "react";
-import classes from "./Navbar.module.css";
+import styles from "./Navbar.styles";
+import { AppBar, Toolbar } from "@material-ui/core";
 
+// Main Class
 const Navbar = () => {
-  return <div className={classes.Navbar}>This is navbar</div>;
+  const classes = styles();
+
+  // JSX Return
+  return (
+    <AppBar position="fixed" className={classes.root} elevation={0.5}>
+      <Toolbar className={classes.toolbar}></Toolbar>
+    </AppBar>
+  );
 };
 
 export default Navbar;
