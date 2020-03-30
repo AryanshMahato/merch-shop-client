@@ -12,9 +12,9 @@ This is just an **Example**.
     .
     └── NavLinks
     | ├── NavLinks.tsx
-    | ├── NavLinks.module.css
+    | ├── NavLinks.styles.tsx
     | └── NavLink
-    |     ├── NavLink.tsx  
-    |     └── NavLink.module.css  
+    |     ├── NavLink.tsx
+    |     └── NavLink.styles.tsx
     |
     |...
