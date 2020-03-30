@@ -5,7 +5,7 @@ import { AppBar, Toolbar } from "@material-ui/core";
 import { Logo } from "../../Components/NavItems/NavItems";
 import LoginNav from "../../Components/NavItems/Login/LoginNav";
 
-// Main Class
+// Main Function
 const Navbar = () => {
   const classes = styles();
 

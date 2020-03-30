@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import styles from "./LoginHover.styles";
 import { Divider } from "@material-ui/core";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ interface LoginHoverProps {
   Hide: boolean;
 }
 
+//? Main Function
 const LoginHover = ({ Hide }: LoginHoverProps) => {
   const classes = styles();
   const [showState, setShowState] = useState(false);
@@ -24,6 +25,7 @@ const LoginHover = ({ Hide }: LoginHoverProps) => {
     showClass = null;
   }
 
+  //? JSX Return
   return (
     <div
       className={classes.loginHover + " " + showClass}

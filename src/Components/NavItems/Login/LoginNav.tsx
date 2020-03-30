@@ -3,6 +3,7 @@ import styles from "./LoginNav.styles";
 import LoginHover from "./LoginHover/LoginHover";
 import { Link } from "react-router-dom";
 
+//? Main Function
 const LoginNav = () => {
   const classes = styles();
 
@@ -16,6 +17,7 @@ const LoginNav = () => {
     setHideHover(true);
   };
 
+  //? JSX Return
   return (
     <div className={classes.root}>
       <Link
