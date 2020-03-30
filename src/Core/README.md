@@ -1,9 +1,9 @@
-#Core Folder
+# Core Folder
 
 This folder will contain codes to call backend.
 Nothing else should be here.
 
-###Structure
+### Structure
 
     .
     ├── Auth
