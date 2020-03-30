@@ -1,19 +1,34 @@
-import React from "react";
-import styles from "./LoginHover.styles";
+import React, { useState } from "react";
+import styles from "./LoginNav.styles";
+import LoginHover from "./LoginHover/LoginHover";
+import { Link } from "react-router-dom";
 
 const LoginNav = () => {
   const classes = styles();
+
+  const [hideHover, setHideHover] = useState(true);
+
+  const mouseEnter = () => {
+    setHideHover(false);
+  };
+
+  const mouseLeave = () => {
+    setHideHover(true);
+  };
+
   return (
-    <div
-      onMouseEnter={() => {
-        console.log("Mose Entered");
-      }}
-      onMouseLeave={() => {
-        console.log("Mose Leave");
-      }}
-      className={classes.login}
-    >
-      Login
+    <div className={classes.root}>
+      <Link
+        to={"/log-in"}
+        onMouseEnter={mouseEnter}
+        onMouseLeave={mouseLeave}
+        className={classes.login}
+      >
+        Login
+      </Link>
+      <div className={classes.loginHover}>
+        <LoginHover Hide={hideHover} />
+      </div>
     </div>
   );
 };

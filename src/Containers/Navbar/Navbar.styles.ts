@@ -23,6 +23,7 @@ const styles = makeStyles((theme: Theme) => ({
     justifyContent: "space-between",
     width: "11rem",
     margin: "0 2rem",
+    height: "100%",
     [theme.breakpoints.down("xs")]: {
       display: "none"
     }
