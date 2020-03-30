@@ -8,7 +8,7 @@ interface ProductCardContentProps {
   category: string;
 }
 
-// Main Class
+// Main Function
 const ProductCardContent = ({
   name,
   price,

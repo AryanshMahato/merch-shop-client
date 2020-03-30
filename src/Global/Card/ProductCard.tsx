@@ -11,7 +11,7 @@ interface ProductCardProps {
   category: string;
 }
 
-// Main Class
+// Main Function
 const ProductCard = ({ image, name, price, category }: ProductCardProps) => {
   const classes = styles();
 

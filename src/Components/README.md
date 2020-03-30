@@ -10,11 +10,11 @@ This not the actual structure.. This is how the structure must be followed in th
 This is just an **Example**.
 
     .
-    └── NavLinks
-    | ├── NavLinks.tsx
-    | ├── NavLinks.styles.tsx
+    └── NavItems
+    | ├── NavItems.ts
+    | ├── NavItems.styles.ts
     | └── NavLink
-    |     ├── NavLink.tsx
-    |     └── NavLink.styles.tsx
+    |     ├── NavItem.tsx
+    |     └── NavItem.styles.ts
     |
     |...
