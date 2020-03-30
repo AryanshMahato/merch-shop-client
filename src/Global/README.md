@@ -11,7 +11,7 @@ This is just an **Example**.
 
     .
     └── Button
-    |   ├── Button.tsx
-    |   └── Button.module.css
+    |   ├── Button.tsx          # Having JSX Elements
+    |   └── Button.styles.tsx   # Styles for JSX Elements
     |
     |...
