@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./Navbar.styles";
-import { AppBar, Toolbar, Grid } from "@material-ui/core";
+import { FaCartPlus } from "react-icons/fa";
+import { AppBar, Toolbar } from "@material-ui/core";
 import { Logo } from "../../Components/NavItems/NavItems";
+import LoginNav from "../../Components/NavItems/Login/LoginNav";
 
 // Main Class
 const Navbar = () => {
@@ -9,11 +11,17 @@ const Navbar = () => {
 
   // JSX Return
   return (
-    <AppBar position="fixed" className={classes.root} elevation={0.5}>
+    <AppBar position="static" className={classes.root} elevation={2}>
       <Toolbar className={classes.toolbar}>
-        <Grid container alignItems={"center"} alignContent={"center"}>
-          <Logo />
-        </Grid>
+        <div className={classes.navBar}>
+          <div>
+            <Logo />
+          </div>
+          <div className={classes.navItems}>
+            <LoginNav />
+            <FaCartPlus className={classes.cart} />
+          </div>
+        </div>
       </Toolbar>
     </AppBar>
   );
