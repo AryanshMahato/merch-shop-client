@@ -11,6 +11,7 @@ This is just an **Example**.
 
     .
     └── Login
-    | └── Login.tsx
+    | ├── Login.tsx
+    | └── Login.styles.tsx
     |
     |...
