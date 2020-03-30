@@ -11,7 +11,7 @@ This is just an **Example**.
 
     .
     └── NavItems
-    | ├── NavItems.tsx
+    | ├── NavItems.ts
     | ├── NavItems.styles.ts
     | └── NavLink
     |     ├── NavItem.tsx

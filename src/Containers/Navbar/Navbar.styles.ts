@@ -2,7 +2,7 @@ import { makeStyles, Theme } from "@material-ui/core";
 
 const styles = makeStyles((theme: Theme) => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   toolbar: {
     height: 80,
