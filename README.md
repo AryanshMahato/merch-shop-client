@@ -1,5 +1,5 @@
 
-# WeShop  
+# Merch Shop  
   
 A full stack Web App with MERN stack using TypeScript and some Magic :sparkles:  
   
