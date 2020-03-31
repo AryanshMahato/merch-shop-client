@@ -14,14 +14,14 @@ const Routes = () => {
   return (
     <>
       <Switch>
-        <Route path={"/sign-up"} exact render={SignUp} />
-        <Route path={"/sign-in"} exact render={SignIn} />
-        <Route path={"/sign-out"} exact render={SignOut} />
-        <Route path={"/profile"} exact render={Profile} />
-        <Route path={"/order"} exact render={Order} />
-        <Route path={"/cart"} exact render={Cart} />
-        <Route path={"/product"} exact render={Product} />
-        <Route path={"/"} exact={true} render={Products} />
+        <Route path={"/sign-up"} exact componenet={SignUp} />
+        <Route path={"/sign-in"} exact componenet={SignIn} />
+        <Route path={"/sign-out"} exact componenet={SignOut} />
+        <Route path={"/profile"} exact componenet={Profile} />
+        <Route path={"/order"} exact componenet={Order} />
+        <Route path={"/cart"} exact componenet={Cart} />
+        <Route path={"/product"} exact componenet={Product} />
+        <Route path={"/"} exact={true} componenet={Products} />
         <Route component={pageNotFound} />
       </Switch>
     </>
