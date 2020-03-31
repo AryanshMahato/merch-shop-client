@@ -6,8 +6,9 @@ const Products = ({ products, fetchProduct }: any) => {
   useEffect(() => {
     fetchProduct();
   }, []);
+  console.log(products);
 
-  return <h1>Hey There</h1>;
+  return <h1>Hi</h1>;
 };
 
 const mapStateToProps = (state: any) => {
