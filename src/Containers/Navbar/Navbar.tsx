@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Navbar.styles";
 import { AppBar, Toolbar } from "@material-ui/core";
 import { Logo } from "../../Components/NavItems/NavItems";
-import LoginNav from "../../Components/NavItems/Login/LoginNav";
+import NavItem from "../../Components/NavItems/NavItem/NavItem";
 import Cart from "../../Components/NavItems/Cart/Cart";
 
 // Main Function
@@ -18,12 +18,12 @@ const Navbar = () => {
             <Logo />
           </div>
           <div className={classes.navItems}>
-            <LoginNav
+            <NavItem
               leftHoverItem={{ name: "Login", link: "log-in" }}
               rightHoverItem={{ name: "Sign Up", link: "sign-up" }}
             >
               Login
-            </LoginNav>
+            </NavItem>
             <Cart cartItems={1} />
           </div>
         </div>
