@@ -27,11 +27,6 @@ const styles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.down("xs")]: {
       display: "none"
     }
-  },
-  cart: {
-    width: 40,
-    height: 40,
-    cursor: "pointer"
   }
 }));
 
