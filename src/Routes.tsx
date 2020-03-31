@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Products from "./Pages/products";
+import ProductsPage from "./Pages/productsPage";
 import Product from "./Pages/product";
 import Cart from "./Pages/cart";
 import Order from "./Pages/order";
@@ -36,7 +36,7 @@ const Routes = () => {
           <Product />
         </Route>
         <Route path={"/"} exact={true}>
-          <Products />
+          <ProductsPage />
         </Route>
         <Route>
           <PageNotFound />
