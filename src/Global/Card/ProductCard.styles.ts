@@ -4,7 +4,7 @@ const styles = makeStyles(() => {
   return createStyles({
     root: {
       width: 250,
-      transition: ".2s",
+      transition: ".2s !important",
       "&:hover": {
         transform: "translateY(0px) scale(1.02)"
       }
