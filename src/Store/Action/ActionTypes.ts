@@ -1,5 +1,5 @@
-enum ActionTypes {
-  SET_PRODUCTS
-}
+const ActionTypes = {
+  SET_PRODUCTS: "SET_PRODUCTS"
+};
 
 export default ActionTypes;
