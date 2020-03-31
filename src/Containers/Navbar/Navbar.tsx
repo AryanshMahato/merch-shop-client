@@ -19,7 +19,7 @@ const Navbar = () => {
           </div>
           <div className={classes.navItems}>
             <LoginNav />
-            <Cart cartItems={1} />
+            <Cart cartItems={0} />
           </div>
         </div>
       </Toolbar>

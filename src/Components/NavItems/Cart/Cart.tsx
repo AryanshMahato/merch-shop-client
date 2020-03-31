@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Cart.styles";
+import styles, { StyledBadge } from "./Cart.styles";
 import { FaCartPlus, FaShoppingCart } from "react-icons/fa";
 
 interface CartProps {
@@ -9,18 +9,16 @@ interface CartProps {
 const Cart = ({ cartItems }: CartProps) => {
   const classes = styles();
 
-  if (cartItems === 0)
-    return (
-      <div className={classes.root}>
-        <FaCartPlus className={classes.cart} />
-      </div>
-    );
+  if (cartItems === 0) return <FaCartPlus className={classes.cart} />;
   else
     return (
-      <div className={classes.root}>
+      <StyledBadge
+        badgeContent={cartItems}
+        color="secondary"
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      >
         <FaShoppingCart className={classes.cart} />
-        <div>{cartItems}</div>
-      </div>
+      </StyledBadge>
     );
 };
 
