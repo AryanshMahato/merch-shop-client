@@ -3,9 +3,10 @@ import styles, { StyledBadge } from "./Cart.styles";
 import { FaCartPlus, FaShoppingCart } from "react-icons/fa";
 
 interface CartProps {
-  cartItems: number;
+  cartItems?: number;
 }
 
+//? Main Function
 const Cart = ({ cartItems }: CartProps) => {
   const classes = styles();
 
@@ -20,6 +21,11 @@ const Cart = ({ cartItems }: CartProps) => {
         <FaShoppingCart className={classes.cart} />
       </StyledBadge>
     );
+};
+
+//? Default Props
+Cart.defaultProps = {
+  cartItems: 0
 };
 
 export default Cart;
