@@ -7,8 +7,7 @@ const styles = makeStyles(() => ({
     alignItems: "center"
   },
   login: {
-    fontSize: "2rem",
-    fontWeight: "bold",
+    fontSize: "1.8rem",
     cursor: "pointer",
     height: "100%",
     display: "flex",
