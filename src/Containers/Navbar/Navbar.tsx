@@ -19,6 +19,7 @@ const Navbar = () => {
           </div>
           <div className={classes.navItems}>
             <NavItem
+                link={'log-in'}
               leftHoverItem={{ name: "Login", link: "log-in" }}
               rightHoverItem={{ name: "Sign Up", link: "sign-up" }}
             >

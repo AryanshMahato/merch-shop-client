@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 interface LoginNavProps {
   children: ReactNode;
+  link: string;
   leftHoverItem: {
     name: string;
     link: string;
@@ -19,7 +20,8 @@ interface LoginNavProps {
 const NavItem = ({
   children,
   leftHoverItem,
-  rightHoverItem
+  rightHoverItem,
+  link
 }: LoginNavProps) => {
   const classes = styles();
 
@@ -37,7 +39,7 @@ const NavItem = ({
   return (
     <div className={classes.root}>
       <Link
-        to={"/log-in"}
+        to={link}
         onMouseEnter={mouseEnter}
         onMouseLeave={mouseLeave}
         className={classes.login}
