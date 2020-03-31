@@ -1,10 +1,26 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import styles from "./LoginNav.styles";
 import LoginHover from "./LoginHover/LoginHover";
 import { Link } from "react-router-dom";
 
+interface LoginNavProps {
+  children: ReactNode;
+  leftHoverItem: {
+    name: string;
+    link: string;
+  };
+  rightHoverItem: {
+    name: string;
+    link: string;
+  };
+}
+
 //? Main Function
-const LoginNav = () => {
+const LoginNav = ({
+  children,
+  leftHoverItem,
+  rightHoverItem
+}: LoginNavProps) => {
   const classes = styles();
 
   const [hideHover, setHideHover] = useState(true);
@@ -26,10 +42,14 @@ const LoginNav = () => {
         onMouseLeave={mouseLeave}
         className={classes.login}
       >
-        Login
+        {children}
       </Link>
       <div className={classes.loginHover}>
-        <LoginHover Hide={hideHover} />
+        <LoginHover
+          Hide={hideHover}
+          leftHoverItem={leftHoverItem}
+          rightHoverItem={rightHoverItem}
+        />
       </div>
     </div>
   );

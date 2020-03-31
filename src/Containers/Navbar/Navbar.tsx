@@ -18,8 +18,13 @@ const Navbar = () => {
             <Logo />
           </div>
           <div className={classes.navItems}>
-            <LoginNav />
-            <Cart cartItems={1}/>
+            <LoginNav
+              leftHoverItem={{ name: "Login", link: "log-in" }}
+              rightHoverItem={{ name: "Sign Up", link: "sign-up" }}
+            >
+              Login
+            </LoginNav>
+            <Cart cartItems={1} />
           </div>
         </div>
       </Toolbar>

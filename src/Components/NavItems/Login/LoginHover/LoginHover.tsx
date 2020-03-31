@@ -5,10 +5,22 @@ import { Link } from "react-router-dom";
 
 interface LoginHoverProps {
   Hide: boolean;
+  leftHoverItem: {
+    name: string;
+    link: string;
+  };
+  rightHoverItem: {
+    name: string;
+    link: string;
+  };
 }
 
 //? Main Function
-const LoginHover = ({ Hide }: LoginHoverProps) => {
+const LoginHover = ({
+  Hide,
+  leftHoverItem,
+  rightHoverItem
+}: LoginHoverProps) => {
   const classes = styles();
   const [showState, setShowState] = useState(false);
 
@@ -34,12 +46,12 @@ const LoginHover = ({ Hide }: LoginHoverProps) => {
     >
       <div className={classes.triangle} />
       <div className={classes.outerBox}>
-        <Link to={"/log-in"} className={classes.login}>
-          Login
+        <Link to={leftHoverItem.name} className={classes.login}>
+          {leftHoverItem.name}
         </Link>
         <Divider orientation="vertical" flexItem className={classes.divider} />
-        <Link to={"/sign-up"} className={classes.signUp}>
-          Sign Up
+        <Link to={rightHoverItem.link} className={classes.signUp}>
+          {rightHoverItem.name}
         </Link>
       </div>
     </div>
