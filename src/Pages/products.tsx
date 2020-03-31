@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { fetchProduct } from "../Store/Action/Product";
 
-const Products = () => {
-  return <h1>All my Products will be Here</h1>;
+const Products = ({ products, fetchProduct }: any) => {
+  useEffect(() => {
+    fetchProduct();
+  }, []);
+
+  return <h1>Hey There</h1>;
 };
 
-export default Products;
+const mapStateToProps = (state: any) => {
+  return {
+    products: state.products
+  };
+};
+const mapDispatchToProps = { fetchProduct };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Products);
