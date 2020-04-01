@@ -4,13 +4,13 @@ const initialState = {
   products: []
 };
 
-const reducer = (state = initialState, action: any) => {
+const productReducer = (state = initialState, action: any) => {
   switch (action.type) {
-    case ActionTypes.SET_PRODUCTS:
+    case ActionTypes.FETCH_PRODUCT:
       return { ...state, products: action.products };
     default:
       return { ...state };
   }
 };
 
-export default reducer;
+export default productReducer;

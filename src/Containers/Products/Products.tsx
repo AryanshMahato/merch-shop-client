@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { fetchProduct } from "../../Store/Action/Product";
+import { getProducts } from "../../Store/Action/Product";
 import { connect } from "react-redux";
 import { IProduct } from "../../../types/Store";
 import ProductCard from "../../Global/Card/ProductCard";
@@ -7,14 +7,14 @@ import styles from "./Products.styles";
 
 interface ProductsProps {
   products: Array<IProduct>;
-  fetchProduct: () => void;
+  getProducts: () => void;
 }
 
-const Products = ({ products, fetchProduct }: ProductsProps) => {
+const Products = ({ products, getProducts }: ProductsProps) => {
   const classes = styles();
 
   useEffect(() => {
-    fetchProduct();
+    getProducts();
     // eslint-disable-next-line
   }, []);
 
@@ -35,9 +35,9 @@ const Products = ({ products, fetchProduct }: ProductsProps) => {
 
 const mapStateToProps = (state: any) => {
   return {
-    products: state.products
+    products: state.product.products
   };
 };
-const mapDispatchToProps = { fetchProduct };
+const mapDispatchToProps = { getProducts: getProducts };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);
