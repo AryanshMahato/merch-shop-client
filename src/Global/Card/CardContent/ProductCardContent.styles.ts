@@ -11,7 +11,7 @@ const styles = makeStyles((theme: Theme) => {
       fontWeight: "bold",
       fontSize: "1.3rem",
       [theme.breakpoints.down("xs")]: {
-        fontSize: "1rem"
+        fontSize: "0.8rem"
       }
     },
     price: {
@@ -30,8 +30,7 @@ const styles = makeStyles((theme: Theme) => {
       color: "#343A40",
       [theme.breakpoints.down("xs")]: {
         width: 150,
-        fontSize: "0.5rem",
-  
+        fontSize: "0.6rem"
       }
     }
   });

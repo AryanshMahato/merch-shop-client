@@ -6,7 +6,7 @@ const styles = makeStyles((theme: Theme) => {
       width: 250,
       transition: ".2s !important",
       [theme.breakpoints.down("xs")]: {
-        width: 150
+        width: 160
       },
       "&:hover": {
         transform: "translateY(0px) scale(1.02)"
@@ -16,8 +16,7 @@ const styles = makeStyles((theme: Theme) => {
       height: 250,
       width: "100%",
       [theme.breakpoints.down("xs")]: {
-        height: 150,
-        width: 150
+        height: 150
       }
     },
     image: {

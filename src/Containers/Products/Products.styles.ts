@@ -9,7 +9,7 @@ const styles = makeStyles((theme: Theme) => ({
     padding: "1rem",
     justifyContent: "center",
     [theme.breakpoints.down("xs")]: {
-      gridTemplateColumns: "150px 150px"
+      gridTemplateColumns: "160px 160px"
     }
   }
 }));
