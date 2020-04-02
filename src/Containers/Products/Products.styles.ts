@@ -2,14 +2,14 @@ import { makeStyles } from "@material-ui/core";
 import { Theme } from "@material-ui/core/styles";
 
 const styles = makeStyles((theme: Theme) => ({
-  root: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  logo: {
+  product: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+    gridGap: "2rem",
+    padding: "1rem",
+    justifyContent: "center",
     [theme.breakpoints.down("xs")]: {
-      width: 250
+      gridTemplateColumns: "160px 160px"
     }
   }
 }));

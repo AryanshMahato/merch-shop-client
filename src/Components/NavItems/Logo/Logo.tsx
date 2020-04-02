@@ -10,8 +10,8 @@ const Logo = () => {
   // JSX Return
   return (
     <>
-      <Link to={"/"} className={classes.logo}>
-        <img src={logo} alt={"Logo"} />
+      <Link to={"/"} className={classes.root}>
+        <img src={logo} alt={"Logo"} className={classes.logo}/>
       </Link>
     </>
   );

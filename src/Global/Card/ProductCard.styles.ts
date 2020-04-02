@@ -1,17 +1,23 @@
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
-const styles = makeStyles(() => {
+const styles = makeStyles((theme: Theme) => {
   return createStyles({
     root: {
       width: 250,
-      transition: ".2s",
+      transition: ".2s !important",
+      [theme.breakpoints.down("xs")]: {
+        width: 160
+      },
       "&:hover": {
         transform: "translateY(0px) scale(1.02)"
       }
     },
     media: {
       height: 250,
-      width: "100%"
+      width: "100%",
+      [theme.breakpoints.down("xs")]: {
+        height: 150
+      }
     },
     image: {
       height: "100%",

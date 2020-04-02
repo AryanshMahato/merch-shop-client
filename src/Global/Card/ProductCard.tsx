@@ -9,15 +9,24 @@ interface ProductCardProps {
   name: string;
   price: any;
   category: string;
+  id: string;
+  productClicked: (id: string) => void;
 }
 
 // Main Function
-const ProductCard = ({ image, name, price, category }: ProductCardProps) => {
+const ProductCard = ({
+  image,
+  name,
+  price,
+  category,
+  productClicked,
+  id
+}: ProductCardProps) => {
   const classes = styles();
 
   // JSX Return
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} onClick={() => productClicked(id)}>
       <CardActionArea>
         <CardMedia className={classes.media} title={name}>
           <img src={image} className={classes.image} alt={name} />

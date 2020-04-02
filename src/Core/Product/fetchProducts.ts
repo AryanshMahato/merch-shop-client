@@ -1,7 +1,8 @@
 import mAxios from "../../Util/Axios";
 
 const fetchProducts = async () => {
-  return await mAxios.get("/products/0");
+  const products = await mAxios.get("/products/0");
+  return products.data.products;
 };
 
 export default fetchProducts;
