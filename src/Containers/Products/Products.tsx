@@ -1,16 +1,19 @@
-import React, { useEffect } from "react";
+import React, { FunctionComponent, useEffect } from "react";
 import { getProducts } from "../../Store/Action/Product";
 import { connect } from "react-redux";
 import { IProduct } from "../../../types/Store";
 import ProductCard from "../../Global/Card/ProductCard";
 import styles from "./Products.styles";
+import { withRouter } from "react-router-dom";
 
 interface ProductsProps {
   products: Array<IProduct>;
   getProducts: () => void;
+  history: any;
 }
 
-const Products = ({ products, getProducts }: ProductsProps) => {
+// Main Function
+const Products = ({ products, getProducts, history }: ProductsProps) => {
   const classes = styles();
 
   useEffect(() => {
@@ -18,6 +21,12 @@ const Products = ({ products, getProducts }: ProductsProps) => {
     // eslint-disable-next-line
   }, []);
 
+  // Product Click Handler
+  const productClicked = (id: string) => {
+    history.push(`product/${id}`);
+  };
+
+  // JSX Return
   return (
     <div className={classes.product}>
       {products.map(product => (
@@ -26,6 +35,8 @@ const Products = ({ products, getProducts }: ProductsProps) => {
           name={product.name}
           price={product.price}
           category={product.category.name}
+          id={product._id}
+          productClicked={productClicked}
           key={product._id}
         />
       ))}
@@ -40,4 +51,7 @@ const mapStateToProps = (state: any) => {
 };
 const mapDispatchToProps = { getProducts: getProducts };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(Products as FunctionComponent));
