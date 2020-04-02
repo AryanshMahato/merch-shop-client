@@ -32,7 +32,7 @@ const Routes = () => {
         <Route path={"/cart"} exact>
           <Cart />
         </Route>
-        <Route path={"/product"} exact>
+        <Route path={"/product/:id"} exact>
           <Product />
         </Route>
         <Route path={"/"} exact={true}>
