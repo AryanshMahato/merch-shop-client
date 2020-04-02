@@ -48,7 +48,7 @@ const mapStateToProps = (state: any) => {
     products: state.product.products
   };
 };
-const mapDispatchToProps = { getProducts: getProducts };
+const mapDispatchToProps = { getProducts };
 
 export default connect(
   mapStateToProps,

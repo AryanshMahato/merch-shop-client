@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import ProductBackground from "../Components/ProductBackground/ProductBackground";
 import { makeStyles } from "@material-ui/core";
+import Product from "../Containers/Product/Product";
 
 const styles = makeStyles(() => ({
   background: {
@@ -10,13 +11,13 @@ const styles = makeStyles(() => ({
   }
 }));
 
-const Product = ({ match }: any) => {
+const ProductPage = ({ match }: any) => {
   const classes = styles();
   return (
     <ProductBackground className={classes.background}>
-      Individual Product will be shown here
+      <Product id={match.params.id} />
     </ProductBackground>
   );
 };
 
-export default withRouter(Product);
+export default withRouter(ProductPage);
