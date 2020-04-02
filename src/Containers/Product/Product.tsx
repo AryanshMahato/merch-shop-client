@@ -10,7 +10,9 @@ const Product = ({ id, getProduct, product }: ProductProps) => {
   }, []);
   return (
     <div>
-      <ProductImage imageLink={``} />
+      <ProductImage
+        imageLink={process.env.REACT_APP_STATIC_LINK + product.imageName}
+      />
     </div>
   );
 };
