@@ -4,6 +4,7 @@ import { getProduct } from "../../Store/Action/Product";
 import { IProduct } from "../../../types/Store";
 import ProductImage from "../../Components/ProductImage/ProductImage";
 import ProductActionButtons from "../../Components/ProductActionButtons/ProductActionButtons";
+import ProductInfo from "../../Components/ProductInfo/ProductInfo";
 
 //? Main Function
 const Product = ({ id, getProduct, product }: ProductProps) => {
@@ -12,14 +13,21 @@ const Product = ({ id, getProduct, product }: ProductProps) => {
   }, []);
 
   //? JSX Return
-  return (
-    <div>
-      <ProductImage
-        imageLink={process.env.REACT_APP_STATIC_LINK + product.imageName}
-      />
-      <ProductActionButtons />
-    </div>
-  );
+  if (product.name)
+    return (
+      <div>
+        <ProductImage
+          imageLink={process.env.REACT_APP_STATIC_LINK + product.imageName}
+        />
+        <ProductActionButtons />
+        <ProductInfo
+          name={product.name}
+          price={product.price}
+          category={product.category.name}
+        />
+      </div>
+    );
+  else return <></>;
 };
 
 interface ProductProps {
