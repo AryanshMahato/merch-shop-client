@@ -5,8 +5,7 @@ interface IProduct {
   description: string;
   price: number;
   category: ICategory;
-  image: any;
-  imageExtension: any;
+  imageName: string;
 }
 
 interface ICategory {

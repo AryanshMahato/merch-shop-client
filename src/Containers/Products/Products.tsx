@@ -25,13 +25,12 @@ const Products = ({ products, getProducts, history }: ProductsProps) => {
   const productClicked = (id: string) => {
     history.push(`product/${id}`);
   };
-
   // JSX Return
   return (
     <div className={classes.product}>
       {products.map(product => (
         <ProductCard
-          image={`http://localhost:8000/api/product/image/${product._id}`}
+          image={`http://localhost:8000/${product.imageName}`}
           name={product.name}
           price={product.price}
           category={product.category.name}
