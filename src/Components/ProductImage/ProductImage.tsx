@@ -5,7 +5,7 @@ const ProductImage = ({ imageLink }: ProductImageProps) => {
   const classes = styles();
   return (
     <div className={classes.root}>
-      <img src={imageLink} alt="Product" />
+      <img src={imageLink} alt="Product" className={classes.image} />
     </div>
   );
 };
