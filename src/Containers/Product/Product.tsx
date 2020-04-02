@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getProduct } from "../../Store/Action/Product";
+import { IProduct } from "../../../types/Store";
 
-const Product = ({ id, getProduct }: ProductProps) => {
+const Product = ({ id, getProduct, product }: ProductProps) => {
   useEffect(() => {
     getProduct(id);
   }, []);
@@ -12,10 +13,13 @@ const Product = ({ id, getProduct }: ProductProps) => {
 interface ProductProps {
   id: string;
   getProduct: (id: string) => void;
+  product: IProduct;
 }
 
 function mapStateToProps(state: any) {
-  return {};
+  return {
+    product: state.product.product
+  };
 }
 
 const mapDispatchToProps = { getProduct };
