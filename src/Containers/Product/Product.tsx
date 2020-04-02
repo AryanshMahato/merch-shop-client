@@ -2,12 +2,17 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getProduct } from "../../Store/Action/Product";
 import { IProduct } from "../../../types/Store";
+import ProductImage from "../../Components/ProductImage/ProductImage";
 
 const Product = ({ id, getProduct, product }: ProductProps) => {
   useEffect(() => {
     getProduct(id);
   }, []);
-  return <div></div>;
+  return (
+    <div>
+      <ProductImage imageLink={``} />
+    </div>
+  );
 };
 
 interface ProductProps {
