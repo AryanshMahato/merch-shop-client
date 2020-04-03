@@ -94,6 +94,7 @@ const LoginButton = ({ onClick }: ButtonProps) => {
         variant={"contained"}
         color={"primary"}
         onClick={onClick}
+        type={"submit"}
       >
         Log in
       </Button>
