@@ -1,30 +1,33 @@
 import React from "react";
-import { useFormik } from "formik";
-import { TextField } from "@material-ui/core";
+import { Formik, Field, Form } from "formik";
 import { LoginButton } from "../../../Global/Button/Buttons";
+import signInSchema from "../../../Schema/signInSchema";
 
 const SignInForm = ({ formSubmit }: FormProps) => {
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: ""
-    },
-    onSubmit: values => {
-      //TODO: Implement onSubmitHandler
-      console.log(values);
-    }
-  });
-
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <TextField
-        id={"email"}
-        placeholder={"Email"}
-        onChange={formik.handleChange}
-        value={formik.values.email}
-      />
-      <LoginButton />
-    </form>
+    <Formik
+      initialValues={{
+        email: "",
+        password: ""
+      }}
+      validationSchema={signInSchema}
+      onSubmit={values => {
+        //TODO: Implement onSubmitHandler
+        console.log(values);
+      }}
+    >
+      {({ errors, touched }) => (
+        <Form>
+          <Field name={"email"} />
+          {errors.email && touched.email ? <div>{errors.email}</div> : null}
+          <Field name={"password"} />
+          {errors.password && touched.password ? (
+            <div>{errors.password}</div>
+          ) : null}
+          <LoginButton />
+        </Form>
+      )}
+    </Formik>
   );
 };
 
