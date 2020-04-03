@@ -15,6 +15,14 @@ const Product = ({ id, getProduct, product }: ProductProps) => {
     getProduct(id);
   }, []);
 
+  const addToCartClicked = () => {
+    console.log("Add To Cart Clicked", id);
+  };
+
+  const buyNowClicked = () => {
+    console.log("Buy Now Clicked Clicked", id);
+  };
+
   //? JSX Return
   if (product.name)
     return (
@@ -23,7 +31,10 @@ const Product = ({ id, getProduct, product }: ProductProps) => {
           <ProductImage
             imageLink={process.env.REACT_APP_STATIC_LINK + product.imageName}
           />
-          <ProductActionButtons />
+          <ProductActionButtons
+            addToCartClicked={addToCartClicked}
+            buyNowClicked={buyNowClicked}
+          />
         </div>
         <div className={classes.rightPart}>
           <ProductInfo
