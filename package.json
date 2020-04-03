@@ -27,7 +27,8 @@
     "typescript": "~3.7.2",
     "formik": "^2.1.4",
     "yup": "^0.28.3",
-    "@types/yup": "^0.26.34"
+    "@types/yup": "^0.26.34",
+    "formik-material-ui": "^2.0.0-beta.1"
   },
   "scripts": {
     "start": "react-scripts start",
