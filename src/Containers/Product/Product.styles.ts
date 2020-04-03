@@ -9,12 +9,16 @@ const styles = makeStyles((theme: Theme) => ({
     width: "100%",
     [theme.breakpoints.down("sm")]: {
       flexFlow: "column",
-      alignItems: "center"
+      alignItems: "center",
+      marginTop: "2rem"
     }
   },
   leftPart: {
     width: "90vw",
-    maxWidth: 500
+    maxWidth: 500,
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: "3rem"
+    }
   },
   rightPart: { width: "90vw", maxWidth: 300 }
 }));
