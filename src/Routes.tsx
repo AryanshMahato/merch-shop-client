@@ -17,10 +17,31 @@ const Routes = () => {
         <Route path={"/sign-up"} exact>
           <SignUp />
         </Route>
+        <Route path={"/signUp"} exact>
+          <SignUp />
+        </Route>
         <Route path={"/sign-in"} exact>
           <SignIn />
         </Route>
+        <Route path={"/signIn"} exact>
+          <SignIn />
+        </Route>
+        <Route path={"/log-in"} exact>
+          <SignIn />
+        </Route>
+        <Route path={"/logIn"} exact>
+          <SignIn />
+        </Route>
         <Route path={"/sign-out"} exact>
+          <SignOut />
+        </Route>
+        <Route path={"/signOut"} exact>
+          <SignOut />
+        </Route>
+        <Route path={"/logOut"} exact>
+          <SignOut />
+        </Route>
+        <Route path={"/log-out"} exact>
           <SignOut />
         </Route>
         <Route path={"/profile"} exact>
