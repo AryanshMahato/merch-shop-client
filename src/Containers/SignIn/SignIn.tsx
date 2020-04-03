@@ -1,10 +1,12 @@
 import React from "react";
-import Form from "../../Components/Form/Form";
+import Form from "../Form/Form";
 
 const SignIn = () => {
+  const formSubmitHandler = () => {};
+
   return (
     <div>
-      <Form textFields={["email", "password"]} />
+      <Form formSubmit={formSubmitHandler} />
     </div>
   );
 };

@@ -1,11 +1,11 @@
 import React from "react";
 
-const Form = ({ textFields }: FormProps) => {
+const Form = ({ formSubmit }: FormProps) => {
   return <div></div>;
 };
 
 interface FormProps {
-  textFields: Array<string>;
+  formSubmit: () => void;
 }
 
 export default Form;
