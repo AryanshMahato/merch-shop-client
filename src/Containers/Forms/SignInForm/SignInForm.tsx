@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import { TextField } from "@material-ui/core";
 import { LoginButton } from "../../../Global/Button/Buttons";
 
-const LoginForm = ({ formSubmit }: FormProps) => {
+const SignInForm = ({ formSubmit }: FormProps) => {
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -32,4 +32,4 @@ interface FormProps {
   formSubmit: () => void;
 }
 
-export default LoginForm;
+export default SignInForm;
