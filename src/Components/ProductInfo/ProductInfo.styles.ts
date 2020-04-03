@@ -7,9 +7,13 @@ const styles = makeStyles(() => ({
     fontWeight: "bold"
   },
   priceSign: { fontWeight: "bold" },
-  price: { fontSize: "1.5rem" },
-  category: {},
-  description: {}
+  price: { fontSize: "1.5rem", margin: "1rem 0" },
+  category: {
+    margin: "1rem 0"
+  },
+  description: {
+    marginTop: "2rem"
+  }
 }));
 
 export default styles;
