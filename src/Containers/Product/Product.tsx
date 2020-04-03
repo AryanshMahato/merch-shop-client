@@ -5,9 +5,12 @@ import { IProduct } from "../../../types/Store";
 import ProductImage from "../../Components/ProductImage/ProductImage";
 import ProductActionButtons from "../../Components/ProductActionButtons/ProductActionButtons";
 import ProductInfo from "../../Components/ProductInfo/ProductInfo";
+import styles from "./Product.styles";
 
 //? Main Function
 const Product = ({ id, getProduct, product }: ProductProps) => {
+  const classes = styles();
+
   useEffect(() => {
     getProduct(id);
   }, []);
@@ -15,17 +18,21 @@ const Product = ({ id, getProduct, product }: ProductProps) => {
   //? JSX Return
   if (product.name)
     return (
-      <div>
-        <ProductImage
-          imageLink={process.env.REACT_APP_STATIC_LINK + product.imageName}
-        />
-        <ProductActionButtons />
-        <ProductInfo
-          name={product.name}
-          price={product.price}
-          category={product.category.name}
-          description={product.description}
-        />
+      <div className={classes.root}>
+        <div className={classes.leftPart}>
+          <ProductImage
+            imageLink={process.env.REACT_APP_STATIC_LINK + product.imageName}
+          />
+          <ProductActionButtons />
+        </div>
+        <div className={classes.rightPart}>
+          <ProductInfo
+            name={product.name}
+            price={product.price}
+            category={product.category.name}
+            description={product.description}
+          />
+        </div>
       </div>
     );
   else return <></>;
