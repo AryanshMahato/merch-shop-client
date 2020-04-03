@@ -5,7 +5,8 @@ const styles = makeStyles(() => ({
     width: "90vw",
     maxWidth: 500,
     display: "flex",
-    justifyContent: "space-evenly"
+    justifyContent: "space-evenly",
+    marginTop: "2rem"
   }
 }));
 
