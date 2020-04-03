@@ -7,7 +7,7 @@ const styles = makeStyles(() => ({
     justifyContent: "center"
   },
   background: {
-    width: "95vw",
+    width: "95%",
     minHeight: "80vh",
     background: "#EAF0F1",
     display: "flex",

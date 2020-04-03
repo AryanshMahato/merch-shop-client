@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
-import styles from "./ProductBackground.styles";
+import styles from "./Background.styles";
 
-const ProductBackground = ({ children, className }: ProductBackgroundProps) => {
+const Background = ({ children, className }: ProductBackgroundProps) => {
   const classes = styles();
   return (
     <div className={classes.root}>
@@ -15,4 +15,4 @@ interface ProductBackgroundProps {
   className?: string;
 }
 
-export default ProductBackground;
+export default Background;
