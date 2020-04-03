@@ -3,6 +3,7 @@ import { Formik, Field, Form } from "formik";
 import { LoginButton } from "../../../Global/Button/Buttons";
 import signInSchema from "../../../Schema/signInSchema";
 import { TextField } from "formik-material-ui";
+import { ISignInValues } from "../../../../types/Forms";
 
 const SignInForm = ({ formSubmit }: FormProps) => {
   return (
@@ -13,8 +14,7 @@ const SignInForm = ({ formSubmit }: FormProps) => {
       }}
       validationSchema={signInSchema}
       onSubmit={values => {
-        //TODO: Implement onSubmitHandler
-        console.log(values);
+        formSubmit(values);
       }}
     >
       {() => (
@@ -40,7 +40,7 @@ const SignInForm = ({ formSubmit }: FormProps) => {
 };
 
 interface FormProps {
-  formSubmit: () => void;
+  formSubmit: (values: ISignInValues) => void;
 }
 
 export default SignInForm;
