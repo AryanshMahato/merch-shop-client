@@ -1,12 +1,12 @@
 import React from "react";
-import Form from "../Form/Form";
+import LoginForm from "../Forms/LoginForm/LoginForm";
 
 const SignIn = () => {
   const formSubmitHandler = () => {};
 
   return (
     <div>
-      <Form formSubmit={formSubmitHandler} />
+      <LoginForm formSubmit={formSubmitHandler} />
     </div>
   );
 };

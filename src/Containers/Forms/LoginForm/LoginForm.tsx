@@ -1,6 +1,6 @@
 import React from "react";
 
-const Form = ({ formSubmit }: FormProps) => {
+const LoginForm = ({ formSubmit }: FormProps) => {
   return <div></div>;
 };
 
@@ -8,4 +8,4 @@ interface FormProps {
   formSubmit: () => void;
 }
 
-export default Form;
+export default LoginForm;
