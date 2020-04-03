@@ -1,6 +1,7 @@
 import ActionTypes from "./ActionTypes";
 import fetchProducts from "../../Core/Product/fetchProducts";
 import { IProduct } from "../../../types/Store";
+import fetchProduct from "../../Core/Product/fetchProduct";
 
 export function getProducts() {
   return async (dispatch: any) => {
@@ -12,7 +13,21 @@ export function getProducts() {
         error: "No Product Found"
       });
     } else {
-      dispatch({ type: ActionTypes.FETCH_PRODUCT, products });
+      dispatch({ type: ActionTypes.FETCH_PRODUCTS, products });
+    }
+  };
+}
+
+export function getProduct(id: string) {
+  return async (dispatch: any) => {
+    const product: IProduct = await fetchProduct(id);
+    if (!product) {
+      dispatch({
+        type: ActionTypes.SET_ERROR,
+        error: "No Product Found"
+      });
+    } else {
+      dispatch({ type: ActionTypes.FETCH_PRODUCT, product: product });
     }
   };
 }

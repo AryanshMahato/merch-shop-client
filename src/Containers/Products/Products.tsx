@@ -30,7 +30,7 @@ const Products = ({ products, getProducts, history }: ProductsProps) => {
     <div className={classes.product}>
       {products.map(product => (
         <ProductCard
-          image={`http://localhost:8000/${product.imageName}`}
+          image={process.env.REACT_APP_STATIC_LINK + product.imageName}
           name={product.name}
           price={product.price}
           category={product.category.name}
@@ -48,7 +48,7 @@ const mapStateToProps = (state: any) => {
     products: state.product.products
   };
 };
-const mapDispatchToProps = { getProducts: getProducts };
+const mapDispatchToProps = { getProducts };
 
 export default connect(
   mapStateToProps,

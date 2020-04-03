@@ -4,7 +4,7 @@ import { Theme } from "@material-ui/core/styles";
 const styles = makeStyles((theme: Theme) => ({
   product: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+    gridTemplateColumns: "repeat(auto-fill, minmax(250px, 250px))",
     gridGap: "2rem",
     padding: "1rem",
     justifyContent: "center",
