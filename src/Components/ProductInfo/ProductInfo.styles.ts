@@ -8,7 +8,8 @@ const styles = makeStyles(() => ({
   },
   priceSign: { fontWeight: "bold" },
   price: { fontSize: "1.5rem" },
-  category: {}
+  category: {},
+  description: {}
 }));
 
 export default styles;

@@ -24,6 +24,7 @@ const Product = ({ id, getProduct, product }: ProductProps) => {
           name={product.name}
           price={product.price}
           category={product.category.name}
+          description={product.description}
         />
       </div>
     );

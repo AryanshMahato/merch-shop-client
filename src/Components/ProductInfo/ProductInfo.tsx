@@ -2,7 +2,12 @@ import React from "react";
 import styles from "./ProductInfo.styles";
 
 //? Main Function
-const ProductInfo = ({ name, category, price }: ProductInfoProps) => {
+const ProductInfo = ({
+  name,
+  category,
+  price,
+  description
+}: ProductInfoProps) => {
   const classes = styles();
 
   //? JSX Return
@@ -14,6 +19,7 @@ const ProductInfo = ({ name, category, price }: ProductInfoProps) => {
         {price}
       </div>
       <div className={classes.category}>{category}</div>
+      <div className={classes.description}>{description}</div>
     </div>
   );
 };
@@ -22,6 +28,7 @@ interface ProductInfoProps {
   name: string;
   price: number;
   category: string;
+  description: string;
 }
 
 export default ProductInfo;
