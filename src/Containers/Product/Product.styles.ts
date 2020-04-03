@@ -7,6 +7,7 @@ const styles = makeStyles((theme: Theme) => ({
     padding: "2rem",
     marginTop: "5rem",
     width: "100%",
+    maxWidth: 1000,
     [theme.breakpoints.down("sm")]: {
       flexFlow: "column",
       alignItems: "center",
