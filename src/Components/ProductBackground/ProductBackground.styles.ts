@@ -8,7 +8,7 @@ const styles = makeStyles(() => ({
   },
   background: {
     width: "90vw",
-    height: "80vh",
+    minHeight: "80vh",
     background: "#EAF0F1"
   }
 }));
