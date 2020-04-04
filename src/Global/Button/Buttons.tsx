@@ -4,6 +4,7 @@ import styles from "./Buttons.styles";
 
 interface ButtonProps {
   onClick?: () => void;
+  className?: string;
 }
 
 const AddToCartButton = ({ onClick }: ButtonProps) => {
@@ -85,15 +86,16 @@ const SaveButton = ({ onClick }: ButtonProps) => {
   );
 };
 
-const LoginButton = ({ onClick }: ButtonProps) => {
+const LoginButton = ({ onClick, className }: ButtonProps) => {
   const classes = styles();
   return (
     <>
       <Button
-        className={classes.button + " " + classes.authButton}
+        className={classes.button + " " + classes.authButton + " " + className}
         variant={"contained"}
         color={"primary"}
         onClick={onClick}
+        type={"submit"}
       >
         Log in
       </Button>

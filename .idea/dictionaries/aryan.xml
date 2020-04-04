@@ -2,6 +2,7 @@
   <dictionary name="aryan">
     <words>
       <w>axios</w>
+      <w>formik</w>
       <w>navbar</w>
     </words>
   </dictionary>

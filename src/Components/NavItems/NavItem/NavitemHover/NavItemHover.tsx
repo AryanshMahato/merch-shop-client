@@ -46,7 +46,7 @@ const NavItemHover = ({
     >
       <div className={classes.triangle} />
       <div className={classes.outerBox}>
-        <Link to={leftHoverItem.name} className={classes.login}>
+        <Link to={leftHoverItem.link} className={classes.login}>
           {leftHoverItem.name}
         </Link>
         <Divider orientation="vertical" flexItem className={classes.divider} />

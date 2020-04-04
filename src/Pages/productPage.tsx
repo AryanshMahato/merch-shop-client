@@ -1,13 +1,13 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import ProductBackground from "../Components/ProductBackground/ProductBackground";
+import Background from "../Components/Background/Background";
 import Product from "../Containers/Product/Product";
 
 const ProductPage = ({ match }: any) => {
   return (
-    <ProductBackground>
+    <Background>
       <Product id={match.params.id} />
-    </ProductBackground>
+    </Background>
   );
 };
 
