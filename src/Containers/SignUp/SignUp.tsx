@@ -1,5 +1,5 @@
 import React from "react";
-import { ISignInValues } from "../../../types/Forms";
+import { ISignUpValues } from "../../../types/Forms";
 import { connect } from "react-redux";
 import { setSignInError, signInUser } from "../../Store/Action/User";
 import { Redirect } from "react-router-dom";
@@ -9,8 +9,9 @@ import SignUpForm from "../Forms/SignUpForm/SignUpForm";
 const SignUp = ({ signInUser, isAuthenticated }: SignUpProps) => {
   const classes = styles();
 
-  const formSubmitHandler = ({ email, password }: ISignInValues) => {
+  const formSubmitHandler = ({ name, email, password }: ISignUpValues) => {
     // signInUser(email, password);
+    console.log(name, email, password);
   };
 
   return (

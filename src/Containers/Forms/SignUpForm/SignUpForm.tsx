@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, Form, FormikProps } from "formik";
 import { LoginButton } from "../../../Global/Button/Buttons";
-import { ISignInValues, ISignUpValues } from "../../../../types/Forms";
+import { ISignUpValues } from "../../../../types/Forms";
 import styles from "./SignUpForm.styles";
 import { connect } from "react-redux";
 import InputElement from "../../../Components/InputElement/InputElement";
@@ -64,7 +64,7 @@ const SignUpForm = ({ formSubmit, errors: stateErrors }: FormProps) => {
 };
 
 interface FormProps {
-  formSubmit: (values: ISignInValues) => void;
+  formSubmit: (values: ISignUpValues) => void;
   errors: any;
 }
 
