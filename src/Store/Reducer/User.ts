@@ -1,12 +1,14 @@
 import ActionTypes from "../Action/ActionTypes";
+import { getToken } from "../../Core/Auth/TokenHandlers/TokenHandlers";
 
 const initialState = {
   data: { name: "", email: "", _id: "" },
-  token: "",
+  authenticated: false,
   signInError: {
     email: "",
     password: ""
-  }
+  },
+  authToken: getToken()
 };
 
 const userReducer = (state = initialState, action: any) => {
@@ -14,12 +16,26 @@ const userReducer = (state = initialState, action: any) => {
     case ActionTypes.SIGN_IN:
       return {
         ...state,
-        ...action.user
+        ...action.user,
+        authenticated: action.authenticated
       };
     case ActionTypes.SIGN_IN_ERROR:
       return {
         ...state,
-        signInError: action.signInError
+        signInError: action.signInError,
+        authenticated: action.authenticated
+      };
+    case ActionTypes.LOAD_USER:
+      return {
+        ...state,
+        data: action.user,
+        authenticated: true
+      };
+    case ActionTypes.SIGN_OUT:
+      return {
+        ...state,
+        data: {},
+        authenticated: false
       };
     default:
       return { ...state };

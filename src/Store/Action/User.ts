@@ -1,5 +1,7 @@
 import signIn from "../../Core/Auth/SignIn";
 import ActionTypes from "./ActionTypes";
+import { saveToken } from "../../Core/Auth/TokenHandlers/TokenHandlers";
+import getUser from "../../Core/Auth/UserData";
 
 export function signInUser(email: string, password: string) {
   return async (dispatch: any) => {
@@ -7,32 +9,42 @@ export function signInUser(email: string, password: string) {
       const user = await signIn(email, password);
       user.message = undefined;
 
-      dispatch({ type: ActionTypes.SIGN_IN, user });
-      dispatch({ type: ActionTypes.SIGN_IN_ERROR, signInError: {} });
+      const authToken = user.token;
+      await saveToken(authToken);
+
+      user.token = undefined;
+
+      dispatch({ type: ActionTypes.SIGN_IN, user, authenticated: true });
     } catch (e) {
-      if (e.response.data.message === "User not found") {
-        dispatch({
-          type: ActionTypes.SIGN_IN_ERROR,
-          signInError: {
-            email: "Email not found!"
-          }
-        });
-      } else if (e.response.data.message === "Invalid Credentials") {
-        dispatch({
-          type: ActionTypes.SIGN_IN_ERROR,
-          signInError: {
-            email: "Email password doesn't match",
-            password: "Email password doesn't match"
-          }
-        });
-      } else {
-        dispatch({
-          type: ActionTypes.SIGN_IN_ERROR,
-          signInError: {
-            email: "Internal Server Error",
-            password: "Internal Server Error"
-          }
-        });
+      switch (e.response.data.message) {
+        case "User not found":
+          dispatch({
+            type: ActionTypes.SIGN_IN_ERROR,
+            signInError: {
+              email: "Email not found!"
+            },
+            authenticated: false
+          });
+          break;
+        case "Invalid Credentials":
+          dispatch({
+            type: ActionTypes.SIGN_IN_ERROR,
+            signInError: {
+              email: "Email password doesn't match",
+              password: "Email password doesn't match"
+            },
+            authenticated: false
+          });
+          break;
+        default:
+          dispatch({
+            type: ActionTypes.SIGN_IN_ERROR,
+            signInError: {
+              email: "Internal Server Error",
+              password: "Internal Server Error"
+            },
+            authenticated: false
+          });
       }
     }
   };
@@ -50,3 +62,22 @@ export function setSignInError(error: boolean) {
       });
   };
 }
+
+export const signOutUser = () => (dispatch: any) => {
+  localStorage.removeItem("AUTH_TOKEN");
+
+  dispatch({ type: ActionTypes.SIGN_OUT });
+};
+
+export const getUserData = () => async (dispatch: any, getState: any) => {
+  try {
+    if (getState().user.authToken) {
+      const response = await getUser(getState().user.authToken);
+      const userData = response.data.user;
+
+      dispatch({ type: ActionTypes.LOAD_USER, user: userData });
+    }
+  } catch (e) {
+    console.error(e.response);
+  }
+};

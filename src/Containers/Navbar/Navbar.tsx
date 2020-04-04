@@ -4,11 +4,11 @@ import { AppBar, Toolbar } from "@material-ui/core";
 import { Logo } from "../../Components/NavItems/NavItems";
 import NavItem from "../../Components/NavItems/NavItem/NavItem";
 import Cart from "../../Components/NavItems/Cart/Cart";
+import { connect } from "react-redux";
 
 // Main Function
-const Navbar = () => {
+const Navbar = ({ isAuthenticated }: NavbarProps) => {
   const classes = styles();
-
   // JSX Return
   return (
     <AppBar position="static" className={classes.root} elevation={2}>
@@ -18,13 +18,23 @@ const Navbar = () => {
             <Logo />
           </div>
           <div className={classes.navItems}>
-            <NavItem
-              link={"log-in"}
-              leftHoverItem={{ name: "Login", link: "log-in" }}
-              rightHoverItem={{ name: "Sign Up", link: "sign-up" }}
-            >
-              Login
-            </NavItem>
+            {isAuthenticated ? (
+              <NavItem
+                link={"log-in"}
+                leftHoverItem={{ name: "Profile", link: "profile" }}
+                rightHoverItem={{ name: "Log Out", link: "log-out" }}
+              >
+                Profile
+              </NavItem>
+            ) : (
+              <NavItem
+                link={"log-in"}
+                leftHoverItem={{ name: "Login", link: "log-in" }}
+                rightHoverItem={{ name: "Sign Up", link: "sign-up" }}
+              >
+                Login
+              </NavItem>
+            )}
             <Cart cartItems={1} />
           </div>
         </div>
@@ -33,4 +43,14 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+interface NavbarProps {
+  isAuthenticated: boolean;
+}
+
+const mapStateToProps = (state: any) => {
+  return {
+    isAuthenticated: state.user.authenticated
+  };
+};
+
+export default connect(mapStateToProps)(Navbar);

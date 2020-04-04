@@ -8,7 +8,7 @@ import PageNotFound from "./Pages/pageNotFound";
 import Profile from "./Pages/profile";
 import SignInPage from "./Pages/signInPage";
 import SignUp from "./Pages/signUp";
-import SignOut from "./Pages/signOut";
+import SignOut from "./Pages/signOutPage";
 
 const Routes = () => {
   return (
