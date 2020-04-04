@@ -1,4 +1,5 @@
 import ActionTypes from "../Action/ActionTypes";
+import { getToken } from "../../Core/Auth/TokenHandlers/TokenHandlers";
 
 const initialState = {
   data: { name: "", email: "", _id: "" },
@@ -6,7 +7,8 @@ const initialState = {
   signInError: {
     email: "",
     password: ""
-  }
+  },
+  authToken: getToken()
 };
 
 const userReducer = (state = initialState, action: any) => {
@@ -22,6 +24,12 @@ const userReducer = (state = initialState, action: any) => {
         ...state,
         signInError: action.signInError,
         authenticated: action.authenticated
+      };
+    case ActionTypes.LOAD_USER:
+      return {
+        ...state,
+        data: action.user,
+        authenticated: true
       };
     default:
       return { ...state };

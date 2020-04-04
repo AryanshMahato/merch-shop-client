@@ -1,6 +1,7 @@
 import signIn from "../../Core/Auth/SignIn";
 import ActionTypes from "./ActionTypes";
 import { saveToken } from "../../Core/Auth/TokenHandlers/TokenHandlers";
+import getUser from "../../Core/Auth/UserData";
 
 export function signInUser(email: string, password: string) {
   return async (dispatch: any) => {
@@ -61,3 +62,14 @@ export function setSignInError(error: boolean) {
       });
   };
 }
+
+export const getUserData = () => async (dispatch: any, getState: any) => {
+  try {
+    const response = await getUser(getState().user.authToken);
+    const userData = response.data.user;
+
+    dispatch({ type: ActionTypes.LOAD_USER, user: userData });
+  } catch (e) {
+    console.error(e.response);
+  }
+};

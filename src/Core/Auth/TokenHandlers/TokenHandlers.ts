@@ -1,12 +1,12 @@
-const saveToken = async (authToken: string) => {
-  await localStorage.setItem("AUTH_TOKEN", authToken);
+const saveToken = (authToken: string) => {
+  localStorage.setItem("AUTH_TOKEN", authToken);
 };
 
-const deleteToken = async () => {
-  await localStorage.removeItem("AUTH_TOKEN");
+const deleteToken = () => {
+  localStorage.removeItem("AUTH_TOKEN");
 };
 
-const getToken = async () => {
+const getToken = () => {
   return localStorage.getItem("AUTH_TOKEN");
 };
 
