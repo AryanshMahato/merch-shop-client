@@ -20,7 +20,7 @@ const Navbar = ({ isAuthenticated }: NavbarProps) => {
           <div className={classes.navItems}>
             {isAuthenticated ? (
               <NavItem
-                link={"log-in"}
+                link={"profile"}
                 leftHoverItem={{ name: "Profile", link: "profile" }}
                 rightHoverItem={{ name: "Log Out", link: "log-out" }}
               >
