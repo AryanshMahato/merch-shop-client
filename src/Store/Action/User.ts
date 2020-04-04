@@ -8,6 +8,7 @@ export function signInUser(email: string, password: string) {
       user.message = undefined;
 
       dispatch({ type: ActionTypes.SIGN_IN, user });
+      dispatch({ type: ActionTypes.SIGN_IN_ERROR, signInError: {} });
     } catch (e) {
       if (e.response.data.message === "User not found") {
         dispatch({

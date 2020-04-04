@@ -5,7 +5,7 @@ import styles from "./SignIn.styles";
 import { connect } from "react-redux";
 import { setSignInError, signInUser } from "../../Store/Action/User";
 
-const SignIn = ({ signInUser, setSignInError }: SignInProps) => {
+const SignIn = ({ signInUser }: SignInProps) => {
   const classes = styles();
 
   const formSubmitHandler = ({ email, password }: ISignInValues) => {
