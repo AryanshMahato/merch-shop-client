@@ -31,6 +31,12 @@ const userReducer = (state = initialState, action: any) => {
         data: action.user,
         authenticated: true
       };
+    case ActionTypes.SIGN_OUT:
+      return {
+        ...state,
+        data: {},
+        authenticated: false
+      };
     default:
       return { ...state };
   }

@@ -63,6 +63,12 @@ export function setSignInError(error: boolean) {
   };
 }
 
+export const signOutUser = () => (dispatch: any) => {
+  localStorage.removeItem("AUTH_TOKEN");
+
+  dispatch({ type: ActionTypes.SIGN_OUT });
+};
+
 export const getUserData = () => async (dispatch: any, getState: any) => {
   try {
     const response = await getUser(getState().user.authToken);
