@@ -13,15 +13,15 @@ export function signInUser(email: string, password: string) {
 
       user.token = undefined;
 
-      dispatch({ type: ActionTypes.SIGN_IN, user });
-      dispatch({ type: ActionTypes.SIGN_IN_ERROR, signInError: {} });
+      dispatch({ type: ActionTypes.SIGN_IN, user, authenticated: true });
     } catch (e) {
       if (e.response.data.message === "User not found") {
         dispatch({
           type: ActionTypes.SIGN_IN_ERROR,
           signInError: {
             email: "Email not found!"
-          }
+          },
+          authenticated: false
         });
       } else if (e.response.data.message === "Invalid Credentials") {
         dispatch({
@@ -29,7 +29,8 @@ export function signInUser(email: string, password: string) {
           signInError: {
             email: "Email password doesn't match",
             password: "Email password doesn't match"
-          }
+          },
+          authenticated: false
         });
       } else {
         dispatch({
@@ -37,7 +38,8 @@ export function signInUser(email: string, password: string) {
           signInError: {
             email: "Internal Server Error",
             password: "Internal Server Error"
-          }
+          },
+          authenticated: false
         });
       }
     }
