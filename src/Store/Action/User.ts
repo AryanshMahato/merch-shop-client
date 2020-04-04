@@ -15,32 +15,35 @@ export function signInUser(email: string, password: string) {
 
       dispatch({ type: ActionTypes.SIGN_IN, user, authenticated: true });
     } catch (e) {
-      if (e.response.data.message === "User not found") {
-        dispatch({
-          type: ActionTypes.SIGN_IN_ERROR,
-          signInError: {
-            email: "Email not found!"
-          },
-          authenticated: false
-        });
-      } else if (e.response.data.message === "Invalid Credentials") {
-        dispatch({
-          type: ActionTypes.SIGN_IN_ERROR,
-          signInError: {
-            email: "Email password doesn't match",
-            password: "Email password doesn't match"
-          },
-          authenticated: false
-        });
-      } else {
-        dispatch({
-          type: ActionTypes.SIGN_IN_ERROR,
-          signInError: {
-            email: "Internal Server Error",
-            password: "Internal Server Error"
-          },
-          authenticated: false
-        });
+      switch (e.response.data.message) {
+        case "User not found":
+          dispatch({
+            type: ActionTypes.SIGN_IN_ERROR,
+            signInError: {
+              email: "Email not found!"
+            },
+            authenticated: false
+          });
+          break;
+        case "Invalid Credentials":
+          dispatch({
+            type: ActionTypes.SIGN_IN_ERROR,
+            signInError: {
+              email: "Email password doesn't match",
+              password: "Email password doesn't match"
+            },
+            authenticated: false
+          });
+          break;
+        default:
+          dispatch({
+            type: ActionTypes.SIGN_IN_ERROR,
+            signInError: {
+              email: "Internal Server Error",
+              password: "Internal Server Error"
+            },
+            authenticated: false
+          });
       }
     }
   };
