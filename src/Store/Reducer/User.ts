@@ -8,6 +8,11 @@ const initialState = {
     email: "",
     password: ""
   },
+  signUpError: {
+    name: "",
+    email: "",
+    password: ""
+  },
   authToken: getToken()
 };
 
@@ -37,6 +42,19 @@ const userReducer = (state = initialState, action: any) => {
         data: {},
         authenticated: false
       };
+    case ActionTypes.SIGN_UP:
+      return {
+        ...state,
+        data: { ...action.user },
+        authenticated: true
+      };
+    case ActionTypes.SIGN_UP_ERROR:
+      return {
+        ...state,
+        signUpError: action.signUpError,
+        authenticated: action.authenticated
+      };
+
     default:
       return { ...state };
   }

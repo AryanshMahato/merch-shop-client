@@ -1,17 +1,16 @@
 import React from "react";
 import { ISignUpValues } from "../../../types/Forms";
 import { connect } from "react-redux";
-import { setSignInError, signInUser } from "../../Store/Action/User";
+import { setSignInError, signUpUser } from "../../Store/Action/User";
 import { Redirect } from "react-router-dom";
 import styles from "./SignUp.styles";
 import SignUpForm from "../Forms/SignUpForm/SignUpForm";
 
-const SignUp = ({ signInUser, isAuthenticated }: SignUpProps) => {
+const SignUp = ({ signUpUser, isAuthenticated }: SignUpProps) => {
   const classes = styles();
 
   const formSubmitHandler = ({ name, email, password }: ISignUpValues) => {
-    // signInUser(email, password);
-    console.log(name, email, password);
+    signUpUser(name, email, password);
   };
 
   return (
@@ -23,7 +22,7 @@ const SignUp = ({ signInUser, isAuthenticated }: SignUpProps) => {
 };
 
 interface SignUpProps {
-  signInUser: (email: string, password: string) => void;
+  signUpUser: (name: string, email: string, password: string) => void;
   setSignInError: (error: boolean) => void;
   isAuthenticated: boolean;
 }
@@ -34,6 +33,6 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-const mapDispatchToProps = { signInUser, setSignInError };
+const mapDispatchToProps = { signUpUser, setSignInError };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

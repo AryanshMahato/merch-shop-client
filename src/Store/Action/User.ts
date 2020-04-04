@@ -2,6 +2,7 @@ import signIn from "../../Core/Auth/SignIn";
 import ActionTypes from "./ActionTypes";
 import { saveToken } from "../../Core/Auth/TokenHandlers/TokenHandlers";
 import getUser from "../../Core/Auth/UserData";
+import signUp from "../../Core/Auth/SignUp";
 
 export function signInUser(email: string, password: string) {
   return async (dispatch: any) => {
@@ -80,4 +81,20 @@ export const getUserData = () => async (dispatch: any, getState: any) => {
   } catch (e) {
     console.error(e.response);
   }
+};
+
+export const signUpUser = (
+  name: string,
+  email: string,
+  password: string
+) => async (dispatch: any) => {
+  const user = await signUp(name, email, password);
+  user.message = undefined;
+
+  const authToken = user.token;
+  await saveToken(authToken);
+
+  user.token = undefined;
+
+  dispatch({ type: ActionTypes.SIGN_UP, user, authenticated: true });
 };
