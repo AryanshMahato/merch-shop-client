@@ -7,7 +7,7 @@ import Order from "./Pages/order";
 import PageNotFound from "./Pages/pageNotFound";
 import Profile from "./Pages/profile";
 import SignInPage from "./Pages/signInPage";
-import SignUp from "./Pages/signUp";
+import SignUpPage from "./Pages/signUpPage";
 import SignOut from "./Pages/signOutPage";
 
 const Routes = () => {
@@ -15,10 +15,10 @@ const Routes = () => {
     <>
       <Switch>
         <Route path={"/sign-up"} exact>
-          <SignUp />
+          <SignUpPage />
         </Route>
         <Route path={"/signUp"} exact>
-          <SignUp />
+          <SignUpPage />
         </Route>
         <Route path={"/sign-in"} exact>
           <SignInPage />
