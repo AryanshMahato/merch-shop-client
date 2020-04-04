@@ -1,11 +1,17 @@
 import signIn from "../../Core/Auth/SignIn";
 import ActionTypes from "./ActionTypes";
+import { saveToken } from "../../Core/Auth/TokenHandlers/TokenHandlers";
 
 export function signInUser(email: string, password: string) {
   return async (dispatch: any) => {
     try {
       const user = await signIn(email, password);
       user.message = undefined;
+
+      const authToken = user.token;
+      await saveToken(authToken);
+
+      user.token = undefined;
 
       dispatch({ type: ActionTypes.SIGN_IN, user });
       dispatch({ type: ActionTypes.SIGN_IN_ERROR, signInError: {} });
