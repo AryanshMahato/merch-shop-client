@@ -26,8 +26,8 @@ const SignInForm = ({ formSubmit, errors: stateErrors }: FormProps) => {
         // Checks if validation error or server errors are not same,
         // Checks if validation and password error is not there
         if (
-          props.errors.email != stateErrors.email &&
-          props.errors.password != stateErrors.password &&
+          props.errors.email !== stateErrors.email &&
+          props.errors.password !== stateErrors.password &&
           !props.errors.password &&
           !props.errors.email
         ) {
