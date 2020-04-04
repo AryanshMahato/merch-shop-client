@@ -71,10 +71,12 @@ export const signOutUser = () => (dispatch: any) => {
 
 export const getUserData = () => async (dispatch: any, getState: any) => {
   try {
-    const response = await getUser(getState().user.authToken);
-    const userData = response.data.user;
+    if (getState().user.authToken) {
+      const response = await getUser(getState().user.authToken);
+      const userData = response.data.user;
 
-    dispatch({ type: ActionTypes.LOAD_USER, user: userData });
+      dispatch({ type: ActionTypes.LOAD_USER, user: userData });
+    }
   } catch (e) {
     console.error(e.response);
   }
