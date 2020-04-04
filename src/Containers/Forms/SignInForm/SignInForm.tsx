@@ -22,9 +22,7 @@ const SignInForm = ({ formSubmit, errors: stateErrors }: FormProps) => {
         setSubmitting(false);
       }}
     >
-      {(props: FormikProps<signInValues>) => {
-        console.log(props.errors, stateErrors);
-
+      {(props: FormikProps<ISignInValues>) => {
         // Checks if validation error or server errors are not same,
         // Checks if validation and password error is not there
         if (
@@ -33,7 +31,6 @@ const SignInForm = ({ formSubmit, errors: stateErrors }: FormProps) => {
           !props.errors.password &&
           !props.errors.email
         ) {
-          console.log("set new error");
           props.setErrors(stateErrors);
         }
 
@@ -57,11 +54,6 @@ const SignInForm = ({ formSubmit, errors: stateErrors }: FormProps) => {
     </Formik>
   );
 };
-
-interface signInValues {
-  email: string;
-  password: string;
-}
 
 interface FormProps {
   formSubmit: (values: ISignInValues) => void;
