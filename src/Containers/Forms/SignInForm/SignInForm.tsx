@@ -1,12 +1,13 @@
 import React from "react";
-import { Formik, Field, Form } from "formik";
+import { Formik, Form, FormikProps } from "formik";
 import { LoginButton } from "../../../Global/Button/Buttons";
 import signInSchema from "../../../Schema/signInSchema";
-import { TextField } from "formik-material-ui";
 import { ISignInValues } from "../../../../types/Forms";
 import styles from "./SignInForm.styles";
+import { connect } from "react-redux";
+import InputElement from "../../../Components/InputElement/InputElement";
 
-const SignInForm = ({ formSubmit }: FormProps) => {
+const SignInForm = ({ formSubmit, errors: stateErrors }: FormProps) => {
   const classes = styles();
 
   return (
@@ -16,36 +17,59 @@ const SignInForm = ({ formSubmit }: FormProps) => {
         password: ""
       }}
       validationSchema={signInSchema}
-      onSubmit={values => {
+      onSubmit={(values, { setSubmitting }) => {
         formSubmit(values);
+        setSubmitting(false);
       }}
     >
-      {() => (
-        <Form className={classes.root}>
-          <Field
-            name={"email"}
-            component={TextField}
-            variant={"outlined"}
-            label={"Email"}
-            className={classes.field}
-          />
-          <Field
-            name={"password"}
-            component={TextField}
-            variant={"outlined"}
-            label={"Password"}
-            type={"password"}
-            className={classes.field}
-          />
-          <LoginButton className={classes.button} />
-        </Form>
-      )}
+      {(props: FormikProps<signInValues>) => {
+        console.log(props.errors, stateErrors);
+
+        // Checks if validation error or server errors are not same,
+        // Checks if validation and password error is not there
+        if (
+          props.errors !== stateErrors &&
+          (!props.errors.password || !props.errors.email)
+        ) {
+          console.log("set new error");
+          props.setErrors(stateErrors);
+        }
+
+        return (
+          <Form className={classes.root}>
+            <InputElement
+              name={"email"}
+              label={"Email"}
+              className={classes.field}
+            />
+            <InputElement
+              name={"password"}
+              label={"Password"}
+              type={"password"}
+              className={classes.field}
+            />
+            <LoginButton className={classes.button} />
+          </Form>
+        );
+      }}
     </Formik>
   );
 };
 
-interface FormProps {
-  formSubmit: (values: ISignInValues) => void;
+interface signInValues {
+  email: string;
+  password: string;
 }
 
-export default SignInForm;
+interface FormProps {
+  formSubmit: (values: ISignInValues) => void;
+  errors: any;
+}
+
+const mapStateToProps = (state: any) => {
+  return {
+    errors: state.user.signInError
+  };
+};
+
+export default connect(mapStateToProps)(SignInForm);
