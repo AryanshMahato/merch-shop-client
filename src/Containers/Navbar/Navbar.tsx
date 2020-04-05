@@ -7,7 +7,7 @@ import Cart from "../../Components/NavItems/Cart/Cart";
 import { connect } from "react-redux";
 
 // Main Function
-const Navbar = ({ isAuthenticated }: NavbarProps) => {
+const Navbar = ({ isAuthenticated, cart }: NavbarProps) => {
   const classes = styles();
   // JSX Return
   return (
@@ -19,23 +19,28 @@ const Navbar = ({ isAuthenticated }: NavbarProps) => {
           </div>
           <div className={classes.navItems}>
             {isAuthenticated ? (
-              <NavItem
-                link={"profile"}
-                leftHoverItem={{ name: "Profile", link: "profile" }}
-                rightHoverItem={{ name: "Log Out", link: "log-out" }}
-              >
-                Profile
-              </NavItem>
+              <>
+                <NavItem
+                  link={"profile"}
+                  leftHoverItem={{ name: "Profile", link: "profile" }}
+                  rightHoverItem={{ name: "Log Out", link: "log-out" }}
+                >
+                  Profile
+                </NavItem>
+                <Cart cartItems={cart.products.length} />
+              </>
             ) : (
-              <NavItem
-                link={"log-in"}
-                leftHoverItem={{ name: "Login", link: "log-in" }}
-                rightHoverItem={{ name: "Sign Up", link: "sign-up" }}
-              >
-                Login
-              </NavItem>
+              <>
+                <NavItem
+                  link={"log-in"}
+                  leftHoverItem={{ name: "Login", link: "log-in" }}
+                  rightHoverItem={{ name: "Sign Up", link: "sign-up" }}
+                >
+                  Login
+                </NavItem>
+                <Cart cartItems={0} />
+              </>
             )}
-            <Cart cartItems={1} />
           </div>
         </div>
       </Toolbar>
@@ -45,11 +50,13 @@ const Navbar = ({ isAuthenticated }: NavbarProps) => {
 
 interface NavbarProps {
   isAuthenticated: boolean;
+  cart: any;
 }
 
 const mapStateToProps = (state: any) => {
   return {
-    isAuthenticated: state.user.authenticated
+    isAuthenticated: state.user.authenticated,
+    cart: state.user.data.cart
   };
 };
 
