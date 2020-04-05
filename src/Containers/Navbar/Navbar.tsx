@@ -21,9 +21,9 @@ const Navbar = ({ isAuthenticated, cart }: NavbarProps) => {
             {isAuthenticated ? (
               <>
                 <NavItem
-                  link={"profile"}
-                  leftHoverItem={{ name: "Profile", link: "profile" }}
-                  rightHoverItem={{ name: "Log Out", link: "log-out" }}
+                  link={"/profile"}
+                  leftHoverItem={{ name: "Profile", link: "/profile" }}
+                  rightHoverItem={{ name: "Log Out", link: "/log-out" }}
                 >
                   Profile
                 </NavItem>
@@ -32,9 +32,9 @@ const Navbar = ({ isAuthenticated, cart }: NavbarProps) => {
             ) : (
               <>
                 <NavItem
-                  link={"log-in"}
-                  leftHoverItem={{ name: "Login", link: "log-in" }}
-                  rightHoverItem={{ name: "Sign Up", link: "sign-up" }}
+                  link={"/log-in"}
+                  leftHoverItem={{ name: "Login", link: "/log-in" }}
+                  rightHoverItem={{ name: "Sign Up", link: "/sign-up" }}
                 >
                   Login
                 </NavItem>
