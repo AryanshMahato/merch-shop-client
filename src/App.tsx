@@ -3,50 +3,26 @@ import Routes from "./Routes";
 import Navbar from "./Containers/Navbar/Navbar";
 import { connect } from "react-redux";
 import { getUserData } from "./Store/Action/User";
-import SplashScreen from "./Components/SplashScreen/SplashScreen";
-import { setSplashScreen } from "./Store/Action/Core";
 import LoadingScreen from "./Components/LoadingScreen/LoadingScreen";
 
-const App = ({
-  getUserData,
-  setSplashScreen,
-  splashScreen,
-  isLoading
-}: AppProps) => {
+const App = ({ getUserData }: AppProps) => {
   useEffect(() => {
     getUserData();
   });
 
-  useEffect(() => {
-    if (!isLoading && splashScreen) setSplashScreen(false);
-  });
-
   return (
-    <div>
-      {splashScreen ? <SplashScreen /> : null}
-      <>
-        <LoadingScreen />
-        <Navbar />
-        <Routes />
-      </>
-    </div>
+    <>
+      <LoadingScreen />
+      <Navbar />
+      <Routes />
+    </>
   );
 };
 
 interface AppProps {
   getUserData: () => void;
-  setSplashScreen: (status: boolean) => void;
-  splashScreen: boolean;
-  isLoading: boolean;
 }
 
-const mapStateToProps = (state: any) => {
-  return {
-    splashScreen: state.core.splashScreen,
-    isLoading: state.core.isLoading
-  };
-};
+const mapDispatchToProps = { getUserData };
 
-const mapDispatchToProps = { getUserData, setSplashScreen };
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

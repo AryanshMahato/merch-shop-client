@@ -2,8 +2,7 @@ import ActionTypes from "../Action/ActionTypes";
 
 const initialState = {
   error: "",
-  isLoading: true,
-  splashScreen: true
+  isLoading: false
 };
 
 const coreReducer = (state = initialState, action: any) => {
@@ -17,11 +16,6 @@ const coreReducer = (state = initialState, action: any) => {
       return {
         ...state,
         isLoading: action.isLoading
-      };
-    case ActionTypes.SPLASH_SCREEN:
-      return {
-        ...state,
-        splashScreen: action.splashScreen
       };
     default:
       return { ...state };

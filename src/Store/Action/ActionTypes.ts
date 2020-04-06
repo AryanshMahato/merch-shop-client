@@ -8,8 +8,7 @@ const ActionTypes = {
   SIGN_UP: "SIGN_UP",
   SIGN_UP_ERROR: "SIGN_UP_ERROR",
   SET_ERROR: "SET_ERROR",
-  IS_LOADING: "IS_LOADING",
-  SPLASH_SCREEN: "SPLASH_SCREEN"
+  IS_LOADING: "IS_LOADING"
 };
 
 export default ActionTypes;
