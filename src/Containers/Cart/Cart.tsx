@@ -3,27 +3,23 @@ import styles from "./Cart.styles";
 import { connect } from "react-redux";
 import NoItemInCart from "../../Components/NoItemInCart/NoItemInCart";
 
-const Cart = ({ isAuthenticated }: CartProps) => {
+const Cart = ({ isAuthenticated, products }: CartProps) => {
   const classes = styles();
 
-  return (
-    <>
-      {isAuthenticated ? (
-        <NoItemInCart />
-      ) : (
-        <div>You are not Authenticated</div>
-      )}
-    </>
-  );
+  if (!isAuthenticated) return <div>You are not Authenticated</div>;
+
+  return <>{products.length ? <div>Item in Cart</div> : <NoItemInCart />}</>;
 };
 
 interface CartProps {
   isAuthenticated: boolean;
+  products: Array<any>;
 }
 
 const mapStateToProps = (state: any) => {
   return {
-    isAuthenticated: state.user.authenticated
+    isAuthenticated: state.user.authenticated,
+    products: state.user.data.cart?.products
   };
 };
 
