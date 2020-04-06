@@ -1,6 +1,10 @@
 import { createStyles, makeStyles, withStyles, Badge } from "@material-ui/core";
 
 const styles = makeStyles(() => ({
+  link: {
+    textDecoration: "none",
+    color: "#fff"
+  },
   cart: {
     width: 40,
     height: 40,
