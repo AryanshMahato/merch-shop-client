@@ -2,13 +2,14 @@ import React from "react";
 import styles from "./Cart.styles";
 import { connect } from "react-redux";
 import NoItemInCart from "../../Components/NoItemInCart/NoItemInCart";
+import CartItems from "../../Components/CartItems/CartItems";
 
 const Cart = ({ isAuthenticated, products }: CartProps) => {
   const classes = styles();
 
   if (!isAuthenticated) return <div>You are not Authenticated</div>;
 
-  return <>{products.length ? <div>Item in Cart</div> : <NoItemInCart />}</>;
+  return <>{products.length ? <CartItems/> : <NoItemInCart />}</>;
 };
 
 interface CartProps {
