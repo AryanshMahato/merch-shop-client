@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./Cart.styles";
 import { connect } from "react-redux";
+import NoItemInCart from "../../Components/NoItemInCart/NoItemInCart";
 
 const Cart = ({ isAuthenticated }: CartProps) => {
   const classes = styles();
-  console.log(isAuthenticated);
 
   return (
     <>
       {isAuthenticated ? (
-        <div>Hello</div>
+        <NoItemInCart />
       ) : (
         <div>You are not Authenticated</div>
       )}
