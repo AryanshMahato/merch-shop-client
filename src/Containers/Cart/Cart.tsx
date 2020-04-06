@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import NoItemInCart from "../../Components/NoItemInCart/NoItemInCart";
 import CartItems from "../../Components/CartItems/CartItems";
 import { getCart } from "../../Store/Action/Cart";
+import Background from "../../Components/Background/Background";
 
 const Cart = ({ isAuthenticated, products, getCart }: CartProps) => {
   const classes = styles();
@@ -12,11 +13,19 @@ const Cart = ({ isAuthenticated, products, getCart }: CartProps) => {
     getCart();
   });
 
-  console.log("hi");
-
   if (!isAuthenticated) return <div>You are not Authenticated</div>;
 
-  return <>{products.length ? <CartItems /> : <NoItemInCart />}</>;
+  return (
+    <>
+      {products.length ? (
+        <Background>
+          <CartItems />
+        </Background>
+      ) : (
+        <NoItemInCart />
+      )}
+    </>
+  );
 };
 
 interface CartProps {
