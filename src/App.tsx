@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { getUserData } from "./Store/Action/User";
 import SplashScreen from "./Components/SplashScreen/SplashScreen";
 import { setSplashScreen } from "./Store/Action/Core";
+import LoadingScreen from "./Components/LoadingScreen/LoadingScreen";
 
 const App = ({
   getUserData,
@@ -24,6 +25,7 @@ const App = ({
     <div>
       {splashScreen ? <SplashScreen /> : null}
       <>
+        <LoadingScreen />
         <Navbar />
         <Routes />
       </>
