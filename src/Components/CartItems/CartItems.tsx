@@ -15,7 +15,7 @@ const CartItems = ({ cartProducts }: CartItemsProps) => {
         ))}
       </>
     );
-  else return;
+  else return <></>;
 };
 
 interface CartItemsProps {
