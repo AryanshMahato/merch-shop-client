@@ -18,7 +18,7 @@ const Cart = ({ isAuthenticated, products, getCart }: CartProps) => {
   return (
     <>
       {products.length ? (
-        <Background>
+        <Background className={classes.background}>
           <CartItems />
         </Background>
       ) : (
