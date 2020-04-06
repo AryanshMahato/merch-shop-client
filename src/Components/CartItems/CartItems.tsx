@@ -1,15 +1,22 @@
 import React from "react";
 import { IProduct } from "../../../types/Store";
 import styles from "./CartItems.styles";
+import { connect } from "react-redux";
 
-const CartItems = ({ products }: CartItemsProps) => {
+const CartItems = ({ cartProducts }: CartItemsProps) => {
   const classes = styles();
 
-  return <div></div>;
+  return <div>Cart</div>;
 };
 
 interface CartItemsProps {
-  products?: Array<IProduct>;
+  cartProducts: Array<IProduct>;
 }
 
-export default CartItems;
+const mapStateToProps = (state: any) => {
+  return {
+    cartProducts: state.cart?.products
+  };
+};
+
+export default connect(mapStateToProps)(CartItems);

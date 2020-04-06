@@ -8,7 +8,8 @@ const ActionTypes = {
   SIGN_UP: "SIGN_UP",
   SIGN_UP_ERROR: "SIGN_UP_ERROR",
   SET_ERROR: "SET_ERROR",
-  IS_LOADING: "IS_LOADING"
+  IS_LOADING: "IS_LOADING",
+  GET_CART: "GET_CART"
 };
 
 export default ActionTypes;
