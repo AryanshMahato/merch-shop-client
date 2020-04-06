@@ -9,7 +9,7 @@ const CartItem = ({ product }: CartItemProps) => {
   return (
     <div>
       <img
-        src={product.imageName}
+        src={process.env.REACT_APP_STATIC_LINK + product.imageName}
         alt={product.name}
         className={classes.image}
       />
