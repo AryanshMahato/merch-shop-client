@@ -5,24 +5,36 @@ import { connect } from "react-redux";
 import { getUserData } from "./Store/Action/User";
 import SplashScreen from "./Components/SplashScreen/SplashScreen";
 
-const App = ({ getUserData }: AppProps) => {
+const App = ({ getUserData, splashScreen }: AppProps) => {
   useEffect(() => {
     getUserData();
   });
 
   return (
     <div>
-      <SplashScreen />
-      <Navbar />
-      <Routes />
+      {splashScreen ? (
+        <SplashScreen />
+      ) : (
+        <>
+          <Navbar />
+          <Routes />
+        </>
+      )}
     </div>
   );
 };
 
 interface AppProps {
   getUserData: () => void;
+  splashScreen: boolean;
 }
+
+const mapStateToProps = (state: any) => {
+  return {
+    splashScreen: state.core.splashScreen
+  };
+};
 
 const mapDispatchToProps = { getUserData };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
