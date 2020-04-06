@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import ProductsPage from "./Pages/productsPage";
 import Product from "./Pages/productPage";
-import Cart from "./Pages/cart";
+import CartPage from "./Pages/cartPage";
 import Order from "./Pages/order";
 import PageNotFound from "./Pages/pageNotFound";
 import Profile from "./Pages/profile";
@@ -51,7 +51,7 @@ const Routes = () => {
           <Order />
         </Route>
         <Route path={"/cart"} exact>
-          <Cart />
+          <CartPage />
         </Route>
         <Route path={"/product/:id"} exact>
           <Product />
