@@ -7,6 +7,8 @@ export function getProducts() {
   return async (dispatch: any) => {
     const products: Array<IProduct> = await fetchProducts();
 
+    dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
+
     if (products?.length === 0) {
       dispatch({
         type: ActionTypes.SET_ERROR,

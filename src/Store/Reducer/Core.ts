@@ -1,7 +1,8 @@
 import ActionTypes from "../Action/ActionTypes";
 
 const initialState = {
-  error: ""
+  error: "",
+  isLoading: false
 };
 
 const coreReducer = (state = initialState, action: any) => {
@@ -10,6 +11,11 @@ const coreReducer = (state = initialState, action: any) => {
       return {
         ...state,
         error: action.error
+      };
+    case ActionTypes.IS_LOADING:
+      return {
+        ...state,
+        isLoading: action.isLoading
       };
     default:
       return { ...state };
