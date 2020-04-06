@@ -2,7 +2,7 @@ import ActionTypes from "../Action/ActionTypes";
 
 const initialState = {
   error: "",
-  isLoading: false,
+  isLoading: true,
   splashScreen: true
 };
 
