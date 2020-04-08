@@ -5,6 +5,7 @@ import NoItemInCart from "../../Components/NoItemInCart/NoItemInCart";
 import CartItems from "../../Components/CartItems/CartItems";
 import { getCart } from "../../Store/Action/Cart";
 import Background from "../../Components/Background/Background";
+import PriceDetails from "../../Components/PriceDetails/PriceDetails";
 
 const Cart = ({ isAuthenticated, products, getCart }: CartProps) => {
   const classes = styles();
@@ -21,6 +22,7 @@ const Cart = ({ isAuthenticated, products, getCart }: CartProps) => {
         <Background className={classes.background}>
           <h1 className={classes.annotation}>Proceed to Buy</h1>
           <CartItems />
+          <PriceDetails />
         </Background>
       ) : (
         <NoItemInCart />
