@@ -6,9 +6,10 @@ import ProductImage from "../../Components/ProductImage/ProductImage";
 import ProductActionButtons from "../../Components/ProductActionButtons/ProductActionButtons";
 import ProductInfo from "../../Components/ProductInfo/ProductInfo";
 import styles from "./Product.styles";
+import { addToCart } from "../../Store/Action/Cart";
 
 //? Main Function
-const Product = ({ id, getProduct, product }: ProductProps) => {
+const Product = ({ id, getProduct, product, addToCart }: ProductProps) => {
   const classes = styles();
 
   useEffect(() => {
@@ -16,7 +17,7 @@ const Product = ({ id, getProduct, product }: ProductProps) => {
   }, []);
 
   const addToCartClicked = () => {
-    console.log("Add To Cart Clicked", id);
+    addToCart(id);
   };
 
   const buyNowClicked = () => {
@@ -53,6 +54,7 @@ interface ProductProps {
   id: string;
   getProduct: (id: string) => void;
   product: IProduct;
+  addToCart: (productId: string) => void;
 }
 
 function mapStateToProps(state: any) {
@@ -61,6 +63,6 @@ function mapStateToProps(state: any) {
   };
 }
 
-const mapDispatchToProps = { getProduct };
+const mapDispatchToProps = { getProduct, addToCart };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product);
