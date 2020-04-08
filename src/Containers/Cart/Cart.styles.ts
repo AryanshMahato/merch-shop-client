@@ -6,9 +6,9 @@ const styles = makeStyles((theme: Theme) => ({
     position: "relative",
     justifyContent: "space-between",
     padding: "2rem",
+    paddingTop: "5rem",
     [theme.breakpoints.down("md")]: {
-      flexFlow: "column",
-      paddingTop: "7rem"
+      flexFlow: "column"
     }
   },
   annotation: {

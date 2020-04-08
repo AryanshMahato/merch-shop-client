@@ -12,7 +12,7 @@ const Cart = ({ isAuthenticated, products, getCart }: CartProps) => {
 
   useEffect(() => {
     getCart();
-  });
+  }, []);
 
   if (!isAuthenticated) return <div>You are not Authenticated</div>;
 
@@ -42,7 +42,7 @@ interface CartProps {
 const mapStateToProps = (state: any) => {
   return {
     isAuthenticated: state.user.authenticated,
-    products: state.user.data.cart?.products
+    products: state.cart?.products
   };
 };
 
