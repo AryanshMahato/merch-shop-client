@@ -22,35 +22,40 @@ const userReducer = (state = initialState, action: any) => {
       return {
         ...state,
         ...action.user,
+        authToken: getToken(),
         authenticated: action.authenticated
       };
     case ActionTypes.SIGN_IN_ERROR:
       return {
         ...state,
+        authToken: getToken(),
         signInError: action.signInError,
         authenticated: action.authenticated
       };
     case ActionTypes.LOAD_USER:
       return {
         ...state,
+        authToken: getToken(),
         data: action.user,
         authenticated: true
       };
     case ActionTypes.SIGN_OUT:
       return {
         ...state,
-        data: {},
+        authToken: getToken(),
         authenticated: false
       };
     case ActionTypes.SIGN_UP:
       return {
         ...state,
+        authToken: getToken(),
         data: { ...action.user },
         authenticated: true
       };
     case ActionTypes.SIGN_UP_ERROR:
       return {
         ...state,
+        authToken: getToken(),
         signUpError: action.signUpError,
         authenticated: action.authenticated
       };

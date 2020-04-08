@@ -5,7 +5,6 @@ import addItemToCart from "../../Core/Cart/addItemToCart";
 
 export const getCart = () => async (dispatch: any, getState: any) => {
   try {
-    console.log("hi");
     if (getState().user.authToken) {
       const response = await fetchCart(getState().user.authToken);
       const products = response.data.cart.products;
