@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik, Form, FormikProps } from "formik";
-import { LoginButton } from "../../../Global/Button/Buttons";
+import { SignUpButton } from "../../../Global/Button/Buttons";
 import { ISignUpValues } from "../../../../types/Forms";
 import styles from "./SignUpForm.styles";
 import { connect } from "react-redux";
@@ -55,7 +55,7 @@ const SignUpForm = ({ formSubmit, errors: stateErrors }: FormProps) => {
               type={"password"}
               className={classes.field}
             />
-            <LoginButton className={classes.button} />
+            <SignUpButton className={classes.button} />
           </Form>
         );
       }}

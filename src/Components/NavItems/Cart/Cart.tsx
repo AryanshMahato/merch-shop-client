@@ -11,7 +11,12 @@ interface CartProps {
 const Cart = ({ cartItems }: CartProps) => {
   const classes = styles();
 
-  if (cartItems === 0) return <FaCartPlus className={classes.cart} />;
+  if (cartItems === 0)
+    return (
+      <Link to={"/cart"} className={classes.link}>
+        <FaCartPlus className={classes.cart} />
+      </Link>
+    );
   else
     return (
       <Link to={"/cart"} className={classes.link}>
