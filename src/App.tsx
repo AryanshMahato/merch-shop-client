@@ -6,11 +6,13 @@ import { getUserData } from "./Store/Action/User";
 import LoadingScreen from "./Components/LoadingScreen/LoadingScreen";
 import { getCart } from "./Store/Action/Cart";
 
-const App = ({ getUserData, getCart }: AppProps) => {
+const App = ({ getUserData, getCart, isAuthenticated }: AppProps) => {
   useEffect(() => {
     getUserData();
     getCart();
-  });
+  }, [isAuthenticated]);
+
+  console.log(isAuthenticated);
 
   return (
     <>
@@ -24,8 +26,15 @@ const App = ({ getUserData, getCart }: AppProps) => {
 interface AppProps {
   getUserData: () => void;
   getCart: () => void;
+  isAuthenticated: boolean;
 }
+
+const mapStateToProps = (state: any) => {
+  return {
+    isAuthenticated: state.user?.authenticated
+  };
+};
 
 const mapDispatchToProps = { getUserData, getCart };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
