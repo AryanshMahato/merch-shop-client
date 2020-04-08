@@ -2,9 +2,15 @@ import React from "react";
 import { IProduct } from "../../../../types/Store";
 import styles from "./CartItem.styles";
 import { Button } from "@material-ui/core";
+import { connect } from "react-redux";
+import { deleteItemInCart } from "../../../Store/Action/Cart";
 
-const CartItem = ({ product }: CartItemProps) => {
+const CartItem = ({ product, deleteItemInCart }: CartItemProps) => {
   const classes = styles();
+
+  const removeItemClicked = () => {
+    deleteItemInCart(product._id);
+  };
 
   return (
     <div className={classes.root}>
@@ -19,7 +25,11 @@ const CartItem = ({ product }: CartItemProps) => {
         <p>{product.description.slice(0, 50)}</p>
       </div>
       {/*TODO: Include Add remove button*/}
-      <Button variant={"text"} className={classes.removeButton}>
+      <Button
+        variant={"text"}
+        className={classes.removeButton}
+        onClick={removeItemClicked}
+      >
         Remove
       </Button>
       <p className={classes.price}>
@@ -27,7 +37,11 @@ const CartItem = ({ product }: CartItemProps) => {
         {product.price}
       </p>
       <div className={classes.mobileButtonAndPrice}>
-        <Button variant={"text"} className={classes.removeButton}>
+        <Button
+          variant={"text"}
+          className={classes.removeButton}
+          onClick={removeItemClicked}
+        >
           Remove
         </Button>
         <p className={classes.price}>
@@ -41,6 +55,9 @@ const CartItem = ({ product }: CartItemProps) => {
 
 interface CartItemProps {
   product: IProduct;
+  deleteItemInCart: (productId: string) => void;
 }
 
-export default CartItem;
+const mapDispatchToProps = { deleteItemInCart };
+
+export default connect(null, mapDispatchToProps)(CartItem);
