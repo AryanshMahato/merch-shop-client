@@ -27,7 +27,9 @@ const Navbar = ({ isAuthenticated, cart }: NavbarProps) => {
                 >
                   Profile
                 </NavItem>
-                <Cart cartItems={cart ? cart.products.length : 0} />
+                <Cart
+                  cartItems={cart && cart.products ? cart.products.length : 0}
+                />
               </>
             ) : (
               <>
@@ -56,7 +58,7 @@ interface NavbarProps {
 const mapStateToProps = (state: any) => {
   return {
     isAuthenticated: state.user.authenticated,
-    cart: state.user.data.cart
+    cart: state.cart
   };
 };
 

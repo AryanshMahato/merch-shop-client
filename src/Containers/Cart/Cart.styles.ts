@@ -2,11 +2,13 @@ import { makeStyles, Theme } from "@material-ui/core";
 
 const styles = makeStyles((theme: Theme) => ({
   background: {
-    flexFlow: "column",
     alignItems: "center",
     position: "relative",
-    [theme.breakpoints.down("sm")]: {
-      paddingTop: "5rem"
+    justifyContent: "space-between",
+    padding: "2rem",
+    paddingTop: "5rem",
+    [theme.breakpoints.down("md")]: {
+      flexFlow: "column"
     }
   },
   annotation: {
