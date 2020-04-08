@@ -18,7 +18,7 @@ const Cart = ({ isAuthenticated, products, getCart }: CartProps) => {
 
   return (
     <>
-      {products.length ? (
+      {products && products.length ? (
         <Background className={classes.background}>
           <div>
             <h1 className={classes.annotation}>Proceed to Buy</h1>
