@@ -112,6 +112,7 @@ const SignUpButton = ({ onClick }: ButtonProps) => {
         variant={"contained"}
         color={"primary"}
         onClick={onClick}
+        type={"submit"}
       >
         Sign Up
       </Button>

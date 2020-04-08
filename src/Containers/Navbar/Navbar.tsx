@@ -27,7 +27,7 @@ const Navbar = ({ isAuthenticated, cart }: NavbarProps) => {
                 >
                   Profile
                 </NavItem>
-                <Cart cartItems={cart.products.length} />
+                <Cart cartItems={cart ? cart.products.length : 0} />
               </>
             ) : (
               <>
