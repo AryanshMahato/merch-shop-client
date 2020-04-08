@@ -20,8 +20,10 @@ const Cart = ({ isAuthenticated, products, getCart }: CartProps) => {
     <>
       {products.length ? (
         <Background className={classes.background}>
-          <h1 className={classes.annotation}>Proceed to Buy</h1>
-          <CartItems />
+          <div>
+            <h1 className={classes.annotation}>Proceed to Buy</h1>
+            <CartItems />
+          </div>
           <PriceDetails />
         </Background>
       ) : (
