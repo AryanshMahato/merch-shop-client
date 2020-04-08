@@ -27,9 +27,8 @@ export const addToCart = (productId: string) => async (
     if (response.status === 200) {
       const response = await fetchCart(getState().user.authToken);
       const products = response.data.cart.products;
+
       dispatch({ type: ActionTypes.GET_CART, products: products });
-    } else {
-      dispatch({ type: ActionTypes.SET_ERROR, error: "Some Error Occurred" });
     }
   } catch (e) {
     console.log(e.response.data);
