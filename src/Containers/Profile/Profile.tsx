@@ -7,7 +7,7 @@ const Profile = ({ userData, isAuthenticated }: ProfileProps) => {
   return (
     <div>
       {isAuthenticated ? null : <div>You are not Authenticated</div>}
-      <UserLogo name={userData.name} />
+      <UserLogo name={userData.name} email={userData.email} />
     </div>
   );
 };
