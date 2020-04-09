@@ -13,4 +13,12 @@ interface ICategory {
   name: string;
 }
 
-export { IProduct };
+interface IUserData {
+  role: number;
+  orders: Array<IProduct>;
+  _id: string;
+  name: string;
+  email: string;
+}
+
+export { IProduct, ICategory, IUserData };

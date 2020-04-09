@@ -5,7 +5,7 @@ import Product from "./Pages/productPage";
 import CartPage from "./Pages/cartPage";
 import Order from "./Pages/order";
 import PageNotFound from "./Pages/pageNotFound";
-import Profile from "./Pages/profile";
+import ProfilePage from "./Pages/profilePage";
 import SignInPage from "./Pages/signInPage";
 import SignUpPage from "./Pages/signUpPage";
 import SignOut from "./Pages/signOutPage";
@@ -45,7 +45,7 @@ const Routes = () => {
           <SignOut />
         </Route>
         <Route path={"/profile"} exact>
-          <Profile />
+          <ProfilePage />
         </Route>
         <Route path={"/order"} exact>
           <Order />
