@@ -3,7 +3,7 @@ import { IProduct } from "../../../types/Store";
 import { connect } from "react-redux";
 import styles from "./PriceDetails.styles";
 import { Divider } from "@material-ui/core";
-import { ProceedForPaymentButton } from "../../Global/Button/Buttons";
+import Checkout from "../../Containers/Checkout/Checkout";
 
 const PriceDetails = ({ products }: PriceDetailsProps) => {
   const classes = styles();
@@ -34,7 +34,7 @@ const PriceDetails = ({ products }: PriceDetailsProps) => {
           <span style={{ fontWeight: "bold" }}>$</span>1
         </p>
       </div>
-      <ProceedForPaymentButton />
+      <Checkout price={calcTotalPrice()} />
     </div>
   );
 };
