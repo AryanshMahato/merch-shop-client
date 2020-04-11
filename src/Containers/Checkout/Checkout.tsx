@@ -4,6 +4,7 @@ import { ProceedForPaymentButton } from "../../Global/Button/Buttons";
 import styles from "./Checkout.styles";
 import { purchaseCart } from "../../Store/Action/Order";
 import { connect } from "react-redux";
+import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen";
 
 const Checkout = ({ price, purchaseCart, userEmail }: CheckoutProps) => {
   const classes = styles();
@@ -13,16 +14,19 @@ const Checkout = ({ price, purchaseCart, userEmail }: CheckoutProps) => {
   };
 
   return (
-    <div className={classes.root}>
-      <StripeCheckout
-        stripeKey={process.env.REACT_APP_STRIPE_KEY!}
-        token={onToken}
-        amount={price * 100}
-        email={userEmail}
-      >
-        <ProceedForPaymentButton />
-      </StripeCheckout>
-    </div>
+    <>
+      <LoadingScreen />
+      <div className={classes.root}>
+        <StripeCheckout
+          stripeKey={process.env.REACT_APP_STRIPE_KEY!}
+          token={onToken}
+          amount={price * 100}
+          email={userEmail}
+        >
+          <ProceedForPaymentButton />
+        </StripeCheckout>
+      </div>
+    </>
   );
 };
 
