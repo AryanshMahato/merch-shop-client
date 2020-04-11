@@ -12,8 +12,6 @@ const App = ({ getUserData, getCart, isAuthenticated }: AppProps) => {
     getCart();
   }, [isAuthenticated]);
 
-  console.log(isAuthenticated);
-
   return (
     <>
       <LoadingScreen />

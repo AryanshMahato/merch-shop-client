@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import ProductsPage from "./Pages/productsPage";
 import Product from "./Pages/productPage";
 import CartPage from "./Pages/cartPage";
-import Order from "./Pages/order";
+import OrderPage from "./Pages/orderPage";
 import PageNotFound from "./Pages/pageNotFound";
 import ProfilePage from "./Pages/profilePage";
 import SignInPage from "./Pages/signInPage";
@@ -48,7 +48,7 @@ const Routes = () => {
           <ProfilePage />
         </Route>
         <Route path={"/order"} exact>
-          <Order />
+          <OrderPage />
         </Route>
         <Route path={"/cart"} exact>
           <CartPage />
