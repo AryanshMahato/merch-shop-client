@@ -5,8 +5,15 @@ import styles from "./Checkout.styles";
 import { purchaseCart } from "../../Store/Action/Order";
 import { connect } from "react-redux";
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen";
+import { Redirect } from "react-router-dom";
 
-const Checkout = ({ price, purchaseCart, userEmail }: CheckoutProps) => {
+const Checkout = ({
+  price,
+  purchaseCart,
+  userEmail,
+  isLoading,
+  purchaseCompleted
+}: CheckoutProps) => {
   const classes = styles();
 
   const onToken = (token: any) => {
@@ -15,6 +22,7 @@ const Checkout = ({ price, purchaseCart, userEmail }: CheckoutProps) => {
 
   return (
     <>
+      {purchaseCompleted && !isLoading ? <Redirect to={"/order"} /> : null}
       <LoadingScreen />
       <div className={classes.root}>
         <StripeCheckout
@@ -33,12 +41,16 @@ const Checkout = ({ price, purchaseCart, userEmail }: CheckoutProps) => {
 interface CheckoutProps {
   price: number;
   userEmail: string;
+  isLoading: boolean;
+  purchaseCompleted: boolean;
   purchaseCart: (token: any) => void;
 }
 
 const mapStateToProps = (state: any) => {
   return {
-    userEmail: state.user.data.email
+    userEmail: state.user.data.email,
+    isLoading: state.core.isLoading,
+    purchaseCompleted: state.core.purchaseCompleted
   };
 };
 
