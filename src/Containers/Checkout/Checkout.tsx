@@ -2,12 +2,14 @@ import React from "react";
 import StripeCheckout from "react-stripe-checkout";
 import { ProceedForPaymentButton } from "../../Global/Button/Buttons";
 import styles from "./Checkout.styles";
+import { purchaseCart } from "../../Store/Action/Order";
+import { connect } from "react-redux";
 
-const Checkout = ({ price }: CheckoutProps) => {
+const Checkout = ({ price, purchaseCart }: CheckoutProps) => {
   const classes = styles();
 
-  const onToken = () => {
-    console.log("Payment Successful");
+  const onToken = (token: any) => {
+    purchaseCart(token);
   };
 
   return (
@@ -25,6 +27,9 @@ const Checkout = ({ price }: CheckoutProps) => {
 
 interface CheckoutProps {
   price: number;
+  purchaseCart: (token: any) => void;
 }
 
-export default Checkout;
+const mapDispatchToProps = { purchaseCart };
+
+export default connect(null, mapDispatchToProps)(Checkout);
