@@ -3,6 +3,7 @@ import { IProduct } from "../../../types/Store";
 import OrderItems from "../../Components/OrderItems/OrderItems";
 import Background from "../../Components/Background/Background";
 import styles from "./Orders.styles";
+import { connect } from "react-redux";
 
 const Orders = ({ success, products }: OrdersProps) => {
   const classes = styles();
@@ -28,4 +29,10 @@ interface OrdersProps {
   products: Array<IProduct>;
 }
 
-export default Orders;
+const mapStateToProps = (state: any) => {
+  return {
+    success: state.orders.success
+  };
+};
+
+export default connect(mapStateToProps)(Orders);

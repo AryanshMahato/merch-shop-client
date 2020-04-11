@@ -3,18 +3,16 @@ import Orders from "../Containers/Orders/Orders";
 import { connect } from "react-redux";
 import { IProduct } from "../../types/Store";
 
-const OrderPage = ({ orderedProducts, success }: OrderPageProps) => {
-  return <Orders success={success} products={orderedProducts} />;
+const OrderPage = ({ orderedProducts }: OrderPageProps) => {
+  return <Orders products={orderedProducts} />;
 };
 
 interface OrderPageProps {
   orderedProducts: Array<IProduct>;
-  success: boolean;
 }
 
 const mapStateToProps = (state: any) => {
   return {
-    success: state.orders.status,
     orderedProducts: state.orders.products
   };
 };

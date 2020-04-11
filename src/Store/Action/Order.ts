@@ -15,7 +15,7 @@ const purchaseCart = (token: any) => async (dispatch: any, getState: any) => {
     dispatch({
       type: ActionTypes.PURCHASE,
       success: true,
-      products: response.data.products
+      products: response.data.order.products
     });
   } catch (e) {
     dispatch({
