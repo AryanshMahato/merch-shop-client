@@ -9,7 +9,9 @@ const ActionTypes = {
   SIGN_UP_ERROR: "SIGN_UP_ERROR",
   SET_ERROR: "SET_ERROR",
   IS_LOADING: "IS_LOADING",
-  GET_CART: "GET_CART"
+  GET_CART: "GET_CART",
+  PURCHASE: "PURCHASE",
+  CLEAR_CART: "CLEAR_CART"
 };
 
 export default ActionTypes;

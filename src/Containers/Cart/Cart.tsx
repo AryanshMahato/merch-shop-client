@@ -6,8 +6,15 @@ import CartItems from "../../Components/CartItems/CartItems";
 import { getCart } from "../../Store/Action/Cart";
 import Background from "../../Components/Background/Background";
 import PriceDetails from "../../Components/PriceDetails/PriceDetails";
+import { Redirect } from "react-router-dom";
 
-const Cart = ({ isAuthenticated, products, getCart }: CartProps) => {
+const Cart = ({
+  isAuthenticated,
+  products,
+  getCart,
+  isLoading,
+  purchaseCompleted
+}: CartProps) => {
   const classes = styles();
 
   useEffect(() => {
@@ -16,8 +23,12 @@ const Cart = ({ isAuthenticated, products, getCart }: CartProps) => {
 
   if (!isAuthenticated) return <div>You are not Authenticated</div>;
 
+  console.log(purchaseCompleted, isLoading);
+
   return (
     <>
+      {purchaseCompleted && !isLoading ? <Redirect to={"/order"} /> : null}
+
       {products && products.length ? (
         <Background className={classes.background}>
           <div>
@@ -37,12 +48,16 @@ interface CartProps {
   isAuthenticated: boolean;
   products: Array<any>;
   getCart: () => void;
+  isLoading: boolean;
+  purchaseCompleted: boolean;
 }
 
 const mapStateToProps = (state: any) => {
   return {
     isAuthenticated: state.user.authenticated,
-    products: state.cart?.products
+    products: state.cart?.products,
+    isLoading: state.core.isLoading,
+    purchaseCompleted: state.orders.purchaseCompleted
   };
 };
 

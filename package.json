@@ -28,7 +28,8 @@
     "formik": "^2.1.4",
     "yup": "^0.28.3",
     "@types/yup": "^0.26.34",
-    "formik-material-ui": "^2.0.0-beta.1"
+    "formik-material-ui": "^2.0.0-beta.1",
+    "react-stripe-checkout": "^2.6.3"
   },
   "scripts": {
     "start": "react-scripts start",
