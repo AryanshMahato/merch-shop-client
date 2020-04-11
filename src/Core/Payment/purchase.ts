@@ -4,8 +4,7 @@ const purchase = (stripeToken: any, authToken: string) => {
   return mAxios.post(
     "/order/create",
     {
-      token: [stripeToken],
-      transactionId: "ljkdflkasjlnflasjdf3029djf"
+      token: stripeToken.id
     },
     {
       headers: {

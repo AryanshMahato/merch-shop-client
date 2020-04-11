@@ -5,7 +5,7 @@ import styles from "./Checkout.styles";
 import { purchaseCart } from "../../Store/Action/Order";
 import { connect } from "react-redux";
 
-const Checkout = ({ price, purchaseCart }: CheckoutProps) => {
+const Checkout = ({ price, purchaseCart, userEmail }: CheckoutProps) => {
   const classes = styles();
 
   const onToken = (token: any) => {
@@ -18,6 +18,7 @@ const Checkout = ({ price, purchaseCart }: CheckoutProps) => {
         stripeKey={process.env.REACT_APP_STRIPE_KEY!}
         token={onToken}
         amount={price * 100}
+        email={userEmail}
       >
         <ProceedForPaymentButton />
       </StripeCheckout>
@@ -27,9 +28,16 @@ const Checkout = ({ price, purchaseCart }: CheckoutProps) => {
 
 interface CheckoutProps {
   price: number;
+  userEmail: string;
   purchaseCart: (token: any) => void;
 }
 
+const mapStateToProps = (state: any) => {
+  return {
+    userEmail: state.user.data.email
+  };
+};
+
 const mapDispatchToProps = { purchaseCart };
 
-export default connect(null, mapDispatchToProps)(Checkout);
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

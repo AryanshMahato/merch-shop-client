@@ -34,6 +34,7 @@ export const addToCart = (productId: string) => async (
     dispatch({ type: ActionTypes.SET_ERROR, error: "Some Error Occurred" });
   }
 };
+
 export const deleteItemInCart = (productId: string) => async (
   dispatch: any,
   getState: any
