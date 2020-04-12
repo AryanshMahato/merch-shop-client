@@ -20,7 +20,6 @@ let appReducers = combineReducers({
 
 const rootReducer = (state: any, action: any) => {
   if (action.type === ActionTypes.SIGN_OUT) {
-    console.log("hello");
     state = { product: state.product };
   }
   return appReducers(state, action);
