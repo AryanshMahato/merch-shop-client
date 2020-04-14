@@ -23,8 +23,6 @@ const Cart = ({
 
   if (!isAuthenticated) return <div>You are not Authenticated</div>;
 
-  console.log(purchaseCompleted, isLoading);
-
   return (
     <>
       {purchaseCompleted && !isLoading ? <Redirect to={"/order"} /> : null}

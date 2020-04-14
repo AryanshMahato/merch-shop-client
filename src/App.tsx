@@ -5,15 +5,29 @@ import { connect } from "react-redux";
 import { getUserData } from "./Store/Action/User";
 import LoadingScreen from "./Components/LoadingScreen/LoadingScreen";
 import { getCart } from "./Store/Action/Cart";
+import { createBrowserHistory } from "history";
+import { Redirect } from "react-router-dom";
 
-const App = ({ getUserData, getCart, isAuthenticated }: AppProps) => {
+const App = ({
+  getUserData,
+  getCart,
+  isAuthenticated,
+  jwtExpired
+}: AppProps) => {
   useEffect(() => {
     getUserData();
     getCart();
   }, [isAuthenticated]);
 
+  const history = createBrowserHistory();
+
+  const isAuthPage =
+    history.location.pathname === "sign-in" ||
+    history.location.pathname === "sign-up";
+
   return (
     <>
+      {isAuthPage || jwtExpired ? <Redirect to={"/sign-in"} /> : null}
       <LoadingScreen />
       <Navbar />
       <Routes />
@@ -25,11 +39,13 @@ interface AppProps {
   getUserData: () => void;
   getCart: () => void;
   isAuthenticated: boolean;
+  jwtExpired: boolean;
 }
 
 const mapStateToProps = (state: any) => {
   return {
-    isAuthenticated: state.user?.authenticated
+    isAuthenticated: state.user?.authenticated,
+    jwtExpired: state.user?.jwtExpired
   };
 };
 

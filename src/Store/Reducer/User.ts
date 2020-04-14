@@ -4,6 +4,7 @@ import { getToken } from "../../Core/Auth/TokenHandlers/TokenHandlers";
 const initialState = {
   data: { name: "", email: "", _id: "" },
   authenticated: false,
+  jwtExpired: false,
   signInError: {
     email: "",
     password: ""
@@ -23,7 +24,8 @@ const userReducer = (state = initialState, action: any) => {
         ...state,
         ...action.user,
         authToken: getToken(),
-        authenticated: action.authenticated
+        authenticated: action.authenticated,
+        jwtExpired: false
       };
     case ActionTypes.SIGN_IN_ERROR:
       return {
@@ -50,7 +52,8 @@ const userReducer = (state = initialState, action: any) => {
         ...state,
         authToken: getToken(),
         data: { ...action.user },
-        authenticated: true
+        authenticated: true,
+        jwtExpired: false
       };
     case ActionTypes.SIGN_UP_ERROR:
       return {
@@ -58,6 +61,12 @@ const userReducer = (state = initialState, action: any) => {
         authToken: getToken(),
         signUpError: action.signUpError,
         authenticated: action.authenticated
+      };
+    case ActionTypes.JWT_EXPIRED:
+      return {
+        ...state,
+        jwtExpired: true,
+        authToken: ""
       };
 
     default:
