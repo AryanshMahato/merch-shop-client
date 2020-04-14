@@ -14,6 +14,7 @@ export const getCart = () => async (dispatch: any, getState: any) => {
       dispatch({ type: ActionTypes.GET_CART, products: products });
       dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
     }
+    dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
   } catch (e) {
     console.error(e.response);
     dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });

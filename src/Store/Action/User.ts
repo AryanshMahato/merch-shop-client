@@ -88,6 +88,7 @@ export const getUserData = () => async (dispatch: any, getState: any) => {
       dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
       dispatch({ type: ActionTypes.LOAD_USER, user: userData });
     }
+    dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
   } catch (e) {
     if (e.response.message === "jwt expired") {
       dispatch({ type: ActionTypes.JWT_EXPIRED });
