@@ -12,7 +12,8 @@ const ActionTypes = {
   GET_CART: "GET_CART",
   PURCHASE: "PURCHASE",
   CLEAR_CART: "CLEAR_CART",
-  JWT_EXPIRED: "JWT_EXPIRED"
+  JWT_EXPIRED: "JWT_EXPIRED",
+  GET_ORDERS: "GET_ORDERS"
 };
 
 export default ActionTypes;
