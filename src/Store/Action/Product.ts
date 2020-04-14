@@ -15,6 +15,7 @@ export function getProducts() {
         error: "No Product Found"
       });
     } else {
+      dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
       dispatch({ type: ActionTypes.FETCH_PRODUCTS, products });
     }
   };
