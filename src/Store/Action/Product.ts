@@ -5,37 +5,48 @@ import fetchProduct from "../../Core/Product/fetchProduct";
 
 export function getProducts() {
   return async (dispatch: any) => {
-    const products: Array<IProduct> = await fetchProducts();
+    try {
+      dispatch({ type: ActionTypes.IS_LOADING, isLoading: true });
 
-    dispatch({ type: ActionTypes.IS_LOADING, isLoading: true });
+      const products: Array<IProduct> = await fetchProducts();
 
-    if (products?.length === 0) {
-      dispatch({
-        type: ActionTypes.SET_ERROR,
-        error: "No Product Found"
-      });
-    } else {
       dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
-      dispatch({ type: ActionTypes.FETCH_PRODUCTS, products });
+
+      if (products?.length === 0) {
+        dispatch({
+          type: ActionTypes.SET_ERROR,
+          error: "No Product Found"
+        });
+      } else {
+        dispatch({ type: ActionTypes.FETCH_PRODUCTS, products });
+      }
+    } catch (e) {
+      console.error(e);
+      dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
     }
   };
 }
 
 export function getProduct(id: string) {
   return async (dispatch: any) => {
-    dispatch({ type: ActionTypes.IS_LOADING, isLoading: true });
+    try {
+      dispatch({ type: ActionTypes.IS_LOADING, isLoading: true });
 
-    const product: IProduct = await fetchProduct(id);
-    if (!product) {
-      dispatch({
-        type: ActionTypes.SET_ERROR,
-        error: "No Product Found"
-      });
-      dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
-    } else {
+      const product: IProduct = await fetchProduct(id);
+
       dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
 
-      dispatch({ type: ActionTypes.FETCH_PRODUCT, product: product });
+      if (!product) {
+        dispatch({
+          type: ActionTypes.SET_ERROR,
+          error: "No Product Found"
+        });
+      } else {
+        dispatch({ type: ActionTypes.FETCH_PRODUCT, product: product });
+      }
+    } catch (e) {
+      console.error(e);
+      dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
     }
   };
 }
