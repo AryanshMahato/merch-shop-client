@@ -58,7 +58,9 @@ export const deleteItemInCart = (productId: string) => async (
       const response = await fetchCart(getState().user.authToken);
       const products = response.data.cart.products;
       dispatch({ type: ActionTypes.GET_CART, products: products });
+      dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
     } else {
+      dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
       dispatch({ type: ActionTypes.SET_ERROR, error: "Some Error Occurred" });
     }
   } catch (e) {
