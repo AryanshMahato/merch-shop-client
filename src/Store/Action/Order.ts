@@ -46,13 +46,14 @@ const buyNow = (token: any, productId: string) => async (
     dispatch({
       type: ActionTypes.PURCHASE,
       success: true,
-      products: response.data.order.product
+      product: response.data.order.product
     });
   } catch (e) {
+    console.log(e);
     dispatch({
       type: ActionTypes.PURCHASE,
       success: false,
-      products: e.response.products
+      product: e.response.product
     });
     dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
   }

@@ -4,6 +4,7 @@ import styles from "./OrderItem.styles";
 
 const OrderItem = ({ product }: OrderItemProps) => {
   const classes = styles();
+  console.log(product);
   return (
     <div className={classes.root}>
       <img

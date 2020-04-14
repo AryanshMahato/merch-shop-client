@@ -3,6 +3,7 @@ import ActionTypes from "../Action/ActionTypes";
 const initialState = {
   success: false,
   purchaseCompleted: false,
+  product: {},
   products: [],
   historyProducts: []
 };
@@ -14,7 +15,8 @@ const ordersReducer = (state = initialState, action: any) => {
         ...state,
         purchaseCompleted: true,
         success: action.success,
-        products: [...action.products]
+        product: action.product,
+        products: action.products || []
       };
     case ActionTypes.GET_ORDERS:
       return {

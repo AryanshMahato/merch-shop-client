@@ -7,9 +7,17 @@ import ProductActionButtons from "../../Components/ProductActionButtons/ProductA
 import ProductInfo from "../../Components/ProductInfo/ProductInfo";
 import styles from "./Product.styles";
 import { addToCart } from "../../Store/Action/Cart";
+import { Redirect } from "react-router-dom";
 
 //? Main Function
-const Product = ({ id, getProduct, product, addToCart }: ProductProps) => {
+const Product = ({
+  id,
+  getProduct,
+  product,
+  addToCart,
+  isLoading,
+  purchaseCompleted
+}: ProductProps) => {
   const classes = styles();
 
   useEffect(() => {
@@ -20,29 +28,32 @@ const Product = ({ id, getProduct, product, addToCart }: ProductProps) => {
     addToCart(id);
   };
 
-
   //? JSX Return
   if (product.name)
     return (
-      <div className={classes.root}>
-        <div className={classes.leftPart}>
-          <ProductImage
-            imageLink={process.env.REACT_APP_STATIC_LINK + product.imageName}
-          />
-          <ProductActionButtons
-            addToCartClicked={addToCartClicked}
-            product={product}
-          />
+      <>
+        {purchaseCompleted && !isLoading ? <Redirect to={"/order"} /> : null}
+
+        <div className={classes.root}>
+          <div className={classes.leftPart}>
+            <ProductImage
+              imageLink={process.env.REACT_APP_STATIC_LINK + product.imageName}
+            />
+            <ProductActionButtons
+              addToCartClicked={addToCartClicked}
+              product={product}
+            />
+          </div>
+          <div className={classes.rightPart}>
+            <ProductInfo
+              name={product.name}
+              price={product.price}
+              category={product.category.name}
+              description={product.description}
+            />
+          </div>
         </div>
-        <div className={classes.rightPart}>
-          <ProductInfo
-            name={product.name}
-            price={product.price}
-            category={product.category.name}
-            description={product.description}
-          />
-        </div>
-      </div>
+      </>
     );
   else return <></>;
 };
@@ -52,11 +63,15 @@ interface ProductProps {
   getProduct: (id: string) => void;
   product: IProduct;
   addToCart: (productId: string) => void;
+  isLoading: boolean;
+  purchaseCompleted: boolean;
 }
 
 function mapStateToProps(state: any) {
   return {
-    product: state.product.product
+    product: state.product.product,
+    isLoading: state.core.isLoading,
+    purchaseCompleted: state.orders.purchaseCompleted
   };
 }
 

@@ -5,7 +5,7 @@ import Background from "../../Components/Background/Background";
 import styles from "./Orders.styles";
 import { connect } from "react-redux";
 
-const Orders = ({ success, products }: OrdersProps) => {
+const Orders = ({ success, products, product }: OrdersProps) => {
   const classes = styles();
 
   return (
@@ -19,7 +19,7 @@ const Orders = ({ success, products }: OrdersProps) => {
           Order Failed!
         </h1>
       )}
-      <OrderItems products={products} />
+      <OrderItems products={products} singleProduct={product} />
     </Background>
   );
 };
@@ -27,6 +27,7 @@ const Orders = ({ success, products }: OrdersProps) => {
 interface OrdersProps {
   success: boolean;
   products: Array<IProduct>;
+  product: IProduct;
 }
 
 const mapStateToProps = (state: any) => {
