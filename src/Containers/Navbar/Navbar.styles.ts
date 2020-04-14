@@ -28,6 +28,9 @@ const styles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.down("xs")]: {
       display: "none"
     }
+  },
+  bottomMargin: {
+    marginBottom: "100px"
   }
 }));
 

@@ -70,11 +70,10 @@ export function setSignInError(error: boolean) {
 }
 
 export const signOutUser = () => (dispatch: any) => {
-  dispatch({ type: ActionTypes.IS_LOADING, isLoading: true });
-
   localStorage.removeItem("AUTH_TOKEN");
 
   dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
+
   dispatch({ type: ActionTypes.SIGN_OUT });
 };
 
@@ -89,6 +88,7 @@ export const getUserData = () => async (dispatch: any, getState: any) => {
       dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
       dispatch({ type: ActionTypes.LOAD_USER, user: userData });
     }
+    dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
   } catch (e) {
     if (e.response.message === "jwt expired") {
       dispatch({ type: ActionTypes.JWT_EXPIRED });

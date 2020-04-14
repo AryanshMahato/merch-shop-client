@@ -8,9 +8,9 @@ const ProfileButtons = () => {
 
   return (
     <div className={classes.root}>
-      <Link to={"/profile"} className={classes.orders}>
+      <a href={"#orders"} className={classes.orders}>
         Orders
-      </Link>
+      </a>
       <Divider className={classes.divider} />
       <Link to={"/log-out"} className={classes.logOut}>
         Log Out
