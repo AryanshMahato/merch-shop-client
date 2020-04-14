@@ -9,7 +9,7 @@ const OrderHistory = ({ orderedProducts }: OrderHistoryProps) => {
   const classes = styles();
 
   return (
-    <Background maxWidth={"850px"} className={classes.root}>
+    <Background maxWidth={"850px"} className={classes.root} id={"orders"}>
       <OrderItems products={orderedProducts} />
     </Background>
   );
