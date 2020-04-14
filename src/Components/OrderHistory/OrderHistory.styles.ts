@@ -6,6 +6,18 @@ const styles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.down("md")]: {
       marginLeft: 0
     }
+  },
+  noProductFound: {
+    height: "100%",
+    width: "100%",
+    display: "flex",
+    flexFlow: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    "&>*": {
+      margin: "2rem 0",
+      textDecoration: "none"
+    }
   }
 }));
 
