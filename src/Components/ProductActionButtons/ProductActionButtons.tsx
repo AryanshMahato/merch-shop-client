@@ -1,23 +1,25 @@
 import React from "react";
-import { AddToCartButton, BuyNowButton } from "../../Global/Button/Buttons";
+import { AddToCartButton } from "../../Global/Button/Buttons";
 import styles from "./ProductActionButtons.styles";
+import { IProduct } from "../../../types/Store";
+import BuyNow from "../../Containers/BuyNow/BuyNow";
 
 const ProductActionButtons = ({
   addToCartClicked,
-  buyNowClicked
+  product
 }: ProductActionButtonsProps) => {
   const classes = styles();
   return (
     <div className={classes.root}>
       <AddToCartButton onClick={addToCartClicked} />
-      <BuyNowButton onClick={buyNowClicked} />
+      <BuyNow product={product} />
     </div>
   );
 };
 
 interface ProductActionButtonsProps {
   addToCartClicked: () => void;
-  buyNowClicked: () => void;
+  product: IProduct;
 }
 
 export default ProductActionButtons;

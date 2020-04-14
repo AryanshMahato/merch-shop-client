@@ -20,9 +20,6 @@ const Product = ({ id, getProduct, product, addToCart }: ProductProps) => {
     addToCart(id);
   };
 
-  const buyNowClicked = () => {
-    console.log("Buy Now Clicked Clicked", id);
-  };
 
   //? JSX Return
   if (product.name)
@@ -34,7 +31,7 @@ const Product = ({ id, getProduct, product, addToCart }: ProductProps) => {
           />
           <ProductActionButtons
             addToCartClicked={addToCartClicked}
-            buyNowClicked={buyNowClicked}
+            product={product}
           />
         </div>
         <div className={classes.rightPart}>
