@@ -5,17 +5,22 @@ import { IUserData } from "../../../types/Store";
 import ProfileButtons from "../../Components/ProfileButtons/ProfileButtons";
 import OrderHistory from "../../Components/OrderHistory/OrderHistory";
 import { getOrders } from "../../Store/Action/Order";
+import styles from "./Profile.styles";
 
 const Profile = ({ userData, isAuthenticated, getOrders }: ProfileProps) => {
+  const classes = styles();
+
   useEffect(() => {
     getOrders();
   }, []);
 
   return (
-    <div>
+    <div className={classes.root}>
       {isAuthenticated ? null : <div>You are not Authenticated</div>}
-      <UserLogo name={userData.name} email={userData.email} />
-      <ProfileButtons />
+      <div className={classes.leftPane}>
+        <UserLogo name={userData.name} email={userData.email} />
+        <ProfileButtons />
+      </div>
       <OrderHistory />
     </div>
   );

@@ -5,7 +5,7 @@ const styles = makeStyles(() => ({
     background: "white",
     display: "flex",
     flexFlow: "column",
-    maxWidth: 250,
+    width: 250,
     alignItems: "center",
     height: 100,
     justifyContent: "space-evenly",

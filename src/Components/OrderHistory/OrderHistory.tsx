@@ -3,10 +3,13 @@ import { connect } from "react-redux";
 import OrderItems from "../OrderItems/OrderItems";
 import { IProduct } from "../../../types/Store";
 import Background from "../Background/Background";
+import styles from "./OrderHistory.styles";
 
 const OrderHistory = ({ orderedProducts }: OrderHistoryProps) => {
+  const classes = styles();
+
   return (
-    <Background>
+    <Background maxWidth={"850px"} className={classes.root}>
       <OrderItems products={orderedProducts} />
     </Background>
   );
