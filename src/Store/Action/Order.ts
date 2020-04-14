@@ -46,7 +46,7 @@ const buyNow = (token: any, productId: string) => async (
     dispatch({
       type: ActionTypes.PURCHASE,
       success: true,
-      products: response.data.order.products
+      products: response.data.order.product
     });
   } catch (e) {
     dispatch({
