@@ -7,6 +7,8 @@ import signUp from "../../Core/Auth/SignUp";
 export function signInUser(email: string, password: string) {
   return async (dispatch: any) => {
     try {
+      dispatch({ type: ActionTypes.IS_LOADING, isLoading: true });
+
       const user = await signIn(email, password);
       user.message = undefined;
 
@@ -16,7 +18,10 @@ export function signInUser(email: string, password: string) {
       user.token = undefined;
 
       dispatch({ type: ActionTypes.SIGN_IN, user, authenticated: true });
+      dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
     } catch (e) {
+      dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
+
       switch (e.response.data.message) {
         case "User not found":
           dispatch({
@@ -65,20 +70,28 @@ export function setSignInError(error: boolean) {
 }
 
 export const signOutUser = () => (dispatch: any) => {
+  dispatch({ type: ActionTypes.IS_LOADING, isLoading: true });
+
   localStorage.removeItem("AUTH_TOKEN");
 
+  dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
   dispatch({ type: ActionTypes.SIGN_OUT });
 };
 
 export const getUserData = () => async (dispatch: any, getState: any) => {
   try {
+    dispatch({ type: ActionTypes.IS_LOADING, isLoading: true });
+
     if (getState().user.authToken) {
       const response = await getUser(getState().user.authToken);
       const userData = response.data.user;
 
+      dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
       dispatch({ type: ActionTypes.LOAD_USER, user: userData });
     }
   } catch (e) {
+    dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
+
     console.error(e.response);
   }
 };
@@ -88,6 +101,8 @@ export const signUpUser = (
   email: string,
   password: string
 ) => async (dispatch: any) => {
+  dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
+
   const user = await signUp(name, email, password);
   user.message = undefined;
 
@@ -96,5 +111,6 @@ export const signUpUser = (
 
   user.token = undefined;
 
+  dispatch({ type: ActionTypes.IS_LOADING, isLoading: false });
   dispatch({ type: ActionTypes.SIGN_UP, user, authenticated: true });
 };
