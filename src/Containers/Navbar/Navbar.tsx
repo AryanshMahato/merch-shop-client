@@ -11,42 +11,45 @@ const Navbar = ({ isAuthenticated, cart }: NavbarProps) => {
   const classes = styles();
   // JSX Return
   return (
-    <AppBar position="static" className={classes.root} elevation={2}>
-      <Toolbar className={classes.toolbar}>
-        <div className={classes.navBar}>
-          <div>
-            <Logo />
+    <>
+      <AppBar position="fixed" className={classes.root} elevation={2}>
+        <Toolbar className={classes.toolbar}>
+          <div className={classes.navBar}>
+            <div>
+              <Logo />
+            </div>
+            <div className={classes.navItems}>
+              {isAuthenticated ? (
+                <>
+                  <NavItem
+                    link={"/profile"}
+                    leftHoverItem={{ name: "Profile", link: "/profile" }}
+                    rightHoverItem={{ name: "Log Out", link: "/log-out" }}
+                  >
+                    Profile
+                  </NavItem>
+                  <Cart
+                    cartItems={cart && cart.products ? cart.products.length : 0}
+                  />
+                </>
+              ) : (
+                <>
+                  <NavItem
+                    link={"/log-in"}
+                    leftHoverItem={{ name: "Login", link: "/log-in" }}
+                    rightHoverItem={{ name: "Sign Up", link: "/sign-up" }}
+                  >
+                    Login
+                  </NavItem>
+                  <Cart cartItems={0} />
+                </>
+              )}
+            </div>
           </div>
-          <div className={classes.navItems}>
-            {isAuthenticated ? (
-              <>
-                <NavItem
-                  link={"/profile"}
-                  leftHoverItem={{ name: "Profile", link: "/profile" }}
-                  rightHoverItem={{ name: "Log Out", link: "/log-out" }}
-                >
-                  Profile
-                </NavItem>
-                <Cart
-                  cartItems={cart && cart.products ? cart.products.length : 0}
-                />
-              </>
-            ) : (
-              <>
-                <NavItem
-                  link={"/log-in"}
-                  leftHoverItem={{ name: "Login", link: "/log-in" }}
-                  rightHoverItem={{ name: "Sign Up", link: "/sign-up" }}
-                >
-                  Login
-                </NavItem>
-                <Cart cartItems={0} />
-              </>
-            )}
-          </div>
-        </div>
-      </Toolbar>
-    </AppBar>
+        </Toolbar>
+      </AppBar>
+      <div className={classes.bottomMargin} />
+    </>
   );
 };
 
