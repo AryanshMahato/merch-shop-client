@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import Category from "../../Components/AdminHeader/Category";
 import Background from "../../Components/Background/Background";
 import styles from "./AdminCategory.styles";
-import { getCategories } from "../../Store/Action/Category";
+import { createCategory, getCategories } from "../../Store/Action/Category";
 import { connect } from "react-redux";
 import CategoryList from "../CategoryList/CategoryList";
 import NewCategory from "../../Components/NewCategory/NewCategory";
 
-const AdminCategory = ({ getCategories }: AdminCategoryProps) => {
+const AdminCategory = ({
+  getCategories,
+  createCategory
+}: AdminCategoryProps) => {
   const classes = styles();
 
   useEffect(() => {
@@ -18,6 +21,7 @@ const AdminCategory = ({ getCategories }: AdminCategoryProps) => {
 
   const saveClicked = (value: string) => {
     setShowModal(false);
+    createCategory(value);
   };
 
   return (
@@ -39,8 +43,9 @@ const AdminCategory = ({ getCategories }: AdminCategoryProps) => {
 
 interface AdminCategoryProps {
   getCategories: () => void;
+  createCategory: (category: string) => void;
 }
 
-const mapDispatchToProps = { getCategories };
+const mapDispatchToProps = { getCategories, createCategory };
 
 export default connect(null, mapDispatchToProps)(AdminCategory);
