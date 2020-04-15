@@ -5,6 +5,7 @@ import {
   CancelButton,
   DeleteButton,
   EditButton,
+  NewButton,
   SaveButton
 } from "../Global/Button/Buttons";
 
@@ -19,6 +20,7 @@ const AdminCategory = ({ userData }: AdminCategoryProps) => {
           <CancelButton />
           <DeleteButton />
           <EditButton />
+          <NewButton>New Category</NewButton>
         </>
       )}
     </>

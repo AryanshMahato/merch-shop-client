@@ -62,6 +62,14 @@ const StyledButton = makeStyles(() =>
         height: "28px",
         width: "28px"
       }
+    },
+    newButton: {
+      fontSize: "1.2rem",
+      backgroundColor: "#2ECC72",
+      color: "#fff",
+      "&:hover": {
+        backgroundColor: "#2dbe66"
+      }
     }
   })
 );

@@ -7,6 +7,7 @@ import { GoPencil } from "react-icons/go";
 interface ButtonProps {
   onClick?: () => void;
   className?: string;
+  children?: React.ReactNode;
 }
 
 const AddToCartButton = ({ onClick }: ButtonProps) => {
@@ -83,6 +84,22 @@ const SaveButton = ({ onClick }: ButtonProps) => {
         onClick={onClick}
       >
         Save
+      </Button>
+    </>
+  );
+};
+
+const NewButton = ({ onClick, children }: ButtonProps) => {
+  const classes = styles();
+  return (
+    <>
+      <Button
+        className={classes.button + " " + classes.newButton}
+        variant={"contained"}
+        color={"primary"}
+        onClick={onClick}
+      >
+        {children}
       </Button>
     </>
   );
@@ -196,5 +213,6 @@ export {
   BrowseMoreProductsButton,
   CancelButton,
   DeleteButton,
-  EditButton
+  EditButton,
+  NewButton
 };
