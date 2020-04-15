@@ -4,9 +4,13 @@ import styles from "./CategoryItems.styles";
 import { DeleteButton, EditButton } from "../../Global/Button/Buttons";
 import UpdateCategory from "../UpdateCategory/UpdateCategory";
 import { connect } from "react-redux";
-import { updateCategory } from "../../Store/Action/Category";
+import { deleteCategory, updateCategory } from "../../Store/Action/Category";
 
-const CategoryItems = ({ category, updateCategory }: CategoryItemsProps) => {
+const CategoryItems = ({
+  category,
+  updateCategory,
+  deleteCategory
+}: CategoryItemsProps) => {
   const classes = styles();
 
   const [showModal, setShowModal] = useState(false);
@@ -16,11 +20,15 @@ const CategoryItems = ({ category, updateCategory }: CategoryItemsProps) => {
     setShowModal(false);
   };
 
+  const deleteClicked = (id: string) => {
+    deleteCategory(id);
+  };
+
   return (
     <div className={classes.root}>
       <h1 className={classes.category}>{category.name}</h1>
       <div className={classes.buttons}>
-        <DeleteButton />
+        <DeleteButton onClick={() => deleteClicked(category._id)} />
         <EditButton onClick={() => setShowModal(true)} />
       </div>
       <UpdateCategory
@@ -36,8 +44,9 @@ const CategoryItems = ({ category, updateCategory }: CategoryItemsProps) => {
 interface CategoryItemsProps {
   category: ICategory;
   updateCategory: (id: string, category: string) => void;
+  deleteCategory: (id: string) => void;
 }
 
-const mapDispatchToProps = { updateCategory };
+const mapDispatchToProps = { updateCategory, deleteCategory };
 
 export default connect(null, mapDispatchToProps)(CategoryItems);
