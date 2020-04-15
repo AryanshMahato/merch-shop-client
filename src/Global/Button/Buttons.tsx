@@ -1,10 +1,13 @@
 import React from "react";
 import { Button } from "@material-ui/core";
 import styles from "./Buttons.styles";
+import { IoIosTrash } from "react-icons/io";
+import { GoPencil } from "react-icons/go";
 
 interface ButtonProps {
   onClick?: () => void;
   className?: string;
+  children?: React.ReactNode;
 }
 
 const AddToCartButton = ({ onClick }: ButtonProps) => {
@@ -75,12 +78,76 @@ const SaveButton = ({ onClick }: ButtonProps) => {
   return (
     <>
       <Button
-        className={classes.button}
+        className={classes.button + " " + classes.saveButton}
         variant={"contained"}
         color={"primary"}
         onClick={onClick}
       >
         Save
+      </Button>
+    </>
+  );
+};
+
+const NewButton = ({ onClick, children }: ButtonProps) => {
+  const classes = styles();
+  return (
+    <>
+      <Button
+        className={classes.button + " " + classes.newButton}
+        variant={"contained"}
+        color={"primary"}
+        onClick={onClick}
+      >
+        {children}
+      </Button>
+    </>
+  );
+};
+
+const CancelButton = ({ onClick }: ButtonProps) => {
+  const classes = styles();
+  return (
+    <>
+      <Button
+        className={classes.button + " " + classes.cancelButton}
+        variant={"contained"}
+        color={"primary"}
+        onClick={onClick}
+      >
+        Cancel
+      </Button>
+    </>
+  );
+};
+
+const DeleteButton = ({ onClick }: ButtonProps) => {
+  const classes = styles();
+  return (
+    <>
+      <Button
+        className={classes.deleteButton}
+        variant={"contained"}
+        color={"primary"}
+        onClick={onClick}
+      >
+        <IoIosTrash />
+      </Button>
+    </>
+  );
+};
+
+const EditButton = ({ onClick }: ButtonProps) => {
+  const classes = styles();
+  return (
+    <>
+      <Button
+        className={classes.editButton}
+        variant={"contained"}
+        color={"primary"}
+        onClick={onClick}
+      >
+        <GoPencil />
       </Button>
     </>
   );
@@ -143,5 +210,9 @@ export {
   SaveButton,
   LoginButton,
   SignUpButton,
-  BrowseMoreProductsButton
+  BrowseMoreProductsButton,
+  CancelButton,
+  DeleteButton,
+  EditButton,
+  NewButton
 };

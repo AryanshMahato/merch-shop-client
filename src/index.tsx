@@ -9,9 +9,7 @@ import state from "./Store/State/state";
 const renderApp = (
   <Provider store={state}>
     <BrowserRouter>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
+      <App />
     </BrowserRouter>
   </Provider>
 );
