@@ -1,6 +1,8 @@
 import React from "react";
 import { Button } from "@material-ui/core";
 import styles from "./Buttons.styles";
+import { IoIosTrash } from "react-icons/io";
+import { GoPencil } from "react-icons/go";
 
 interface ButtonProps {
   onClick?: () => void;
@@ -102,6 +104,38 @@ const CancelButton = ({ onClick }: ButtonProps) => {
   );
 };
 
+const DeleteButton = ({ onClick }: ButtonProps) => {
+  const classes = styles();
+  return (
+    <>
+      <Button
+        className={classes.deleteButton}
+        variant={"contained"}
+        color={"primary"}
+        onClick={onClick}
+      >
+        <IoIosTrash />
+      </Button>
+    </>
+  );
+};
+
+const EditButton = ({ onClick }: ButtonProps) => {
+  const classes = styles();
+  return (
+    <>
+      <Button
+        className={classes.editButton}
+        variant={"contained"}
+        color={"primary"}
+        onClick={onClick}
+      >
+        <GoPencil />
+      </Button>
+    </>
+  );
+};
+
 const LoginButton = ({ onClick, className }: ButtonProps) => {
   const classes = styles();
   return (
@@ -160,5 +194,7 @@ export {
   LoginButton,
   SignUpButton,
   BrowseMoreProductsButton,
-  CancelButton
+  CancelButton,
+  DeleteButton,
+  EditButton
 };

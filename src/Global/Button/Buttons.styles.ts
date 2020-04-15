@@ -38,6 +38,30 @@ const StyledButton = makeStyles(() =>
       "&:hover": {
         backgroundColor: "#db706c"
       }
+    },
+    deleteButton: {
+      height: "40px",
+      backgroundColor: "#EA7773",
+      color: "#fff",
+      "&:hover": {
+        backgroundColor: "#db706c"
+      },
+      "& svg": {
+        height: "28px",
+        width: "28px"
+      }
+    },
+    editButton: {
+      height: "40px",
+      backgroundColor: "#fff",
+      color: "#343A40",
+      "&:hover": {
+        backgroundColor: "#dfdfdf"
+      },
+      "& svg": {
+        height: "28px",
+        width: "28px"
+      }
     }
   })
 );

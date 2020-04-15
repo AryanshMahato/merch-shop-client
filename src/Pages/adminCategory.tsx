@@ -1,7 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { IUserData } from "../../types/Store";
-import { CancelButton, SaveButton } from "../Global/Button/Buttons";
+import {
+  CancelButton,
+  DeleteButton,
+  EditButton,
+  SaveButton
+} from "../Global/Button/Buttons";
 
 const AdminCategory = ({ userData }: AdminCategoryProps) => {
   return (
@@ -12,6 +17,8 @@ const AdminCategory = ({ userData }: AdminCategoryProps) => {
         <>
           <SaveButton />
           <CancelButton />
+          <DeleteButton />
+          <EditButton />
         </>
       )}
     </>
