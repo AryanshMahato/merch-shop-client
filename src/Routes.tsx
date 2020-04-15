@@ -9,7 +9,7 @@ import ProfilePage from "./Pages/profilePage";
 import SignInPage from "./Pages/signInPage";
 import SignUpPage from "./Pages/signUpPage";
 import SignOut from "./Pages/signOutPage";
-import AdminCategory from "./Pages/adminCategory";
+import AdminCategory from "./Pages/adminCategoryPage";
 
 const Routes = () => {
   return (
