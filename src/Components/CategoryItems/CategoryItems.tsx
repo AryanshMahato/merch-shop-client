@@ -3,14 +3,16 @@ import { ICategory } from "../../../types/Store";
 import styles from "./CategoryItems.styles";
 import { DeleteButton, EditButton } from "../../Global/Button/Buttons";
 import UpdateCategory from "../UpdateCategory/UpdateCategory";
+import { connect } from "react-redux";
+import { updateCategory } from "../../Store/Action/Category";
 
-const CategoryItems = ({ category }: CategoryItemsProps) => {
+const CategoryItems = ({ category, updateCategory }: CategoryItemsProps) => {
   const classes = styles();
 
   const [showModal, setShowModal] = useState(false);
 
   const updateClicked = (category: string, id: string) => {
-    console.log(category, id);
+    updateCategory(id, category);
     setShowModal(false);
   };
 
@@ -33,6 +35,9 @@ const CategoryItems = ({ category }: CategoryItemsProps) => {
 
 interface CategoryItemsProps {
   category: ICategory;
+  updateCategory: (id: string, category: string) => void;
 }
 
-export default CategoryItems;
+const mapDispatchToProps = { updateCategory };
+
+export default connect(null, mapDispatchToProps)(CategoryItems);

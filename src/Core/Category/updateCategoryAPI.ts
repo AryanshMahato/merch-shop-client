@@ -1,6 +1,6 @@
 import mAxios from "../../Util/Axios";
 
-const updateCategory = (authToken: string, id: string, category: string) => {
+const updateCategoryAPI = (authToken: string, id: string, category: string) => {
   return mAxios.put(
     "/category/" + id,
     {
@@ -14,4 +14,4 @@ const updateCategory = (authToken: string, id: string, category: string) => {
   );
 };
 
-export default updateCategory;
+export default updateCategoryAPI;
