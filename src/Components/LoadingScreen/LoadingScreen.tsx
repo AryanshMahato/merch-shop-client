@@ -9,7 +9,7 @@ const LoadingScreen = ({ isLoading }: LoadingScreenProps) => {
       style={{
         width: "100%",
         height: "100vh",
-        zIndex: 100,
+        zIndex: 5000,
         overflowY: "hidden",
         color: "white",
         position: "fixed"
