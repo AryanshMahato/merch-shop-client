@@ -6,7 +6,7 @@ const Category = () => {
   const classes = styles();
   return (
     <div className={classes.root}>
-      <h1>Categories</h1>
+      <h1 className={classes.annotation}>Categories</h1>
       <NewButton>New Category</NewButton>
     </div>
   );

@@ -9,6 +9,10 @@ const styles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.down("xs")]: {
       flexFlow: "column"
     }
+  },
+  annotation: {
+    fontWeight: "normal",
+    fontSize: "3rem"
   }
 }));
 
