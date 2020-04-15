@@ -1,13 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { IUserData } from "../../types/Store";
-import {
-  CancelButton,
-  DeleteButton,
-  EditButton,
-  NewButton,
-  SaveButton
-} from "../Global/Button/Buttons";
+import Category from "../Components/AdminHeader/Category";
+import Background from "../Components/Background/Background";
 
 const AdminCategory = ({ userData }: AdminCategoryProps) => {
   return (
@@ -15,13 +10,9 @@ const AdminCategory = ({ userData }: AdminCategoryProps) => {
       {userData.role !== 1 ? (
         <h1>You are unauthorized</h1>
       ) : (
-        <>
-          <SaveButton />
-          <CancelButton />
-          <DeleteButton />
-          <EditButton />
-          <NewButton>New Category</NewButton>
-        </>
+        <Background>
+          <Category />
+        </Background>
       )}
     </>
   );
