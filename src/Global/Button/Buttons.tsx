@@ -75,12 +75,28 @@ const SaveButton = ({ onClick }: ButtonProps) => {
   return (
     <>
       <Button
-        className={classes.button}
+        className={classes.button + " " + classes.saveButton}
         variant={"contained"}
         color={"primary"}
         onClick={onClick}
       >
         Save
+      </Button>
+    </>
+  );
+};
+
+const CancelButton = ({ onClick }: ButtonProps) => {
+  const classes = styles();
+  return (
+    <>
+      <Button
+        className={classes.button + " " + classes.cancelButton}
+        variant={"contained"}
+        color={"primary"}
+        onClick={onClick}
+      >
+        Cancel
       </Button>
     </>
   );
@@ -143,5 +159,6 @@ export {
   SaveButton,
   LoginButton,
   SignUpButton,
-  BrowseMoreProductsButton
+  BrowseMoreProductsButton,
+  CancelButton
 };

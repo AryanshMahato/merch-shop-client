@@ -24,6 +24,20 @@ const StyledButton = makeStyles(() =>
       "&:hover": {
         backgroundColor: "#2dbe66"
       }
+    },
+    saveButton: {
+      backgroundColor: "#2ECC72",
+      color: "#fff",
+      "&:hover": {
+        backgroundColor: "#2dbe66"
+      }
+    },
+    cancelButton: {
+      backgroundColor: "#EA7773",
+      color: "#fff",
+      "&:hover": {
+        backgroundColor: "#db706c"
+      }
     }
   })
 );
