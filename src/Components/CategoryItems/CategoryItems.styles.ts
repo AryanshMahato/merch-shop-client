@@ -5,7 +5,7 @@ const styles = makeStyles((theme: Theme) => ({
     background: "#EAF0F1",
     display: "flex",
     margin: "1rem 0",
-    padding: "0.5rem",
+    padding: "0.5rem 1.5rem",
     borderRadius: 10,
     alignItems: "center",
     justifyContent: "space-between",
