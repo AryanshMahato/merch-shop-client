@@ -7,7 +7,7 @@ import CategoryItems from "../../Components/CategoryItems/CategoryItems";
 const CategoryList = ({ categories }: CategoryListProps) => {
   const classes = styles();
   return (
-    <div>
+    <div className={classes.root}>
       {categories.map(category => (
         <CategoryItems category={category} key={category._id} />
       ))}

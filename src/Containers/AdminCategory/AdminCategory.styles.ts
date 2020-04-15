@@ -1,10 +1,17 @@
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, Theme } from "@material-ui/core";
 
-const styles = makeStyles(() => ({
-  root: {},
+const styles = makeStyles((theme: Theme) => ({
+  root: {
+    display: "flex",
+    flexFlow: "column",
+    justifyContent: "flex-start",
+    padding: "3rem 0"
+  },
   category: {
-    maxHeight: "200px",
-    width: "100%"
+    width: "100%",
+    [theme.breakpoints.down("xs")]: {
+      height: 200
+    }
   }
 }));
 
