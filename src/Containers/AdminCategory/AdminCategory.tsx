@@ -16,6 +16,10 @@ const AdminCategory = ({ getCategories }: AdminCategoryProps) => {
 
   const [showModal, setShowModal] = useState(false);
 
+  const saveClicked = (value: string) => {
+    setShowModal(false);
+  };
+
   return (
     <Background className={classes.root}>
       <div className={classes.category}>
@@ -24,7 +28,11 @@ const AdminCategory = ({ getCategories }: AdminCategoryProps) => {
       <div>
         <CategoryList />
       </div>
-      <NewCategory show={showModal} handleClose={() => setShowModal(false)} />
+      <NewCategory
+        show={showModal}
+        handleClose={() => setShowModal(false)}
+        newCategorySaved={value => saveClicked(value)}
+      />
     </Background>
   );
 };

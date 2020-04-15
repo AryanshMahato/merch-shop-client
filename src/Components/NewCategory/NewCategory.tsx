@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Modal, TextField } from "@material-ui/core";
 import styles from "./NewCategory.styles";
 import { SaveButton } from "../../Global/Button/Buttons";
 
-const NewCategory = ({ show, handleClose }: NewCategoryProps) => {
+const NewCategory = ({
+  show,
+  handleClose,
+  newCategorySaved
+}: NewCategoryProps) => {
   const classes = styles();
+
+  const [category, setCategory] = useState("");
 
   return (
     <Modal open={show} onClose={handleClose} className={classes.root}>
@@ -13,8 +19,15 @@ const NewCategory = ({ show, handleClose }: NewCategoryProps) => {
           label={"Category"}
           variant={"outlined"}
           className={classes.input}
+          value={category}
+          onChange={e => setCategory(e.target.value)}
         />
-        <SaveButton />
+        <SaveButton
+          onClick={() => {
+            newCategorySaved(category);
+            setCategory("");
+          }}
+        />
       </div>
     </Modal>
   );
@@ -23,6 +36,7 @@ const NewCategory = ({ show, handleClose }: NewCategoryProps) => {
 interface NewCategoryProps {
   show: boolean;
   handleClose: () => void;
+  newCategorySaved: (category: string) => void;
 }
 
 export default NewCategory;
