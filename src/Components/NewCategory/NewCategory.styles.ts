@@ -16,7 +16,11 @@ const styles = makeStyles((theme: Theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-evenly",
-    borderRadius: 10
+    borderRadius: 10,
+    [theme.breakpoints.down("xs")]: {
+      flexFlow: "column",
+      height: 200
+    }
   },
   input: {
     width: "80%"
