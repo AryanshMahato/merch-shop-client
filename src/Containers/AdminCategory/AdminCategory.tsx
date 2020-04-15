@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Category from "../../Components/AdminHeader/Category";
 import Background from "../../Components/Background/Background";
 import styles from "./AdminCategory.styles";
 import { getCategories } from "../../Store/Action/Category";
 import { connect } from "react-redux";
 import CategoryList from "../CategoryList/CategoryList";
+import NewCategory from "../../Components/NewCategory/NewCategory";
 
 const AdminCategory = ({ getCategories }: AdminCategoryProps) => {
   const classes = styles();
@@ -13,14 +14,17 @@ const AdminCategory = ({ getCategories }: AdminCategoryProps) => {
     getCategories();
   }, []);
 
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <Background className={classes.root}>
       <div className={classes.category}>
-        <Category />
+        <Category newButtonClicked={() => setShowModal(true)} />
       </div>
       <div>
         <CategoryList />
       </div>
+      <NewCategory show={showModal} handleClose={() => setShowModal(false)} />
     </Background>
   );
 };
