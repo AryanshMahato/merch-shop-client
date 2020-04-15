@@ -6,6 +6,7 @@ import userReducer from "../Reducer/User";
 import cartReducer from "../Reducer/Cart";
 import ActionTypes from "../Action/ActionTypes";
 import ordersReducer from "../Reducer/Orders";
+import categoryReducer from "../Reducer/Category";
 
 const composeEnhancers =
   (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -15,7 +16,8 @@ let appReducers = combineReducers({
   core: coreReducer,
   user: userReducer,
   cart: cartReducer,
-  orders: ordersReducer
+  orders: ordersReducer,
+  category: categoryReducer
 });
 
 const rootReducer = (state: any, action: any) => {
