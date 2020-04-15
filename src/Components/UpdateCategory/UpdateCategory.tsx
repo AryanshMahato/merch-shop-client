@@ -25,10 +25,7 @@ const UpdateCategory = ({
           onChange={e => setCategory(e.target.value)}
         />
         <SaveButton
-          onClick={() => {
-            updateCategorySaved(categoryState, category._id);
-            setCategory("");
-          }}
+          onClick={() => updateCategorySaved(categoryState, category._id)}
         />
       </div>
     </Modal>

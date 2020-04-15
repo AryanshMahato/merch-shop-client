@@ -9,6 +9,11 @@ const CategoryItems = ({ category }: CategoryItemsProps) => {
 
   const [showModal, setShowModal] = useState(false);
 
+  const updateClicked = (category: string, id: string) => {
+    console.log(category, id);
+    setShowModal(false);
+  };
+
   return (
     <div className={classes.root}>
       <h1 className={classes.category}>{category.name}</h1>
@@ -20,7 +25,7 @@ const CategoryItems = ({ category }: CategoryItemsProps) => {
         category={category}
         show={showModal}
         handleClose={() => setShowModal(false)}
-        updateCategorySaved={(category, id) => console.log(category, id)}
+        updateCategorySaved={updateClicked}
       />
     </div>
   );
