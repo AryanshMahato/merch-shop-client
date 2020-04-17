@@ -14,6 +14,13 @@ import AdminCategory from "./Pages/adminCategoryPage";
 const Routes = () => {
   return (
     <>
+      <Route
+        path={"/"}
+        children={() => {
+          window.scrollTo(0, 0);
+          return;
+        }}
+      />
       <Switch>
         <Route path={"/sign-up"} exact>
           <SignUpPage />

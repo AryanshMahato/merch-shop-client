@@ -8,3 +8,7 @@
 body {
   background-color: #343a40 !important;
 }
+
+.routes {
+  min-height: 100vh;
+}

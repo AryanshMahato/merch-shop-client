@@ -7,6 +7,7 @@ import LoadingScreen from "./Components/LoadingScreen/LoadingScreen";
 import { getCart } from "./Store/Action/Cart";
 import { createBrowserHistory } from "history";
 import { Redirect } from "react-router-dom";
+import Footer from "./Containers/Footer/Footer";
 
 const App = ({
   getUserData,
@@ -30,7 +31,10 @@ const App = ({
       {isAuthPage || jwtExpired ? <Redirect to={"/sign-in"} /> : null}
       <LoadingScreen />
       <Navbar />
-      <Routes />
+      <div className={"routes"}>
+        <Routes />
+      </div>
+      <Footer />
     </>
   );
 };
