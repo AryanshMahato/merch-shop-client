@@ -31,7 +31,9 @@ const App = ({
       {isAuthPage || jwtExpired ? <Redirect to={"/sign-in"} /> : null}
       <LoadingScreen />
       <Navbar />
-      <Routes />
+      <div className={"routes"}>
+        <Routes />
+      </div>
       <Footer />
     </>
   );
