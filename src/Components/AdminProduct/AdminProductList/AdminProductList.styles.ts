@@ -4,11 +4,12 @@ const styles = makeStyles(() => ({
   root: {
     background: "white",
     width: "90%",
-    maxWidth: 1100,
+    maxWidth: 1300,
     display: "flex",
     flexFlow: "column",
     alignItems: "center",
     padding: "2rem",
+    borderRadius: 10,
   },
 }));
 
