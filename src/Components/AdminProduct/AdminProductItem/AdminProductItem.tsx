@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { IProduct } from "../../../../types/Store";
 import styles from "./AdminProductItem.styles";
 import {
   DeleteButton,
   EditButton,
 } from "../../../Global/Button/Buttons";
+import NewProduct from "../NewProduct/NewProduct";
 
 const AdminProductItem = ({
   product,
 }: AdminProductItemProps) => {
   const classes = styles();
+
+  const [showEdit, setShowEdit] = useState(false);
 
   return (
     <div className={classes.root}>
@@ -33,8 +36,18 @@ const AdminProductItem = ({
       </div>
       <div className={classes.buttons}>
         <DeleteButton />
-        <EditButton />
+        <EditButton
+          onClick={() => setShowEdit(true)}
+        />
       </div>
+      <NewProduct
+        defaults={{ ...product }}
+        show={showEdit}
+        handleClose={() => setShowEdit(false)}
+        newProductSaved={() => {
+          console.log("hi");
+        }}
+      />
     </div>
   );
 };

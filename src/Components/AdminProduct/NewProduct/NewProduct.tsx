@@ -5,7 +5,10 @@ import {
   CancelButton,
   SaveButton,
 } from "../../../Global/Button/Buttons";
-import { IProduct } from "../../../../types/Store";
+import {
+  ICategory,
+  IProduct,
+} from "../../../../types/Store";
 import ImageInput from "../../../Global/ImageInput/ImageInput";
 import ProductForm from "../../../Containers/Forms/ProductForm/ProductForm";
 
@@ -13,6 +16,7 @@ const NewProduct = ({
   show,
   handleClose,
   newProductSaved,
+  defaults,
 }: NewProductProps) => {
   const classes = styles();
 
@@ -28,8 +32,12 @@ const NewProduct = ({
       className={classes.root}
     >
       <div className={classes.paper}>
-        <ImageInput getImageToParent={getImage} />
-        <ProductForm />
+        {!defaults?.name ? (
+          <ImageInput
+            getImageToParent={getImage}
+          />
+        ) : null}
+        <ProductForm defaults={defaults} />
         <div className={classes.buttons}>
           <CancelButton />
           <SaveButton />
@@ -43,6 +51,12 @@ interface NewProductProps {
   show: boolean;
   handleClose: () => void;
   newProductSaved: (product: IProduct) => void;
+  defaults?: {
+    name: string;
+    category: ICategory;
+    price: number;
+    description: string;
+  };
 }
 
 export default NewProduct;

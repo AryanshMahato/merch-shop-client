@@ -9,6 +9,7 @@ import { ICategory } from "../../../../types/Store";
 
 const ProductForm = ({
   categories,
+  defaults,
 }: ProductFormProps) => {
   const classes = styles();
 
@@ -27,6 +28,7 @@ const ProductForm = ({
       <TextField
         variant={"outlined"}
         label={"Name"}
+        defaultValue={defaults?.name}
         onChange={(e) => setName(e.target.value)}
         className={classes.name}
       />
@@ -35,7 +37,9 @@ const ProductForm = ({
         <TextField
           select={true}
           label={"Select Category"}
-          value={category}
+          defaultValue={
+            defaults?.category._id || category
+          }
           onChange={(e) =>
             setCategory(e.target.value)
           }
@@ -53,6 +57,7 @@ const ProductForm = ({
           variant={"outlined"}
           label={"Price"}
           type={"number"}
+          defaultValue={defaults?.price}
           onChange={(e) =>
             setPrice(+e.target.value)
           }
@@ -63,6 +68,7 @@ const ProductForm = ({
         variant={"outlined"}
         label={"Description"}
         type={"text"}
+        defaultValue={defaults?.description}
         rows={5}
         multiline={true}
         onChange={(e) =>
@@ -76,6 +82,12 @@ const ProductForm = ({
 
 interface ProductFormProps {
   categories: Array<ICategory>;
+  defaults?: {
+    name: string;
+    category: ICategory;
+    price: number;
+    description: string;
+  };
 }
 
 const mapStateToProps = (state: any) => {
