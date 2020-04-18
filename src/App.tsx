@@ -8,16 +8,19 @@ import { getCart } from "./Store/Action/Cart";
 import { createBrowserHistory } from "history";
 import { Redirect } from "react-router-dom";
 import Footer from "./Containers/Footer/Footer";
+import { getProducts } from "./Store/Action/Product";
 
 const App = ({
   getUserData,
   getCart,
   isAuthenticated,
-  jwtExpired
+  jwtExpired,
+  getProducts
 }: AppProps) => {
   useEffect(() => {
     getUserData();
     getCart();
+    getProducts();
   }, [isAuthenticated]);
 
   const history = createBrowserHistory();
@@ -42,6 +45,7 @@ const App = ({
 interface AppProps {
   getUserData: () => void;
   getCart: () => void;
+  getProducts: () => void;
   isAuthenticated: boolean;
   jwtExpired: boolean;
 }
@@ -53,6 +57,6 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-const mapDispatchToProps = { getUserData, getCart };
+const mapDispatchToProps = { getUserData, getCart, getProducts };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
