@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Modal } from "@material-ui/core";
 import styles from "./NewProduct.styles";
 import {
@@ -20,9 +20,23 @@ const NewProduct = ({
 }: NewProductProps) => {
   const classes = styles();
 
+  const [
+    productData,
+    setProductData,
+  ] = useState();
+
   const getImage = (file: File) => {
-    console.log(file);
+    setProductData({
+      ...productData,
+      image: file,
+    });
   };
+
+  const getDataFromChild = (data: any) => {
+    setProductData({ ...productData, ...data });
+  };
+
+  console.log(productData);
 
   return (
     <Modal
@@ -36,7 +50,10 @@ const NewProduct = ({
             getImageToParent={getImage}
           />
         ) : null}
-        <ProductForm defaults={defaults} />
+        <ProductForm
+          defaults={defaults}
+          sendDataToParent={getDataFromChild}
+        />
         <div className={classes.buttons}>
           <CancelButton onClick={handleClose} />
           <SaveButton />

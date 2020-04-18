@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, {
+  useEffect,
+  useState,
+} from "react";
 import {
   MenuItem,
   TextField,
@@ -10,6 +13,7 @@ import { ICategory } from "../../../../types/Store";
 const ProductForm = ({
   categories,
   defaults,
+  sendDataToParent,
 }: ProductFormProps) => {
   const classes = styles();
 
@@ -22,6 +26,15 @@ const ProductForm = ({
   const [description, setDescription] = useState(
     ""
   );
+
+  useEffect(() => {
+    sendDataToParent({
+      name,
+      price,
+      description,
+      category,
+    });
+  }, [name, price, description, category]);
 
   return (
     <div className={classes.root}>
@@ -88,6 +101,7 @@ interface ProductFormProps {
     price: number;
     description: string;
   };
+  sendDataToParent: ({}: any) => void;
 }
 
 const mapStateToProps = (state: any) => {
