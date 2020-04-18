@@ -6,7 +6,9 @@ import NewProduct from "../../Components/AdminProduct/NewProduct/NewProduct";
 const AdminProduct = () => {
   return (
     <div>
-      <AdminProductAnnotation />
+      <div>
+        <AdminProductAnnotation />
+      </div>
       <AdminProductList />
       <NewProduct />
     </div>
