@@ -4,7 +4,11 @@ import {
 } from "@material-ui/core";
 
 const styles = makeStyles((theme: Theme) => ({
-  root: {},
+  root: {
+    [theme.breakpoints.down("xs")]: {
+      overflow: "scroll",
+    },
+  },
   paper: {
     outline: "none",
     position: "absolute",
@@ -23,6 +27,10 @@ const styles = makeStyles((theme: Theme) => ({
       flexFlow: "column",
       padding: "1rem",
     },
+    [theme.breakpoints.down("xs")]: {
+      top: 0,
+      transform: "translate(-50%,0)",
+    },
   },
   input: {
     width: "80%",
@@ -34,6 +42,13 @@ const styles = makeStyles((theme: Theme) => ({
     height: 150,
     alignSelf: "flex-start",
     marginTop: "2rem",
+    [theme.breakpoints.down("sm")]: {
+      alignSelf: "center",
+      marginTop: "0",
+      flexFlow: "row",
+      height: "unset",
+      width: 200,
+    },
   },
 }));
 
