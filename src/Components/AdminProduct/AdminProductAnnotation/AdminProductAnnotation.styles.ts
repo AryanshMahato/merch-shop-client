@@ -1,4 +1,7 @@
-import { makeStyles, Theme } from "@material-ui/core";
+import {
+  makeStyles,
+  Theme,
+} from "@material-ui/core";
 
 const styles = makeStyles((theme: Theme) => ({
   root: {
@@ -8,14 +11,15 @@ const styles = makeStyles((theme: Theme) => ({
     justifyContent: "space-around",
     alignItems: "center",
     [theme.breakpoints.down("xs")]: {
-      flexFlow: "column"
-    }
+      flexFlow: "column",
+      height: 150,
+    },
   },
   annotation: {
     fontWeight: "normal",
-    fontSize: "3rem"
+    fontSize: "3rem",
   },
-  button: {}
+  button: {},
 }));
 
 export default styles;
