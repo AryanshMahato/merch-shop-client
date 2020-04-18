@@ -19,15 +19,22 @@ const styles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     justifyContent: "space-evenly",
     borderRadius: 10,
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       flexFlow: "column",
-      height: 200,
+      padding: "1rem",
     },
   },
   input: {
     width: "80%",
   },
-  buttons: {},
+  buttons: {
+    display: "flex",
+    flexFlow: "column",
+    justifyContent: "space-evenly",
+    height: 150,
+    alignSelf: "flex-start",
+    marginTop: "2rem",
+  },
 }));
 
 export default styles;
