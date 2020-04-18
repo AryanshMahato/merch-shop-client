@@ -10,6 +10,7 @@ import SignInPage from "./Pages/signInPage";
 import SignUpPage from "./Pages/signUpPage";
 import SignOut from "./Pages/signOutPage";
 import AdminCategory from "./Pages/adminCategoryPage";
+import AdminProductPage from "./Pages/adminProductPage";
 
 const Routes = () => {
   return (
@@ -67,8 +68,8 @@ const Routes = () => {
         <Route path={"/admin/category"} exact={true}>
           <AdminCategory />
         </Route>
-        <Route path={"/admin/products"} exact={true}>
-          <ProductsPage />
+        <Route path={"/admin/product"} exact={true}>
+          <AdminProductPage />
         </Route>
         <Route path={"/"} exact={true}>
           <ProductsPage />
