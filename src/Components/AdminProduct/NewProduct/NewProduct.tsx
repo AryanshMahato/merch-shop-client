@@ -26,7 +26,6 @@ const NewProduct = ({
 
   return (
     <Modal
-      // open={show}
       open={show}
       onClose={handleClose}
       className={classes.root}
@@ -39,7 +38,7 @@ const NewProduct = ({
         ) : null}
         <ProductForm defaults={defaults} />
         <div className={classes.buttons}>
-          <CancelButton />
+          <CancelButton onClick={handleClose} />
           <SaveButton />
         </div>
       </div>
