@@ -3,17 +3,18 @@ import AdminProductAnnotation from "../../Components/AdminProduct/AdminProductAn
 import AdminProductList from "../../Components/AdminProduct/AdminProductList/AdminProductList";
 import NewProduct from "../../Components/AdminProduct/NewProduct/NewProduct";
 import styles from "./AdminProduct.styles";
+import Background from "../../Components/Background/Background";
 
 const AdminProduct = () => {
   const classes = styles();
   return (
-    <div className={classes.root}>
+    <Background className={classes.root}>
       <div className={classes.annotation}>
         <AdminProductAnnotation />
       </div>
       <AdminProductList />
       <NewProduct />
-    </div>
+    </Background>
   );
 };
 
