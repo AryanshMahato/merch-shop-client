@@ -16,15 +16,16 @@ const AdminProductItem = ({
         alt={product.name}
         className={classes.image}
       />
-      <h1 className={classes.name}>
-        {product.name}
-      </h1>
-      <p className={classes.category}>
-        {product.category.name}
-      </p>
-      <p className={classes.price}>
-        ${product.price}
-      </p>
+      <div className={classes.info}>
+        <h1 className={classes.name}>
+          {product.name}
+        </h1>
+        <p>{product.category.name}</p>
+        <p className={classes.price}>
+          <span>$</span>
+          {product.price}
+        </p>
+      </div>
     </div>
   );
 };
