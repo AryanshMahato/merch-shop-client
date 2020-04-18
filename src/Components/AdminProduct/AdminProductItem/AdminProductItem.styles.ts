@@ -1,15 +1,21 @@
-import { makeStyles } from "@material-ui/core";
+import {
+  makeStyles,
+  Theme,
+} from "@material-ui/core";
 
-const styles = makeStyles(() => ({
+const styles = makeStyles((theme: Theme) => ({
   root: {
-    height: 200,
-    width: "95%",
+    minHeight: 200,
+    width: "100%",
     display: "flex",
     margin: "1rem",
     padding: "1rem",
     borderRadius: 10,
     background: "#EAF0F1",
     position: "relative",
+    [theme.breakpoints.down("xs")]: {
+      flexFlow: "column",
+    },
   },
   image: {
     height: 150,
@@ -20,6 +26,9 @@ const styles = makeStyles(() => ({
     display: "flex",
     flexFlow: "column",
     margin: "1rem 2rem",
+    [theme.breakpoints.down("xs")]: {
+      margin: "1rem 0 ",
+    },
   },
   name: {
     marginBottom: "1rem",
@@ -37,6 +46,9 @@ const styles = makeStyles(() => ({
     flexFlow: "column",
     "&>*": {
       margin: ".5rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      right: 0,
     },
   },
 }));

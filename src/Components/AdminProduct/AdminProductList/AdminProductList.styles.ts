@@ -1,6 +1,9 @@
-import { makeStyles } from "@material-ui/core";
+import {
+  makeStyles,
+  Theme,
+} from "@material-ui/core";
 
-const styles = makeStyles(() => ({
+const styles = makeStyles((theme: Theme) => ({
   root: {
     background: "white",
     width: "90%",
@@ -10,6 +13,9 @@ const styles = makeStyles(() => ({
     alignItems: "center",
     padding: "2rem",
     borderRadius: 10,
+    [theme.breakpoints.down("xs")]: {
+      padding: "1rem",
+    },
   },
 }));
 

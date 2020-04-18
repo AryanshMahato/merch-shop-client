@@ -10,6 +10,7 @@ const AdminProductItem = ({
   product,
 }: AdminProductItemProps) => {
   const classes = styles();
+
   return (
     <div className={classes.root}>
       <img
