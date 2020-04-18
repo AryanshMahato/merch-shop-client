@@ -1,6 +1,10 @@
 import React from "react";
 import { IProduct } from "../../../../types/Store";
 import styles from "./AdminProductItem.styles";
+import {
+  DeleteButton,
+  EditButton,
+} from "../../../Global/Button/Buttons";
 
 const AdminProductItem = ({
   product,
@@ -25,6 +29,10 @@ const AdminProductItem = ({
           <span>$</span>
           {product.price}
         </p>
+      </div>
+      <div className={classes.buttons}>
+        <DeleteButton />
+        <EditButton />
       </div>
     </div>
   );

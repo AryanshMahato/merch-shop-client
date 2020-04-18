@@ -9,6 +9,7 @@ const styles = makeStyles(() => ({
     padding: "1rem",
     borderRadius: 10,
     background: "#EAF0F1",
+    position: "relative",
   },
   image: {
     height: 150,
@@ -27,6 +28,15 @@ const styles = makeStyles(() => ({
     marginTop: 8,
     "& span": {
       fontWeight: "bold",
+    },
+  },
+  buttons: {
+    position: "absolute",
+    right: 20,
+    display: "flex",
+    flexFlow: "column",
+    "&>*": {
+      margin: ".5rem",
     },
   },
 }));
