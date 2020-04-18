@@ -6,6 +6,7 @@ import {
 import styles from "./NewProduct.styles";
 import { SaveButton } from "../../../Global/Button/Buttons";
 import { IProduct } from "../../../../types/Store";
+import ImageInput from "../../../Global/ImageInput/ImageInput";
 
 const NewProduct = ({
   show,
@@ -16,13 +17,19 @@ const NewProduct = ({
 
   const [product, setProduct] = useState({});
 
+  const getImage = (file: File) => {
+    console.log(file);
+  };
+
   return (
     <Modal
-      open={show}
+      // open={show}
+      open={true}
       onClose={handleClose}
       className={classes.root}
     >
       <div className={classes.paper}>
+        <ImageInput getImageToParent={getImage} />
         <SaveButton
           onClick={() => {
             newProductSaved(product as IProduct);

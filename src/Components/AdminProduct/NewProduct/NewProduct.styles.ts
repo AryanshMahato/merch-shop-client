@@ -15,7 +15,6 @@ const styles = makeStyles((theme: Theme) => ({
     boxShadow: theme.shadows[5],
     width: "90vw",
     maxWidth: 1100,
-    height: 100,
     display: "flex",
     alignItems: "center",
     justifyContent: "space-evenly",
