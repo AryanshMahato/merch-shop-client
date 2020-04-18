@@ -3,10 +3,10 @@ import styles from "./AdminProductList.styles";
 import { IProduct } from "../../../../types/Store";
 import { connect } from "react-redux";
 
-const AdminProductList = ({ products }: AdminProductListProps) => {
+const AdminProductList = ({
+  products,
+}: AdminProductListProps) => {
   const classes = styles();
-
-  console.log(products);
 
   return <div>Admin Product List</div>;
 };
@@ -17,8 +17,10 @@ interface AdminProductListProps {
 
 const mapStateToProps = (state: any) => {
   return {
-    products: state.product.products
+    products: state.product.products,
   };
 };
 
-export default connect(mapStateToProps)(AdminProductList);
+export default connect(mapStateToProps)(
+  AdminProductList
+);
