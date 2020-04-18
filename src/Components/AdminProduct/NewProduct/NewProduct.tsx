@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Modal,
-  TextField,
 } from "@material-ui/core";
 import styles from "./NewProduct.styles";
-import { SaveButton } from "../../../Global/Button/Buttons";
+import {
+  CancelButton,
+  SaveButton,
+} from "../../../Global/Button/Buttons";
 import { IProduct } from "../../../../types/Store";
 import ImageInput from "../../../Global/ImageInput/ImageInput";
+import ProductForm from "../../../Containers/Forms/ProductForm/ProductForm";
 
 const NewProduct = ({
   show,
@@ -14,8 +17,6 @@ const NewProduct = ({
   newProductSaved,
 }: NewProductProps) => {
   const classes = styles();
-
-  const [product, setProduct] = useState({});
 
   const getImage = (file: File) => {
     console.log(file);
@@ -30,12 +31,11 @@ const NewProduct = ({
     >
       <div className={classes.paper}>
         <ImageInput getImageToParent={getImage} />
-        <SaveButton
-          onClick={() => {
-            newProductSaved(product as IProduct);
-            setProduct("");
-          }}
-        />
+        <ProductForm />
+        <div className={classes.buttons}>
+          <CancelButton />
+          <SaveButton />
+        </div>
       </div>
     </Modal>
   );

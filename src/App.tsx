@@ -9,18 +9,21 @@ import { createBrowserHistory } from "history";
 import { Redirect } from "react-router-dom";
 import Footer from "./Containers/Footer/Footer";
 import { getProducts } from "./Store/Action/Product";
+import { getCategories } from "./Store/Action/Category";
 
 const App = ({
   getUserData,
   getCart,
   isAuthenticated,
   jwtExpired,
-  getProducts
+  getProducts,
+  getCategories,
 }: AppProps) => {
   useEffect(() => {
     getUserData();
     getCart();
     getProducts();
+    getCategories();
   }, [isAuthenticated]);
 
   const history = createBrowserHistory();
@@ -31,7 +34,9 @@ const App = ({
 
   return (
     <>
-      {isAuthPage || jwtExpired ? <Redirect to={"/sign-in"} /> : null}
+      {isAuthPage || jwtExpired ? (
+        <Redirect to={"/sign-in"} />
+      ) : null}
       <LoadingScreen />
       <Navbar />
       <div className={"routes"}>
@@ -46,6 +51,7 @@ interface AppProps {
   getUserData: () => void;
   getCart: () => void;
   getProducts: () => void;
+  getCategories: () => void;
   isAuthenticated: boolean;
   jwtExpired: boolean;
 }
@@ -53,10 +59,18 @@ interface AppProps {
 const mapStateToProps = (state: any) => {
   return {
     isAuthenticated: state.user?.authenticated,
-    jwtExpired: state.user?.jwtExpired
+    jwtExpired: state.user?.jwtExpired,
   };
 };
 
-const mapDispatchToProps = { getUserData, getCart, getProducts };
+const mapDispatchToProps = {
+  getUserData,
+  getCart,
+  getProducts,
+  getCategories,
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

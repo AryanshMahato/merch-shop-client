@@ -27,6 +27,7 @@ const styles = makeStyles((theme: Theme) => ({
   input: {
     width: "80%",
   },
+  buttons: {},
 }));
 
 export default styles;
