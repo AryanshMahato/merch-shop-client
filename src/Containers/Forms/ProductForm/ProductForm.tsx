@@ -23,39 +23,42 @@ const ProductForm = ({
   );
 
   return (
-    <div>
+    <div className={classes.root}>
       <TextField
         variant={"outlined"}
         label={"Name"}
         onChange={(e) => setName(e.target.value)}
         className={classes.name}
       />
-      <TextField
-        select={true}
-        label={"Select Category"}
-        value={category}
-        onChange={(e) =>
-          setCategory(e.target.value)
-        }
-      >
-        {categories.map((category) => (
-          <MenuItem
-            value={category._id}
-            key={category._id}
-          >
-            {category.name}
-          </MenuItem>
-        ))}
-      </TextField>
-      <TextField
-        variant={"outlined"}
-        label={"Price"}
-        type={"number"}
-        onChange={(e) =>
-          setPrice(+e.target.value)
-        }
-        className={classes.price}
-      />
+
+      <div className={classes.subClass}>
+        <TextField
+          select={true}
+          label={"Select Category"}
+          value={category}
+          onChange={(e) =>
+            setCategory(e.target.value)
+          }
+        >
+          {categories.map((category) => (
+            <MenuItem
+              value={category._id}
+              key={category._id}
+            >
+              {category.name}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextField
+          variant={"outlined"}
+          label={"Price"}
+          type={"number"}
+          onChange={(e) =>
+            setPrice(+e.target.value)
+          }
+          className={classes.price}
+        />
+      </div>
       <TextField
         variant={"outlined"}
         label={"Description"}

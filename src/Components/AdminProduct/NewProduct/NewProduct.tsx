@@ -1,7 +1,5 @@
 import React from "react";
-import {
-  Modal,
-} from "@material-ui/core";
+import { Modal } from "@material-ui/core";
 import styles from "./NewProduct.styles";
 import {
   CancelButton,
@@ -25,7 +23,7 @@ const NewProduct = ({
   return (
     <Modal
       // open={show}
-      open={true}
+      open={show}
       onClose={handleClose}
       className={classes.root}
     >
