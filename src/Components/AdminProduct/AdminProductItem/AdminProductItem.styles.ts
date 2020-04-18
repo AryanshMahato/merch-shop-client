@@ -47,7 +47,7 @@ const styles = makeStyles((theme: Theme) => ({
     "&>*": {
       margin: ".5rem",
     },
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       right: 0,
     },
   },

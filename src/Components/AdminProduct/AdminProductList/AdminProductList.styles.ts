@@ -13,7 +13,7 @@ const styles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     padding: "2rem",
     borderRadius: 10,
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       padding: "1rem",
     },
   },
