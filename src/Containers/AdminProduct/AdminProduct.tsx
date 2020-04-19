@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, {
+  useEffect,
+  useState,
+} from "react";
 import AdminProductAnnotation from "../../Components/AdminProduct/AdminProductAnnotation/AdminProductAnnotation";
 import AdminProductList from "../../Components/AdminProduct/AdminProductList/AdminProductList";
 import NewProduct from "../../Components/AdminProduct/NewProduct/NewProduct";
@@ -10,8 +13,13 @@ import { addProduct } from "../../Store/Action/AdminProduct";
 
 const AdminProduct = ({
   addProduct,
+  product,
 }: AdminProductProps) => {
   const classes = styles();
+
+  useEffect(() => {
+    setShowModal(false);
+  }, [product]);
 
   const [showModal, setShowModal] = useState(
     false
@@ -42,11 +50,18 @@ const AdminProduct = ({
 
 interface AdminProductProps {
   addProduct: (product: IProduct) => void;
+  product: Array<IProduct>;
 }
+
+const mapStateToProps = (state: any) => {
+  return {
+    product: state.product.products,
+  };
+};
 
 const mapDispatchToProps = { addProduct };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(AdminProduct);
