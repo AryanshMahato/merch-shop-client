@@ -17,6 +17,7 @@ const NewProduct = ({
   handleClose,
   newProductSaved,
   defaults,
+  editSave,
 }: NewProductProps) => {
   const classes = styles();
 
@@ -39,6 +40,13 @@ const NewProduct = ({
   const saveClicked = () => {
     if (productData.image)
       return newProductSaved(productData);
+    if (editSave) {
+      setProductData({
+        ...productData,
+        image: undefined,
+      });
+      editSave(productData);
+    }
   };
 
   return (
@@ -76,6 +84,7 @@ interface NewProductProps {
     price: number;
     description: string;
   };
+  editSave?: (product: IProduct) => void;
 }
 
 export default NewProduct;
