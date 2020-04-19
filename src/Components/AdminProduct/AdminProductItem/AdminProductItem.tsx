@@ -6,9 +6,12 @@ import {
   EditButton,
 } from "../../../Global/Button/Buttons";
 import NewProduct from "../NewProduct/NewProduct";
+import { deleteProduct } from "../../../Store/Action/AdminProduct";
+import { connect } from "react-redux";
 
 const AdminProductItem = ({
   product,
+  deleteProduct,
 }: AdminProductItemProps) => {
   const classes = styles();
 
@@ -35,7 +38,11 @@ const AdminProductItem = ({
         </p>
       </div>
       <div className={classes.buttons}>
-        <DeleteButton />
+        <DeleteButton
+          onClick={() =>
+            deleteProduct(product._id)
+          }
+        />
         <EditButton
           onClick={() => setShowEdit(true)}
         />
@@ -54,6 +61,12 @@ const AdminProductItem = ({
 
 interface AdminProductItemProps {
   product: IProduct;
+  deleteProduct: (id: string) => void;
 }
 
-export default AdminProductItem;
+const mapDispatchToProps = { deleteProduct };
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(AdminProductItem);
