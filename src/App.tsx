@@ -34,7 +34,7 @@ const App = ({
 
   return (
     <>
-      {isAuthPage || jwtExpired ? (
+        {isAuthPage || jwtExpired ? (
         <Redirect to={"/sign-in"} />
       ) : null}
       <LoadingScreen />

@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, {
+  useEffect,
+  useState,
+} from "react";
 import {
   MenuItem,
   TextField,
@@ -9,6 +12,8 @@ import { ICategory } from "../../../../types/Store";
 
 const ProductForm = ({
   categories,
+  defaults,
+  sendDataToParent,
 }: ProductFormProps) => {
   const classes = styles();
 
@@ -22,11 +27,21 @@ const ProductForm = ({
     ""
   );
 
+  useEffect(() => {
+    sendDataToParent({
+      name,
+      price,
+      description,
+      category,
+    });
+  }, [name, price, description, category]);
+
   return (
     <div className={classes.root}>
       <TextField
         variant={"outlined"}
         label={"Name"}
+        defaultValue={defaults?.name}
         onChange={(e) => setName(e.target.value)}
         className={classes.name}
       />
@@ -35,7 +50,9 @@ const ProductForm = ({
         <TextField
           select={true}
           label={"Select Category"}
-          value={category}
+          defaultValue={
+            defaults?.category._id || category
+          }
           onChange={(e) =>
             setCategory(e.target.value)
           }
@@ -53,6 +70,7 @@ const ProductForm = ({
           variant={"outlined"}
           label={"Price"}
           type={"number"}
+          defaultValue={defaults?.price}
           onChange={(e) =>
             setPrice(+e.target.value)
           }
@@ -63,6 +81,7 @@ const ProductForm = ({
         variant={"outlined"}
         label={"Description"}
         type={"text"}
+        defaultValue={defaults?.description}
         rows={5}
         multiline={true}
         onChange={(e) =>
@@ -76,6 +95,13 @@ const ProductForm = ({
 
 interface ProductFormProps {
   categories: Array<ICategory>;
+  defaults?: {
+    name: string;
+    category: ICategory;
+    price: number;
+    description: string;
+  };
+  sendDataToParent: ({}: any) => void;
 }
 
 const mapStateToProps = (state: any) => {
