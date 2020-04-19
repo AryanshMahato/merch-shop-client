@@ -5,17 +5,21 @@ import NewProduct from "../../Components/AdminProduct/NewProduct/NewProduct";
 import styles from "./AdminProduct.styles";
 import Background from "../../Components/Background/Background";
 import { IProduct } from "../../../types/Store";
+import { connect } from "react-redux";
+import { addProduct } from "../../Store/Action/AdminProduct";
 
-const AdminProduct = () => {
+const AdminProduct = ({
+  addProduct,
+}: AdminProductProps) => {
   const classes = styles();
 
   const [showModal, setShowModal] = useState(
     false
   );
 
-  const newProductSaved = (
-    product: IProduct
-  ) => {};
+  const newProductSaved = (product: IProduct) => {
+    addProduct(product);
+  };
 
   return (
     <Background className={classes.root}>
@@ -36,4 +40,13 @@ const AdminProduct = () => {
   );
 };
 
-export default AdminProduct;
+interface AdminProductProps {
+  addProduct: (product: IProduct) => void;
+}
+
+const mapDispatchToProps = { addProduct };
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(AdminProduct);

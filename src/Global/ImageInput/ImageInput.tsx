@@ -32,6 +32,10 @@ const ImageInput = ({
     const reader = new FileReader();
     const file = fileList[0];
 
+    if (!file) {
+      return;
+    }
+
     reader.onloadend = () => {
       // @ts-ignore
       setImage(reader.result);

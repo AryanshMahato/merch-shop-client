@@ -2,6 +2,7 @@ import ActionTypes from "./ActionTypes";
 import deleteProductAPI from "../../Core/AdminProduct/deleteProductAPI";
 import fetchProducts from "../../Core/Product/fetchProducts";
 import { IProduct } from "../../../types/Store";
+import addProductAPI from "../../Core/AdminProduct/addProductAPI";
 
 const deleteProduct = (id: string) => async (
   dispatch: any,
@@ -31,4 +32,40 @@ const deleteProduct = (id: string) => async (
   }
 };
 
-export { deleteProduct };
+const addProduct = (product: IProduct) => async (
+  dispatch: any,
+  getState: any
+) => {
+  try {
+    dispatch({
+      type: ActionTypes.IS_LOADING,
+      isLoading: true,
+    });
+
+    if (getState().user.authToken) {
+      await addProductAPI(
+        getState().user.authToken,
+        product
+      );
+
+      const products: Array<IProduct> = await fetchProducts();
+
+      dispatch({
+        type: ActionTypes.FETCH_PRODUCTS,
+        products: products,
+      });
+      dispatch({
+        type: ActionTypes.IS_LOADING,
+        isLoading: false,
+      });
+    }
+  } catch (e) {
+    console.error(e.response);
+    dispatch({
+      type: ActionTypes.IS_LOADING,
+      isLoading: false,
+    });
+  }
+};
+
+export { deleteProduct, addProduct };

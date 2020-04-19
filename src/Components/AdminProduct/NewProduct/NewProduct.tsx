@@ -36,7 +36,10 @@ const NewProduct = ({
     setProductData({ ...productData, ...data });
   };
 
-  console.log(productData);
+  const saveClicked = () => {
+    if (productData.image)
+      return newProductSaved(productData);
+  };
 
   return (
     <Modal
@@ -56,7 +59,7 @@ const NewProduct = ({
         />
         <div className={classes.buttons}>
           <CancelButton onClick={handleClose} />
-          <SaveButton />
+          <SaveButton onClick={saveClicked} />
         </div>
       </div>
     </Modal>
