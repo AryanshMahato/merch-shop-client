@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, {
+  useEffect,
+  useState,
+} from "react";
 import { IProduct } from "../../../../types/Store";
 import styles from "./AdminProductItem.styles";
 import {
@@ -6,16 +9,28 @@ import {
   EditButton,
 } from "../../../Global/Button/Buttons";
 import NewProduct from "../NewProduct/NewProduct";
-import { deleteProduct } from "../../../Store/Action/AdminProduct";
+import {
+  deleteProduct,
+  editProduct,
+} from "../../../Store/Action/AdminProduct";
 import { connect } from "react-redux";
 
 const AdminProductItem = ({
   product,
   deleteProduct,
+  editProduct,
 }: AdminProductItemProps) => {
   const classes = styles();
 
+  useEffect(() => {
+    setShowEdit(false);
+  }, [product]);
+
   const [showEdit, setShowEdit] = useState(false);
+
+  const editSave = (editedProduct: IProduct) => {
+    editProduct(product._id, editedProduct);
+  };
 
   return (
     <div className={classes.root}>
@@ -52,8 +67,9 @@ const AdminProductItem = ({
         show={showEdit}
         handleClose={() => setShowEdit(false)}
         newProductSaved={() => {
-          console.log("hi");
+          console.error("It's not going to work");
         }}
+        editSave={editSave}
       />
     </div>
   );
@@ -62,9 +78,13 @@ const AdminProductItem = ({
 interface AdminProductItemProps {
   product: IProduct;
   deleteProduct: (id: string) => void;
+  editProduct: (id: string, product: any) => void;
 }
 
-const mapDispatchToProps = { deleteProduct };
+const mapDispatchToProps = {
+  deleteProduct,
+  editProduct,
+};
 
 export default connect(
   null,
