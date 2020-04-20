@@ -4,10 +4,14 @@ import styles from "./UnAuthorizedPrompt.styles";
 import { NavButton } from "../../Global/Button/Buttons";
 import { Link } from "react-router-dom";
 
-const UnAuthorizedPrompt = () => {
+const UnAuthorizedPrompt = ({
+  className,
+}: any) => {
   const classes = styles();
   return (
-    <Background className={classes.root}>
+    <Background
+      className={classes.root + " " + className}
+    >
       <h1 className={classes.annotation}>
         You are UnAuthorized to Visit this Page
       </h1>

@@ -1,12 +1,9 @@
-import {
-  makeStyles,
-  Theme,
-} from "@material-ui/core";
+import { makeStyles, Theme } from "@material-ui/core";
 
 const styles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
-    padding: 0,
+    padding: "0 !important",
     marginBottom: 32,
   },
   toolbar: {
