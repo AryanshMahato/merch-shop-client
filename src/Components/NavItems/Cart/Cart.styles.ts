@@ -22,7 +22,7 @@ const styles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const StyledBadge = withStyles(() =>
+const StyledBadge = withStyles((theme: Theme) =>
   createStyles({
     badge: {
       padding: "0 4px",
@@ -35,6 +35,14 @@ const StyledBadge = withStyles(() =>
       fontSize: "1rem",
       top: 8,
       left: 12,
+      [theme.breakpoints.down("xs")]: {
+        top: 4,
+        left: 4,
+        fontSize: ".8rem",
+
+        width: "1.2rem",
+        height: "1.2rem",
+      },
     },
   })
 )(Badge);
