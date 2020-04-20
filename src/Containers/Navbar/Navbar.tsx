@@ -8,7 +8,6 @@ import { Logo } from "../../Components/NavItems/NavItems";
 import NavItem from "../../Components/NavItems/NavItem/NavItem";
 import Cart from "../../Components/NavItems/Cart/Cart";
 import { connect } from "react-redux";
-import { FaBars } from "react-icons/fa";
 
 // Main Function
 const Navbar = ({
@@ -72,9 +71,6 @@ const Navbar = ({
                 </>
               )}
             </div>
-            <FaBars
-              className={classes.hamburger}
-            />
           </div>
         </Toolbar>
       </AppBar>

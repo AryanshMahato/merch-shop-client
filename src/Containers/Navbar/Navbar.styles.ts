@@ -29,18 +29,12 @@ const styles = makeStyles((theme: Theme) => ({
     margin: "0 2rem",
     height: "100%",
     [theme.breakpoints.down("xs")]: {
-      display: "none",
+      margin: "0 1rem",
+      width: "7rem",
     },
   },
   bottomMargin: {
     marginBottom: "100px",
-  },
-  hamburger: {
-    height: "32px",
-    width: "32px",
-    [theme.breakpoints.up("sm")]: {
-      display: "none",
-    },
   },
 }));
 
