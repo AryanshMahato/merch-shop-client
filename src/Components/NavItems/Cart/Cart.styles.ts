@@ -15,6 +15,7 @@ const styles = makeStyles((theme: Theme) => ({
     width: 40,
     height: 40,
     cursor: "pointer",
+    display: "flex",
     [theme.breakpoints.down("xs")]: {
       width: 28,
       height: 28,
