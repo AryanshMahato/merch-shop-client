@@ -10,23 +10,24 @@ const styles = makeStyles(() => ({
     textDecoration: "none",
     justifyContent: "space-around",
     alignItems: "center",
-    flexFlow: "column"
+    flexFlow: "column",
+    marginTop: "2rem",
   },
   annotation: {
-    fontSize: "1.5rem"
+    fontSize: "1.5rem",
   },
   links: {
-    marginRight: 32
+    marginRight: 32,
   },
   link: {
     color: "white",
     textDecoration: "none",
     margin: "0 1rem",
     "&:hover": {
-      color: "#dbd8d8"
-    }
+      color: "#dbd8d8",
+    },
   },
-  loveEmoji: {}
+  loveEmoji: {},
 }));
 
 export default styles;

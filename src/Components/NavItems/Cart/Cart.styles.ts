@@ -1,18 +1,29 @@
-import { createStyles, makeStyles, withStyles, Badge } from "@material-ui/core";
+import {
+  createStyles,
+  makeStyles,
+  withStyles,
+  Badge,
+  Theme,
+} from "@material-ui/core";
 
-const styles = makeStyles(() => ({
+const styles = makeStyles((theme: Theme) => ({
   link: {
     textDecoration: "none",
-    color: "#fff"
+    color: "#fff",
   },
   cart: {
     width: 40,
     height: 40,
-    cursor: "pointer"
-  }
+    cursor: "pointer",
+    display: "flex",
+    [theme.breakpoints.down("xs")]: {
+      width: 28,
+      height: 28,
+    },
+  },
 }));
 
-const StyledBadge = withStyles(() =>
+const StyledBadge = withStyles((theme: Theme) =>
   createStyles({
     badge: {
       padding: "0 4px",
@@ -24,8 +35,16 @@ const StyledBadge = withStyles(() =>
       borderRadius: "50%",
       fontSize: "1rem",
       top: 8,
-      left: 12
-    }
+      left: 12,
+      [theme.breakpoints.down("xs")]: {
+        top: 4,
+        left: 4,
+        fontSize: ".8rem",
+
+        width: "1.2rem",
+        height: "1.2rem",
+      },
+    },
   })
 )(Badge);
 

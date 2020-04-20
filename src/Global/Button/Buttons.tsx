@@ -10,7 +10,9 @@ interface ButtonProps {
   children?: React.ReactNode;
 }
 
-const AddToCartButton = ({ onClick }: ButtonProps) => {
+const AddToCartButton = ({
+  onClick,
+}: ButtonProps) => {
   const classes = styles();
   return (
     <>
@@ -25,7 +27,9 @@ const AddToCartButton = ({ onClick }: ButtonProps) => {
   );
 };
 
-const BuyNowButton = ({ onClick }: ButtonProps) => {
+const BuyNowButton = ({
+  onClick,
+}: ButtonProps) => {
   const classes = styles();
   return (
     <>
@@ -41,12 +45,18 @@ const BuyNowButton = ({ onClick }: ButtonProps) => {
   );
 };
 
-const CheckPinButton = ({ onClick }: ButtonProps) => {
+const CheckPinButton = ({
+  onClick,
+}: ButtonProps) => {
   const classes = styles();
   return (
     <>
       <Button
-        className={classes.button + " " + classes.checkButton}
+        className={
+          classes.button +
+          " " +
+          classes.checkButton
+        }
         variant={"contained"}
         color={"secondary"}
         onClick={onClick}
@@ -57,7 +67,9 @@ const CheckPinButton = ({ onClick }: ButtonProps) => {
   );
 };
 
-const ProceedForPaymentButton = ({ onClick }: ButtonProps) => {
+const ProceedForPaymentButton = ({
+  onClick,
+}: ButtonProps) => {
   const classes = styles();
   return (
     <>
@@ -78,7 +90,11 @@ const SaveButton = ({ onClick }: ButtonProps) => {
   return (
     <>
       <Button
-        className={classes.button + " " + classes.saveButton}
+        className={
+          classes.button +
+          " " +
+          classes.saveButton
+        }
         variant={"contained"}
         color={"primary"}
         onClick={onClick}
@@ -89,12 +105,17 @@ const SaveButton = ({ onClick }: ButtonProps) => {
   );
 };
 
-const NewButton = ({ onClick, children }: ButtonProps) => {
+const NewButton = ({
+  onClick,
+  children,
+}: ButtonProps) => {
   const classes = styles();
   return (
     <>
       <Button
-        className={classes.button + " " + classes.newButton}
+        className={
+          classes.button + " " + classes.newButton
+        }
         variant={"contained"}
         color={"primary"}
         onClick={onClick}
@@ -105,12 +126,18 @@ const NewButton = ({ onClick, children }: ButtonProps) => {
   );
 };
 
-const CancelButton = ({ onClick }: ButtonProps) => {
+const CancelButton = ({
+  onClick,
+}: ButtonProps) => {
   const classes = styles();
   return (
     <>
       <Button
-        className={classes.button + " " + classes.cancelButton}
+        className={
+          classes.button +
+          " " +
+          classes.cancelButton
+        }
         variant={"contained"}
         color={"primary"}
         onClick={onClick}
@@ -121,7 +148,9 @@ const CancelButton = ({ onClick }: ButtonProps) => {
   );
 };
 
-const DeleteButton = ({ onClick }: ButtonProps) => {
+const DeleteButton = ({
+  onClick,
+}: ButtonProps) => {
   const classes = styles();
   return (
     <>
@@ -153,12 +182,21 @@ const EditButton = ({ onClick }: ButtonProps) => {
   );
 };
 
-const LoginButton = ({ onClick, className }: ButtonProps) => {
+const LoginButton = ({
+  onClick,
+  className,
+}: ButtonProps) => {
   const classes = styles();
   return (
     <>
       <Button
-        className={classes.button + " " + classes.authButton + " " + className}
+        className={
+          classes.button +
+          " " +
+          classes.authButton +
+          " " +
+          className
+        }
         variant={"contained"}
         color={"primary"}
         onClick={onClick}
@@ -170,12 +208,18 @@ const LoginButton = ({ onClick, className }: ButtonProps) => {
   );
 };
 
-const SignUpButton = ({ onClick }: ButtonProps) => {
+const SignUpButton = ({
+  onClick,
+}: ButtonProps) => {
   const classes = styles();
   return (
     <>
       <Button
-        className={classes.button + " " + classes.authButton}
+        className={
+          classes.button +
+          " " +
+          classes.authButton
+        }
         variant={"contained"}
         color={"primary"}
         onClick={onClick}
@@ -187,16 +231,42 @@ const SignUpButton = ({ onClick }: ButtonProps) => {
   );
 };
 
-const BrowseMoreProductsButton = ({ onClick }: ButtonProps) => {
+const BrowseMoreProductsButton = ({
+  onClick,
+}: ButtonProps) => {
   const classes = styles();
   return (
     <>
       <Button
-        className={classes.button + " " + classes.browseButton}
+        className={
+          classes.button +
+          " " +
+          classes.browseButton
+        }
         variant={"contained"}
         onClick={onClick}
       >
         Browse more Product
+      </Button>
+    </>
+  );
+};
+
+const NavButton = ({
+  onClick,
+  children,
+}: ButtonProps) => {
+  const classes = styles();
+  return (
+    <>
+      <Button
+        className={
+          classes.button + " " + classes.navButton
+        }
+        variant={"contained"}
+        onClick={onClick}
+      >
+        {children}
       </Button>
     </>
   );
@@ -214,5 +284,6 @@ export {
   CancelButton,
   DeleteButton,
   EditButton,
-  NewButton
+  NewButton,
+  NavButton,
 };
