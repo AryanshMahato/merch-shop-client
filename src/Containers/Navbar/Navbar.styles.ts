@@ -13,6 +13,9 @@ const styles = makeStyles((theme: Theme) => ({
     height: 80,
     backgroundColor: "#2C3335",
     alignItems: "flex-start",
+    [theme.breakpoints.down("xs")]: {
+      padding: 8,
+    },
   },
   navBar: {
     display: "flex",
@@ -30,7 +33,7 @@ const styles = makeStyles((theme: Theme) => ({
     height: "100%",
     [theme.breakpoints.down("xs")]: {
       margin: "0 1rem",
-      width: "7rem",
+      width: "6rem",
     },
   },
   bottomMargin: {

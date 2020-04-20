@@ -20,9 +20,32 @@ const styles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.down("xs")]: {
       fontSize: "1.2rem",
     },
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
   },
   loginHover: {
     position: "relative",
+  },
+  mobileNav: {
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+    },
+  },
+  mobileAnnotation: {
+    fontSize: "1.2rem",
+    fontWeight: "normal",
+    cursor: "pointer",
+  },
+  mobileLogin: {
+    color: "#01CBC6",
+    fontSize: "1.2rem",
+    textDecoration: "none",
+  },
+  mobileSignUp: {
+    color: "#F3CC79",
+    fontSize: "1.2rem",
+    textDecoration: "none",
   },
 }));
 
