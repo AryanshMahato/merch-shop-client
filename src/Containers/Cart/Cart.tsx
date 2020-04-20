@@ -7,13 +7,14 @@ import { getCart } from "../../Store/Action/Cart";
 import Background from "../../Components/Background/Background";
 import PriceDetails from "../../Components/PriceDetails/PriceDetails";
 import { Redirect } from "react-router-dom";
+import UnAuthorizedPrompt from "../UnAuthorizedPrompt/UnAuthorizedPrompt";
 
 const Cart = ({
   isAuthenticated,
   products,
   getCart,
   isLoading,
-  purchaseCompleted
+  purchaseCompleted,
 }: CartProps) => {
   const classes = styles();
 
@@ -21,16 +22,23 @@ const Cart = ({
     getCart();
   }, []);
 
-  if (!isAuthenticated) return <div>You are not Authenticated</div>;
+  if (!isAuthenticated)
+    return <UnAuthorizedPrompt />;
 
   return (
     <>
-      {purchaseCompleted && !isLoading ? <Redirect to={"/order"} /> : null}
+      {purchaseCompleted && !isLoading ? (
+        <Redirect to={"/order"} />
+      ) : null}
 
       {products && products.length ? (
-        <Background className={classes.background}>
+        <Background
+          className={classes.background}
+        >
           <div>
-            <h1 className={classes.annotation}>Proceed to Buy</h1>
+            <h1 className={classes.annotation}>
+              Proceed to Buy
+            </h1>
             <CartItems />
           </div>
           <PriceDetails />
@@ -55,10 +63,14 @@ const mapStateToProps = (state: any) => {
     isAuthenticated: state.user.authenticated,
     products: state.cart?.products,
     isLoading: state.core.isLoading,
-    purchaseCompleted: state.orders.purchaseCompleted
+    purchaseCompleted:
+      state.orders.purchaseCompleted,
   };
 };
 
 const mapDispatchToProps = { getCart };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Cart);
