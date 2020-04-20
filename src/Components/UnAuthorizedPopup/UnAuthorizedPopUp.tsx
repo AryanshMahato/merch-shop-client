@@ -1,7 +1,6 @@
 import React from "react";
 import { Modal } from "@material-ui/core";
-import UnAuthorizedPrompt
-  from "../../Containers/UnAuthorizedPrompt/UnAuthorizedPrompt";
+import UnAuthorizedPrompt from "../../Containers/UnAuthorizedPrompt/UnAuthorizedPrompt";
 import styles from "./UnAuthorizedPopUp.styles";
 
 const UnAuthorizedPopUp = ({

@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, {
+  useEffect,
+  useState,
+} from "react";
 import { connect } from "react-redux";
 import { getProduct } from "../../Store/Action/Product";
 import { IProduct } from "../../../types/Store";
 import ProductImage from "../../Components/ProductImage/ProductImage";
-import ProductActionButtons
-  from "../../Components/ProductActionButtons/ProductActionButtons";
+import ProductActionButtons from "../../Components/ProductActionButtons/ProductActionButtons";
 import ProductInfo from "../../Components/ProductInfo/ProductInfo";
 import styles from "./Product.styles";
 import { addToCart } from "../../Store/Action/Cart";
 import { Redirect } from "react-router-dom";
-import UnAuthorizedPopUp
-  from "../../Components/UnAuthorizedPopup/UnAuthorizedPopUp";
+import UnAuthorizedPopUp from "../../Components/UnAuthorizedPopup/UnAuthorizedPopUp";
 
 //? Main Function
 const Product = ({
