@@ -15,6 +15,7 @@ const styles = makeStyles((theme: Theme) => ({
     alignItems: "flex-start",
     [theme.breakpoints.down("xs")]: {
       padding: 8,
+      height: 48,
     },
   },
   navBar: {
