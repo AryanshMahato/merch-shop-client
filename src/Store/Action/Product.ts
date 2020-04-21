@@ -76,3 +76,12 @@ export function getProduct(id: string) {
     }
   };
 }
+
+export function unmountProduct() {
+  return async (dispatch: any) => {
+    dispatch({
+      type: ActionTypes.UNMOUNT_PRODUCT,
+      isLoading: true,
+    });
+  };
+}

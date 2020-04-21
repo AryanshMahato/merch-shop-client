@@ -2,15 +2,26 @@ import ActionTypes from "../Action/ActionTypes";
 
 const initialState = {
   products: [],
-  product: {}
+  product: {},
 };
 
-const productReducer = (state = initialState, action: any) => {
+const productReducer = (
+  state = initialState,
+  action: any
+) => {
   switch (action.type) {
     case ActionTypes.FETCH_PRODUCTS:
-      return { ...state, products: action.products };
+      return {
+        ...state,
+        products: action.products,
+      };
     case ActionTypes.FETCH_PRODUCT:
-      return { ...state, product: action.product };
+      return {
+        ...state,
+        product: action.product,
+      };
+    case ActionTypes.UNMOUNT_PRODUCT:
+      return { ...state, product: {} };
     default:
       return { ...state };
   }

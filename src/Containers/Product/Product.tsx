@@ -3,7 +3,10 @@ import React, {
   useState,
 } from "react";
 import { connect } from "react-redux";
-import { getProduct } from "../../Store/Action/Product";
+import {
+  getProduct,
+  unmountProduct,
+} from "../../Store/Action/Product";
 import { IProduct } from "../../../types/Store";
 import ProductImage from "../../Components/ProductImage/ProductImage";
 import ProductActionButtons from "../../Components/ProductActionButtons/ProductActionButtons";
@@ -22,6 +25,7 @@ const Product = ({
   isLoading,
   purchaseCompleted,
   isAuthenticated,
+  unmountProduct,
 }: ProductProps) => {
   const classes = styles();
 
@@ -31,6 +35,9 @@ const Product = ({
 
   useEffect(() => {
     getProduct(id);
+    return () => {
+      unmountProduct();
+    };
   }, []);
 
   const addToCartClicked = () => {
@@ -90,6 +97,7 @@ interface ProductProps {
   getProduct: (id: string) => void;
   product: IProduct;
   addToCart: (productId: string) => void;
+  unmountProduct: () => void;
   isLoading: boolean;
   purchaseCompleted: boolean;
   isAuthenticated: boolean;
@@ -108,6 +116,7 @@ function mapStateToProps(state: any) {
 const mapDispatchToProps = {
   getProduct,
   addToCart,
+  unmountProduct,
 };
 
 export default connect(

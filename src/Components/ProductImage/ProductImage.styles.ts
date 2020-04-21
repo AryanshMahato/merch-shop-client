@@ -10,6 +10,7 @@ const styles = makeStyles(() => ({
   image: {
     maxWidth: 300,
     maxHeight: 300,
+    objectFit: "cover",
   },
 }));
 
