@@ -8,6 +8,10 @@ const styles = makeStyles((theme: Theme) => ({
     flexGrow: 1,
     padding: "0 !important",
     marginBottom: 32,
+    [theme.breakpoints.down("xs")]: {
+        marginBottom: "16px",
+    }
+
   },
   toolbar: {
     height: 80,
