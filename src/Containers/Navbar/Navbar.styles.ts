@@ -39,6 +39,9 @@ const styles = makeStyles((theme: Theme) => ({
   },
   bottomMargin: {
     marginBottom: "100px",
+    [theme.breakpoints.down("xs")]: {
+	marginBottom: "64px",
+    }
   },
 }));
 
