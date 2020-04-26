@@ -14,7 +14,7 @@ const AdminCategoryPage = ({
   return (
     <>
       {userData.role !== 1 ? (
-        <h1>You are unauthorized</h1>
+        <UnAuthorizedPrompt showButton={false} />
       ) : (
         <AdminCategory />
       )}

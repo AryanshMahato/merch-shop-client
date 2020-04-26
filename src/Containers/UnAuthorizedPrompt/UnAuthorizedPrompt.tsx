@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const UnAuthorizedPrompt = ({
   className,
+  showButton = true,
 }: any) => {
   const classes = styles();
   return (
@@ -15,20 +16,22 @@ const UnAuthorizedPrompt = ({
       <h1 className={classes.annotation}>
         You are UnAuthorized to Visit this Page
       </h1>
-      <div className={classes.buttons}>
-        <Link
-          to={"/sign-up"}
-          className={classes.signUp}
-        >
-          <NavButton>Sign Up</NavButton>
-        </Link>
-        <Link
-          to={"/log-in"}
-          className={classes.signIn}
-        >
-          <NavButton>Sign In</NavButton>
-        </Link>
-      </div>
+      {showButton ? (
+        <div className={classes.buttons}>
+          <Link
+            to={"/sign-up"}
+            className={classes.signUp}
+          >
+            <NavButton>Sign Up</NavButton>
+          </Link>
+          <Link
+            to={"/log-in"}
+            className={classes.signIn}
+          >
+            <NavButton>Sign In</NavButton>
+          </Link>
+        </div>
+      ) : null}
     </Background>
   );
 };
