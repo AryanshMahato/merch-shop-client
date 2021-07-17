@@ -1,4 +1,4 @@
-import React, { useEffect,FC } from "react";
+import React, { FC } from "react";
 // import Routes from "./Routes";
 // import Navbar from "./Containers/Navbar/Navbar";
 // import { connect } from "react-redux";
@@ -75,11 +75,23 @@ import React, { useEffect,FC } from "react";
 //   mapDispatchToProps
 // )(App);
 
-
-const App:FC =()=>{
+const App: FC = () => {
   return (
-    <h1>Website Under Construction</h1>
-    <p>Hey! I am working on this website again, tweaking few things</p>
-    <p>If you want to look at my other projects, visit <a href="https://aryansh.dev">my portfolio</a></p>
-  )
-}
+    <>
+      <h1>Website Under Construction</h1>
+      <p>
+        Hey! I am working on this website again,
+        tweaking few things
+      </p>
+      <p>
+        If you want to look at my other projects,
+        visit{" "}
+        <a href="https://aryansh.dev">
+          my portfolio
+        </a>
+      </p>
+    </>
+  );
+};
+
+export default App;
